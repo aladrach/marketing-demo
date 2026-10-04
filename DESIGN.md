@@ -6,10 +6,19 @@ colors:
   signal: "#f2693a"
   cloud: "#f6f7f8"
   surface: "#fcfcfd"
+  button-text-light: "#fafbfc"
   muted: "#59616b"
   line: "#d9dde1"
   signal-text: "#ae3915"
   signal-text-dark: "#ffa47a"
+  dark-bg: "#181818"
+  dark-surface: "#222222"
+  dark-subtle: "#2b2b2b"
+  dark-text: "#f4f4f2"
+  dark-muted: "#b7b7b4"
+  dark-line: "#414141"
+  accent-soft: "#fae9e1"
+  dark-accent-soft: "#303030"
 typography:
   display:
     fontFamily: "IBM Plex Sans Condensed"
@@ -22,6 +31,20 @@ typography:
     fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.65
+  secondary:
+    fontFamily: "IBM Plex Sans Variable"
+    fontSize: "14px"
+  supporting:
+    fontFamily: "IBM Plex Sans Variable"
+    fontSize: "18px"
+  component-title:
+    fontFamily: "IBM Plex Sans Variable"
+    fontSize: "25px"
+    fontWeight: 600
+  section:
+    fontFamily: "IBM Plex Sans Condensed"
+    fontSize: "clamp(34px,3.5vw,50px)"
+    fontWeight: 600
   label:
     fontFamily: "IBM Plex Mono"
     fontSize: "12px"
@@ -39,7 +62,7 @@ spacing:
 components:
   button-primary:
     backgroundColor: "{colors.ink}"
-    textColor: "{colors.surface}"
+    textColor: "{colors.button-text-light}"
     rounded: "{rounded.control}"
     padding: "15px 22px"
   button-primary-hover:
@@ -65,7 +88,7 @@ Use --button and --button-text for default buttons, and --button-hover-bg and --
 
 Self-host IBM Plex Sans Condensed 600 for display headings, IBM Plex Sans Variable for body and controls, and IBM Plex Mono 400 for short technical evidence. Use --text-display and --text-section for shared headings, --text-title for component titles, --text-body for reading, --text-sm for secondary copy, and --text-xs for readable labels. The shared small scale is 12px, not permission to shrink functional text below it.
 
-The body uses 1.65 leading; long-form prose uses a 68ch measure and 1.8 leading. Headings use balanced wrapping and restrained negative tracking. Individual campaign headings retain their larger authored sizes. Diagram geometry and decorative metadata may have component-specific rules, but interactive names, instructions, and evidence must remain readable at mobile widths.
+The body uses 1.65 leading; long-form prose uses a 68ch measure and 1.8 leading. Headings use balanced wrapping and restrained negative tracking. Individual campaign headings retain their larger authored sizes. Legacy editorial and diagram components also retain their local 13/15/17px copy sizes, 19–43px titles, 44–96px campaign headings, and 6–11px decorative metadata; these are preserved composition exceptions, not additions to the shared ramp. Static detector advisories on those literal rules require rendered-context review, since some are overridden by later accessible preview rules. Diagram geometry and decorative metadata may have component-specific rules, but interactive names, instructions, and evidence must remain readable at mobile widths.
 
 ## Layout
 
@@ -79,7 +102,7 @@ Most sections use tone and subtle borders. --shadow provides restrained elevatio
 
 ## Shapes
 
-Use --radius-control (4px), --radius-surface (8px), and --radius-preview (12px) for shared controls, containers, and product windows. Circles and specialized graph shapes are geometry exceptions. --radius remains an alias for surface radius for existing components.
+Use --radius-control (4px), --radius-surface (8px), and --radius-preview (12px) for shared controls, containers, and product windows. Circles and specialized graph shapes are geometry exceptions. Existing 2/3/5/6/7/10px small diagram and badge corners, 14/20px illustration surfaces, and asymmetric editorial callout corners remain component-owned exceptions. --radius remains an alias for surface radius for existing components.
 
 ## Components
 

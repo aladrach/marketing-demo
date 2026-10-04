@@ -19,6 +19,7 @@ npm run test:e2e
 npm run test:a11y
 npm run test:nav
 npm run test:resources
+npm run test:design
 node scripts/lighthouse.mjs
 ```
 

@@ -11,7 +11,9 @@
     "test:e2e": "node scripts/e2e.mjs",
     "test:a11y": "node scripts/a11y-matrix.mjs",
     "test:nav": "node scripts/navigation.mjs",
-    "test:resources": "node scripts/resources.mjs"
+    "test:resources": "node scripts/resources.mjs",
+    "test:design": "node scripts/design-regressions.mjs",
+    "sync:brand": "node scripts/sync-brand-tokens.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

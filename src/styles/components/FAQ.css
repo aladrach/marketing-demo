@@ -1,4 +1,4 @@
 /* FAQ: component-owned styles; media and state rules retain their cascade order. */
 .faq{padding-block:70px;max-width:850px}.faq h2{font-size:38px;margin-bottom:34px}.faq details{border-top:1px solid var(--line);padding:22px 0}.faq summary{font-size:var(--text-body);list-style:none;display:flex;justify-content:space-between;gap:18px;cursor:pointer}.faq summary:after{content:'+';color:var(--accent-ink);font-size:22px;line-height:1}.faq details[open] summary:after{content:'−'}.faq details p{font-size:var(--text-sm);margin-top:var(--space-5);max-width:700px}
 @media(max-width:640px){.faq{padding-block:50px}.faq h2{font-size:34px}.faq summary{font-size:var(--text-sm)}.faq details p{font-size:13px}}
-.faq summary:after{content:'+';transition:transform .3s cubic-bezier(.16,1,.3,1)}.faq details[open] summary:after{content:'+';transform:rotate(45deg)}.faq details[data-closing] summary:after{transform:rotate(0)}
+.faq summary:after{content:'+';transition:transform .3s var(--ease-out)}.faq details[open] summary:after{content:'+';transform:rotate(45deg)}.faq details[data-closing] summary:after{transform:rotate(0)}
