@@ -23,7 +23,34 @@ form?.addEventListener('submit',event=>{event.preventDefault();if(!form.reportVa
 document.querySelectorAll<HTMLElement>('[data-tabs]').forEach(root=>{const tabs=Array.from(root.querySelectorAll<HTMLButtonElement>('[data-tab]'));const panels=Array.from(root.querySelectorAll<HTMLElement>('[data-panel]'));const activate=(button:HTMLButtonElement)=>{tabs.forEach(tab=>{const selected=tab===button;tab.classList.toggle('active',selected);tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;});panels.forEach(panel=>panel.hidden=panel.dataset.panel!==button.dataset.tab);};tabs.forEach((button,index)=>{button.addEventListener('click',()=>activate(button));button.addEventListener('keydown',event=>{const next=event.key==='ArrowRight'||event.key==='ArrowDown'?(index+1)%tabs.length:event.key==='ArrowLeft'||event.key==='ArrowUp'?(index-1+tabs.length)%tabs.length:event.key==='Home'?0:event.key==='End'?tabs.length-1:null;if(next!==null){event.preventDefault();activate(tabs[next]);tabs[next].focus();}});});});
 document.querySelectorAll<HTMLElement>('[data-demo]').forEach(demo=>{demo.querySelectorAll<HTMLButtonElement>('[data-inspect]').forEach(button=>button.addEventListener('click',()=>{const index=Number(button.dataset.inspect);const selected=demo.querySelector<HTMLButtonElement>('[data-path].active')?.dataset.path as keyof typeof paths||'cloud';const p=paths[selected];demo.querySelectorAll('[data-inspect]').forEach(node=>{node.classList.toggle('selected',node===button);node.setAttribute('aria-pressed',String(node===button));});const titles=['Confirm the entry point.',p.title,'Review the target sensitivity.'];const explanations=[`Inspect how ${p.labels[0]} obtains access to the next identity. A reachable workload does not establish that exploitation occurred.`,p.description,`Confirm what ${p.labels[2]} stores, which team owns it, and why this resource is critical. Sensitivity should be an explicit business decision.`];demo.querySelector('[data-demo-title]')!.textContent=titles[index];demo.querySelector('[data-demo-description]')!.textContent=explanations[index];demo.querySelector('[data-demo-result] span')!.textContent=`Inspecting ${p.labels[index]}. Evidence and assumptions are illustrative.`;}));});
 // Reading navigation follows sections at the reading line, without scroll handlers.
-document.querySelectorAll<HTMLElement>('[data-reading-nav]').forEach(nav=>{const links=Array.from(nav.querySelectorAll<HTMLAnchorElement>('a'));const sections=links.map(link=>document.getElementById(link.hash.slice(1))).filter((section):section is HTMLElement=>Boolean(section));const activate=(id:string)=>{links.forEach((link,index)=>{const active=link.hash===`#${id}`;link.classList.toggle('active',active);if(active){link.setAttribute('aria-current','location');nav.style.setProperty('--reading-progress',String((index+1)/links.length));}else link.removeAttribute('aria-current');});};if(sections[0])activate(sections[0].id);links.forEach(link=>link.addEventListener('click',()=>activate(link.hash.slice(1))));if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting)activate(entry.target.id);},{rootMargin:'-18% 0px -65% 0px',threshold:0});sections.forEach(section=>observer.observe(section));}});
+document.querySelectorAll<HTMLElement>('[data-reading-nav]').forEach(nav=>{
+ const links=Array.from(nav.querySelectorAll<HTMLAnchorElement>('a'));
+ const track=nav.querySelector<HTMLElement>('.toc-links');
+ const sections=links.map(link=>document.getElementById(link.hash.slice(1))).filter((section):section is HTMLElement=>Boolean(section));
+ const updateProgress=()=>{
+  const active=links.find(link=>link.classList.contains('active'));
+  if(active&&track&&track.clientHeight>0){
+   const dotCenter=active.offsetTop+active.offsetHeight/2;
+   nav.style.setProperty('--reading-progress',String(dotCenter/track.clientHeight));
+  }
+ };
+ const activate=(id:string)=>{
+  links.forEach(link=>{
+   const active=link.hash===`#${id}`;
+   link.classList.toggle('active',active);
+   if(active)link.setAttribute('aria-current','location');
+   else link.removeAttribute('aria-current');
+  });
+  updateProgress();
+ };
+ if(sections[0])activate(sections[0].id);
+ links.forEach(link=>link.addEventListener('click',()=>activate(link.hash.slice(1))));
+ if(track&&'ResizeObserver' in window)new ResizeObserver(updateProgress).observe(track);
+ if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting)activate(entry.target.id);},{rootMargin:'-18% 0px -65% 0px',threshold:0});
+  sections.forEach(section=>observer.observe(section));
+ }
+});
 const motionButton=document.querySelector<HTMLButtonElement>('.motion-toggle');
 const syncMotion=()=>{const paused=document.documentElement.dataset.motion==='paused';motionButton?.setAttribute('aria-pressed',String(paused));motionButton?.setAttribute('aria-label',paused?'Resume decorative motion':'Pause decorative motion');motionButton?.setAttribute('title',paused?'Resume decorative motion':'Pause decorative motion');};
 syncMotion();motionButton?.addEventListener('click',()=>{const paused=document.documentElement.dataset.motion!=='paused';document.documentElement.dataset.motion=paused?'paused':'running';try{localStorage.setItem('tracegate-motion',paused?'paused':'running');}catch{}syncMotion();});
