@@ -1,0 +1,14 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import Icon from '../../components/Icon.astro';
+import CTA from '../../components/CTA.astro';
+import ResourceLibrary from '../../components/ResourceLibrary.astro';
+const page=pages.find(p=>p.slug==='resources')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{(t==='resources'||t==='blog')&&<><section class="page-hero wrap"><span class="eyebrow">{t==='blog'?'THE TRACEGATE JOURNAL':'FROM THE WORKBENCH'}</span><h1>{page.headline}</h1><p>{page.summary}</p></section><ResourceLibrary blogOnly={t==='blog'}/><section class="intro-block wrap"><h2>Useful context. Primary references.</h2><div><p>These articles and field guides explore how cloud exposures, identity permissions, and resource relationships inform a security review. They separate a potential path from an observed incident and emphasize evidence, ownership, and verification.</p><p>The editorial identity is fictional, and product examples use synthetic data. Foundational concepts link to primary sources. Downloadable Markdown templates provide a practical structure for a discussion; they do not implement changes or replace an organization’s security process.</p><a class="text-link" href={t==='blog'?'/resources/':'/blog/'}>{t==='blog'?'Browse the field guides':'Read the journal'}<Icon name="arrow-up-right" size={16}/></a></div></section><CTA/></>}
+</ContentLayout>

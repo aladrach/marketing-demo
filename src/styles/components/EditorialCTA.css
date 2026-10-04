@@ -1,0 +1,2 @@
+/* EditorialCTA: component-owned styles; media and state rules retain their cascade order. */
+.editorial-inline-cta .eyebrow{font-size:9px;margin-bottom:18px}.editorial-inline-cta .button{margin-top:22px;font-size:12px;text-decoration:none!important;color:var(--button-text)!important}@media(max-width:640px){.editorial-inline-cta .button{white-space:normal;text-align:left;justify-content:space-between;width:100%;gap:12px}}

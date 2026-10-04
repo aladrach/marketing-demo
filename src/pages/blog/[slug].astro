@@ -1,0 +1,21 @@
+---
+import '../../styles/components/article.css';
+import '../../styles/components/resourceArt.css';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import Icon from '../../components/Icon.astro';
+import CTA from '../../components/CTA.astro';
+import Prose from '../../components/EditorialProse.astro';
+import Related from '../../components/Related.astro';
+export function getStaticPaths(){return pages.filter(p=>p.template==='article').map(page=>({params:{slug:page.slug.split('/').at(-1)},props:pageData(page)}));}
+const {page,data,integration}=Astro.props;
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{(t==='article'||t==='guide')&&data&&<>
+<section class="article-hero wrap"><span class="eyebrow">{data.category}</span><h1>{data.title}</h1><p style="font-size:18px;max-width:700px;margin-top:25px">{data.summary}</p>{t==='article'&&<><div class="article-meta"><a href="/about/">{data.author}</a><time datetime={data.date}>October 4, 2026</time><span>{data.minutes} min read</span></div><p class="article-note">{data.authorNote}</p></>}</section>
+<div class="article-cover wrap"><div><h2>{t==='guide'?'A clear structure for your next review.':'Start with the evidence. Keep the context.'}</h2><p>{t==='guide'?'Read the field guide, then download the editable Markdown review template.':'Educational field notes. Synthetic product examples. No invented customer results.'}</p></div><div class="resource-art" aria-hidden="true"><div class="art-gates"><span></span><span></span><span></span><span></span></div><span class="art-line"></span><Icon name={data.slug.includes('identity')||data.slug.includes('privilege')?'fingerprint':'route'} size={45}/></div></div>
+<Prose sections={data.sections} toc editorialSlug={data.slug}>{t==='guide'&&<div class="download-box"><h2>Make the review your own.</h2><p>An editable Markdown template with fields for evidence, ownership, change planning, and verification. No email gate.</p><a class="button" href={`/downloads/${data.slug}.md`} download>Download the template<Icon name="download" size={16}/></a></div>}{data.sources&&<section class="sources"><h2>Primary references</h2><p>Foundational references for access and cloud security concepts. Operational review suggestions in this article are educational, not a substitute for implementation-specific guidance.</p><ul class="source-list">{data.sources.map(source=><li><a href={source.url}>{source.label}<Icon name="external-link" size={15}/></a></li>)}</ul></section>}</Prose><Related slugs={data.related}/><CTA title="Turn the context into a next step."/>
+</>}
+</ContentLayout>

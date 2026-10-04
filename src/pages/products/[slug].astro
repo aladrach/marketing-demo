@@ -1,0 +1,12 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import DetailPage from '../../components/DetailPage.astro';
+export function getStaticPaths(){return pages.filter(p=>p.template==='product').map(page=>({params:{slug:page.slug.split('/').at(-1)},props:pageData(page)}));}
+const {page,data,integration}=Astro.props;
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{(t==='product'||t==='solution')&&data&&<DetailPage headline={page.headline} summary={page.summary} kind={t} data={data}/>}
+</ContentLayout>

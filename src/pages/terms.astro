@@ -1,0 +1,13 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import pages from '../data/pages.json';
+import {pageData} from '../lib/page-data';
+import Prose from '../components/Prose.astro';
+import Related from '../components/Related.astro';
+const page=pages.find(p=>p.slug==='terms')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='legal'&&<><section class="page-hero wrap"><span class="meta">Updated October 4, 2026</span><h1>{page.headline}</h1><p>{page.summary}</p></section>{page.sections&&<Prose sections={page.sections}/>}<Related slugs={['trust','about']}/></>}
+</ContentLayout>

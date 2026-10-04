@@ -1,0 +1,15 @@
+---
+import Layout from './Layout.astro';
+import Icon from '../components/Icon.astro';
+import type {Page,Detail} from '../lib/page-data';
+import integrations from '../data/integrations.json';
+interface Props {page:Page;data?:Detail;integration?:typeof integrations[number]}
+const {page,data,integration}=Astro.props;
+const t=page.template;
+const breadcrumb=page.slug.split('/');
+const article=t==='article'&&data?{title:data.title,summary:data.summary,date:data.date!,author:data.author!}:undefined;
+---
+<Layout title={page.title} description={page.description} kind={t==='about'?'AboutPage':t==='contact'?'ContactPage':t==='resources'||t==='blog'?'CollectionPage':'WebPage'} article={article}>
+<div class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a>{breadcrumb.map((part,i)=><><Icon name="chevron-right" size={10}/>{i<breadcrumb.length-1?<a href={`/${breadcrumb.slice(0,i+1).join('/')}/`}>{part[0].toUpperCase()+part.slice(1)}</a>:<span aria-current="page">{integration?.label||data?.title||page.label||part[0].toUpperCase()+part.slice(1)}</span>}</>)}</div>
+<slot/>
+</Layout>

@@ -1,0 +1,16 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import Icon from '../../components/Icon.astro';
+import CTA from '../../components/CTA.astro';
+import TeamSwitcher from '../../components/TeamSwitcher.astro';
+const page=pages.find(p=>p.slug==='solutions')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='solutions'&&<>
+<section class="page-hero wrap"><h1>{page.headline}</h1><p>{page.summary}</p></section><TeamSwitcher/><section class="intro-block wrap"><h2>A shared model makes a better handoff.</h2><div><p>Cloud security reviews the exposure. Security operations investigates activity. Platform engineering evaluates the change. Each team needs a different starting point, but all benefit from a common account of the resource, identity, evidence, and owner.</p><p>The Tracegate concept keeps those perspectives connected. Its synthetic environment illustrates how a potential path becomes a reviewable question and how an engineering decision returns to the security context for verification.</p><a class="text-link" href="/platform/" style="margin-top:25px">See the platform<Icon name="arrow-right" size={16}/></a></div></section><CTA/>
+</>}
+</ContentLayout>

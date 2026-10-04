@@ -1,0 +1,13 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import CTA from '../../components/CTA.astro';
+import IntegrationCatalog from '../../components/IntegrationCatalog.astro';
+const page=pages.find(p=>p.slug==='integrations')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='integrations'&&<><section class="page-hero wrap"><span class="eyebrow">YOUR STACK. CONNECTED.</span><h1>{page.headline}</h1><p>{page.summary}</p></section><IntegrationCatalog/><CTA title="Bring the whole picture together."/></>}
+</ContentLayout>

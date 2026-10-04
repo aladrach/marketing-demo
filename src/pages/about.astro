@@ -1,0 +1,19 @@
+---
+import '../styles/components/about.css';
+import ContentLayout from '../layouts/ContentLayout.astro';
+import pages from '../data/pages.json';
+import {pageData} from '../lib/page-data';
+import CTA from '../components/CTA.astro';
+import Prose from '../components/Prose.astro';
+import Related from '../components/Related.astro';
+import {Image} from 'astro:assets';
+import gate from '../assets/connected-system.png';
+const page=pages.find(p=>p.slug==='about')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='about'&&<>
+<section class="page-split wrap"><div class="page-hero"><span class="eyebrow">THE THINKING BEHIND TRACEGATE</span><h1>{page.headline}</h1><p>{page.summary}</p></div><div class="hero-art"><Image src={gate} alt="A precise pair of metallic gates, the visual metaphor behind the Tracegate brand." width={800} format="webp" loading="eager"/></div></section>{page.sections&&<Prose sections={page.sections}/>}<section class="section-tint"><div class="section wrap"><h2>Principles that shape the experience.</h2><div class="value-grid"><article><h3>Make it understandable.</h3><p>Explain the mechanism and the next step. Clarity should survive the handoff between teams.</p></article><article><h3>Keep judgment visible.</h3><p>Preserve evidence and uncertainty. Give the operator a way to challenge the recommendation.</p></article><article><h3>Earn the claim.</h3><p>Separate illustrative product stories from validated results. Trust starts with an accurate account.</p></article></div></div></section><Related slugs={['brand','platform','trust']}/><CTA/>
+</>}
+</ContentLayout>

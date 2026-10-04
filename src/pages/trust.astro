@@ -1,0 +1,16 @@
+---
+import '../styles/components/trust.css';
+import ContentLayout from '../layouts/ContentLayout.astro';
+import pages from '../data/pages.json';
+import {pageData} from '../lib/page-data';
+import Icon from '../components/Icon.astro';
+import Related from '../components/Related.astro';
+const page=pages.find(p=>p.slug==='trust')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='trust'&&<>
+<section class="page-hero wrap"><span class="eyebrow">DEMO TRANSPARENCY</span><h1>{page.headline}</h1><p>{page.summary}</p></section><section class="wrap" style="padding-bottom:70px"><div class="trust-grid">{page.sections?.map(([h,p],i)=><article class="trust-item reveal"><Icon name={['database','shield-check','lock','book','code'][i]} size={28}/><h2>{h}</h2><p>{p}</p></article>)}</div></section><Related slugs={['privacy','terms','about']}/>
+</>}
+</ContentLayout>

@@ -1,0 +1,15 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import CTA from '../../components/CTA.astro';
+import Related from '../../components/Related.astro';
+import CapabilityCards from '../../components/CapabilityCards.astro';
+import Workflow from '../../components/Workflow.astro';
+const page=pages.find(p=>p.slug==='products')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='products'&&<><section class="page-hero wrap"><h1>{page.headline}</h1><p>{page.summary}</p></section><section class="section wrap" style="padding-top:20px"><CapabilityCards/></section><Workflow/><Related slugs={['platform','integrations','solutions']}/><CTA/></>}
+</ContentLayout>

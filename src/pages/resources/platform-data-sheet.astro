@@ -1,0 +1,13 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import pages from '../../data/pages.json';
+import {pageData} from '../../lib/page-data';
+import GatedResource from '../../components/GatedResource.astro';
+import gatedResources from '../../data/gated-resources.json';
+const page=pages.find(p=>p.slug==='resources/platform-data-sheet')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='gated-resource'&&<GatedResource resource={gatedResources.find(item=>item.slug===page.slug.split('/').at(-1))!}/>}
+</ContentLayout>

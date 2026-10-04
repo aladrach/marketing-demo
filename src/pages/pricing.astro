@@ -1,0 +1,12 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import pages from '../data/pages.json';
+import {pageData} from '../lib/page-data';
+import PricingPage from '../components/PricingPage.astro';
+const page=pages.find(p=>p.slug==='pricing')!;
+const {data,integration}=pageData(page);
+const t=page.template;
+---
+<ContentLayout page={page} data={data} integration={integration}>
+{t==='pricing'&&<PricingPage/>}
+</ContentLayout>
