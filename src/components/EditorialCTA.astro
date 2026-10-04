@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props {eyebrow:string;title:string;copy:string;label:string;href:string}
+const {eyebrow,title,copy,label,href}=Astro.props;
+---
+<aside class="editorial-inline-cta" aria-label={title}><span class="eyebrow">{eyebrow}</span><h3>{title}</h3><p>{copy}</p><a class="button" href={href}>{label}<Icon name="arrow-up-right" size={17}/></a></aside>

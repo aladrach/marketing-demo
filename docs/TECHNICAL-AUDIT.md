@@ -1,5 +1,8 @@
 # Tracegate technical SEO audit
 
+> Final reconciliation: see [FULL-AUDIT-REPORT.md](../FULL-AUDIT-REPORT.md) for the completed browser tests and production crawl. The deployed Vercel site already uses the correct origin; the local default now matches it. Title polish and the homepage llms.txt entry are implemented. The pricing scroll region and navigation focus race are fixed locally and require the latest build to be deployed. Earlier source snapshots below are retained as audit evidence.
+
+
 Audited October 4, 2026. Scope: Astro source, generated production HTML, sitemap files, and the local static-verification artifact. This is a fictional portfolio project, not a public cybersecurity service. No production crawl, Search Console index inspection, CrUX measurement, or live security-header test was available in this audit. Browser and Lighthouse results are recorded separately by the main verification workflow.
 
 ## Technical readiness

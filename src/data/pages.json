@@ -367,5 +367,14 @@
     "headline": "Put useful context in the conversation.",
     "summary": "Share a concise review summary with the responsible team, then keep the decision connected to its source evidence.",
     "label": "Slack"
+  },
+  {
+    "slug": "resources/platform-data-sheet",
+    "template": "gated-resource",
+    "title": "Cloud & Identity Platform Data Sheet | Tracegate",
+    "description": "Explore the Tracegate platform data sheet. Use a demo access form to reveal the connected cloud and identity overview and download a one-page PDF.",
+    "headline": "The whole platform. One clear picture.",
+    "summary": "A concise look at the connected security model and its review workflow.",
+    "label": "Platform data sheet"
   }
 ]

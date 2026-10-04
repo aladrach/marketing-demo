@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "platform-data-sheet",
+    "title": "The Tracegate platform data sheet",
+    "summary": "A concise look at the connected security model, three platform capabilities, and the workflow from evidence to a reviewable change.",
+    "category": "Data sheet",
+    "gated": true,
+    "format": "PDF · 1 page",
+    "download": "/downloads/tracegate-platform-data-sheet.pdf",
+    "eyebrow": "PLATFORM OVERVIEW / DATA SHEET",
+    "headline": "The whole platform. One clear picture.",
+    "intro": "Cloud exposures. Identity permissions. The paths between them. Explore the Tracegate platform concept in a concise, shareable overview.",
+    "takeaways": [
+      "How configuration, identity, and resource context connect",
+      "What each of the three capabilities brings to a review",
+      "How evidence becomes an owned, reviewable intervention"
+    ],
+    "capabilities": [
+      {"title": "Attack path analysis", "icon": "route", "copy": "Connect an exposed workload, a permission relationship, and a sensitive target. Inspect the evidence behind each possible step before deciding what to change."},
+      {"title": "Identity security", "icon": "fingerprint", "copy": "Understand effective access for human and machine identities. Keep purpose, ownership, grants, and resource sensitivity together in the review."},
+      {"title": "Cloud security posture", "icon": "cloud", "copy": "Keep configuration findings in view, then add ownership and relationship context. Use baseline checks alongside connected-path investigation."}
+    ],
+    "workflow": [
+      {"title": "Discover", "copy": "Bring configuration, identity, and resource observations into a shared model. Preserve collection gaps and observation times."},
+      {"title": "Understand", "copy": "Review effective relationships, target sensitivity, and ownership. Distinguish possible access from observed activity."},
+      {"title": "Intervene", "copy": "Propose a specific scope change, identify its owner, and document dependencies, approval, rollback, and verification."}
+    ],
+    "boundary": "Tracegate is a fictional portfolio company. This data sheet describes a product concept using synthetic examples. It does not document a live service, operational connectors, customer outcomes, or certifications."
+  }
+]

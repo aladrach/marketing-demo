@@ -16,6 +16,8 @@ npm run build
 npm run verify
 npm run preview -- --port 4322
 npm run test:e2e
+npm run test:a11y
+npm run test:nav
 node scripts/lighthouse.mjs
 ```
 
@@ -35,10 +37,12 @@ All content is rendered to static HTML. One small TypeScript script enhances nav
 - [JSON CMS and implementation](docs/CONTENT.md)
 - [SEO, AIO, and GEO strategy](docs/SEARCH.md)
 - [Verification](docs/VERIFICATION.md)
+- [Full SEO audit](FULL-AUDIT-REPORT.md)
+- [Prioritized action plan](ACTION-PLAN.md)
 - [Image generation prompts](docs/IMAGE-PROMPTS.md)
 
 The `/brand/` page contains visual guidelines, brand voice, messaging pillars, an identity board, and downloadable vector assets and JSON tokens.
 
 ## Publishing
 
-Set `SITE_URL` to the final HTTPS origin when building. This sets canonical URLs, structured-data IDs, social images, robots sitemap references, and XML sitemaps. The default `tracegate.example` is deliberately reserved for demonstration. Deploy `dist/` to any static host with a custom 404 rule. Run the verification scripts again with the deployment origin. The contact form is intentionally a local preview and requires an actual backend if converted into a real service. Prices and integrations are illustrative and labeled on their pages.
+Set `SITE_URL` to the final HTTPS origin when building. This sets canonical URLs, structured-data IDs, social images, robots sitemap references, and XML sitemaps. The default origin is `https://marketing-demo-topaz.vercel.app`; override it when publishing on another domain. Deploy `dist/` to any static host with a custom 404 rule. Run the verification scripts again with the deployment origin. The contact form is intentionally a local preview and requires an actual backend if converted into a real service. Prices and integrations are illustrative and labeled on their pages.

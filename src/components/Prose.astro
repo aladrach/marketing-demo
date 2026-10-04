@@ -1,6 +1,10 @@
 ---
-interface Props {sections:string[][];toc?:boolean;}
-const {sections,toc=false}=Astro.props;
+import enhancements from '../data/editorial-enhancements.json';
+import EditorialFigure from './EditorialFigure.astro';
+import EditorialCTA from './EditorialCTA.astro';
+interface Props {sections:string[][];toc?:boolean;editorialSlug?:string;}
+const {sections,toc=false,editorialSlug}=Astro.props;
+const extra=editorialSlug?enhancements[editorialSlug as keyof typeof enhancements]:undefined;
 const id=(s:string)=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,'');
 ---
-<div class:list={["content-layout wrap",{"without-toc":!toc}]}>{toc&&<aside class="toc" data-reading-nav aria-label="On this page"><span class="menu-label">ON THIS PAGE</span><div class="toc-links">{sections.map(([heading])=><a href={`#${id(heading)}`}>{heading}</a>)}</div></aside>}<div class="prose">{sections.map(([heading,text])=><section id={id(heading)}><h2>{heading}</h2>{text.split('\n\n').map(p=><p>{p}</p>)}</section>)}<slot/></div></div>
+<div class:list={["content-layout wrap",{"without-toc":!toc}]}>{toc&&<aside class="toc" data-reading-nav aria-label="On this page"><span class="menu-label">ON THIS PAGE</span><div class="toc-links">{sections.map(([heading])=><a href={`#${id(heading)}`}>{heading}</a>)}</div></aside>}<div class="prose">{sections.map(([heading,text],i)=><section id={id(heading)}><h2>{heading}</h2>{text.split('\n\n').map(p=><p>{p}</p>)}{extra?.figures.filter(figure=>figure.afterSection===i).map(figure=><EditorialFigure {...figure}/>)}{extra?.cta.afterSection===i&&<EditorialCTA {...extra.cta}/>}</section>)}<slot/></div></div>
