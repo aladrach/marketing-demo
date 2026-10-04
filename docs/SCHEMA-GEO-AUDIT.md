@@ -1,6 +1,6 @@
 # Structured data and AI discovery audit
 
-> Final reconciliation: see [FULL-AUDIT-REPORT.md](../FULL-AUDIT-REPORT.md) for the completed browser tests and production crawl. The deployed Vercel site already uses the correct origin; the local default now matches it. Title polish and the homepage llms.txt entry are implemented. The pricing scroll region and navigation focus race are fixed locally and require the latest build to be deployed. Earlier source snapshots below are retained as audit evidence.
+> Final reconciliation: see [FULL-AUDIT-REPORT.md](../FULL-AUDIT-REPORT.md) for the completed browser tests and production crawl. The deployed Vercel site already uses the correct origin; the local default now matches it. Title polish and the homepage llms.txt entry are implemented. The pricing scroll region and navigation focus race are fixed; the navigation regression also passes publicly. The local site now includes a demo-gated PDF resource, contextual editorial figures/CTAs, and animated accordions. Earlier source snapshots below are retained as audit evidence.
 
 
 Audited October 4, 2026. Scope: Astro source and 34 locally built HTML documents, including 404; generated robots.txt and llms.txt; all three editorial articles. Read-only source review. No public deployment, Search Console property, verified crawling, live rich-result test, ranking data, AI citation data, or external reputation evidence is available.

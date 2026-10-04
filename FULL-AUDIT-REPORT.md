@@ -1,22 +1,22 @@
 # Tracegate SEO, AIO/GEO, performance, and UX audit
 
-**October 4, 2026.** Fictional cybersecurity SaaS portfolio. Scope: all 34 generated HTML pages, all 33 publicly linked content routes, browser interaction tests, mobile/dark accessibility, three mobile Lighthouse samples, and a public crawl of https://marketing-demo-topaz.vercel.app.
+**October 4, 2026.** Fictional cybersecurity SaaS portfolio. Scope: all 35 generated HTML pages, all 33 publicly linked content routes, browser interaction tests, mobile/dark accessibility, four mobile Lighthouse samples, and a public crawl of https://marketing-demo-topaz.vercel.app.
 
 ## Outcome
 
 The site has a strong static-content foundation and the local corrections pass verification. All 33 deployed content routes return 200 and are reachable within two links from the homepage. The build has unique metadata, valid local JSON-LD, readable initial HTML, working internal links, and no orphan pages. No numerical overall SEO score is assigned: lab scores and checklist results are measurable, but search authority, field metrics, indexed coverage, and AI citations are unavailable. The specialist's provisional technical score is a manual rubric from an earlier source snapshot, not a search-engine score.
 
-The user reported deployed submenu links closing without navigation. A regression reproduced the focus race in the previous build. The fixed local build passes all 20 submenu destinations and the pointer-blur regression. Deploy the latest source to apply the fix publicly.
+The user reported deployed submenu links closing without navigation. A regression reproduced the focus race in the previous build. The fixed local build passes all 20 submenu destinations and the pointer-blur regression. The navigation regression subsequently passed against the live Vercel origin too. New resource/editorial/accordion enhancements remain part of the local build until published.
 
 ## Verified checks
 
 | Area | Evidence | Result |
 | --- | --- | --- |
 | Crawl and architecture | Public linked-page crawl, source and generated links | 33 content pages; depth two; zero HTTP/canonical/H1 failures; no orphans |
-| On-page metadata | Static verifier | 34 unique titles/descriptions, one main H1 per page, canonicals/social metadata |
-| Sitemap and robots | Generated endpoints and public responses | 33 content sitemap URLs; custom 404 excluded; generic crawl allowed |
-| Structured data | 34 JSON-LD blocks | Syntax and entity consistency pass; appropriate page types/BreadcrumbList; three BlogPosting nodes; no fabricated reviews/ratings |
-| Accessibility | Normal-motion settled e2e plus reduced-motion matrix | 33 route audits and 53 theme/viewport checks pass; automated WCAG A/AA coverage |
+| On-page metadata | Static verifier | 35 unique titles/descriptions, one main H1 per page, canonicals/social metadata |
+| Sitemap and robots | Generated endpoints and public responses | 34 local content sitemap URLs; 33 in the public crawl snapshot; custom 404 excluded; generic crawl allowed |
+| Structured data | 35 local JSON-LD blocks | Syntax and entity consistency pass; appropriate page types/BreadcrumbList; three BlogPosting nodes; no fabricated reviews/ratings |
+| Accessibility | Normal-motion settled e2e plus reduced-motion matrix | 34 route audits and 56 theme/viewport checks pass; automated WCAG A/AA coverage |
 | Interaction UX | Browser suite and focused navigation regression | Hero/graph/tabs/TOC/filter/carousel/form/mobile menu pass; 20 submenu destinations verified |
 | Content access | Initial HTML and no-JS browser checks | Essential text, links, resources, metadata and schema remain available |
 | Images | Build optimization, static dimensions/alt/local-file checks | Explicit dimensions and local assets; original vector diagrams and locally served SVG wordmarks |
@@ -26,10 +26,17 @@ The user reported deployed submenu links closing without navigation. A regressio
 | Mobile lab route | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
 | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | `/` | 99 | 100 | 100 | 100 | 1.8 s | 0 ms | 0 |
-| `/platform/` | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0 |
-| `/blog/attack-path-analysis/` | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0.038 |
+| `/platform/` | 100 | 100 | 100 | 100 | 1.5 s | 0 ms | 0 |
+| `/blog/attack-path-analysis/` | 100 | 100 | 100 | 100 | 1.5 s | 0 ms | 0.038 |
+| `/resources/platform-data-sheet/` | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0.017 |
 
-The significant observed CLS issue was late mobile-nav collapse; corrected with the inline enhancement state. Residual diagnostics include unused global CSS, render-blocking CSS/font chains, and possible image-delivery savings on the platform illustration. These are opportunities, not failures of the measured healthy LCP/CLS results. TBT is a lab metric, not measured INP. The current shared enhancement script is 16,027 raw / 5,114 gzip bytes; the original raw budget was transparently revised to 20 KB raw / 6 KB gzip to accommodate the requested interactions. See [verification](docs/VERIFICATION.md) for measurement scope and sequencing.
+The significant observed CLS issue was late mobile-nav collapse; corrected with the inline enhancement state. Residual diagnostics include unused global CSS, render-blocking CSS/font chains, and possible image-delivery savings on the platform illustration. These are opportunities, not failures of the measured healthy LCP/CLS results. TBT is a lab metric, not measured INP. The current shared enhancement script is 17,498 raw / 5,591 gzip bytes; the original raw budget was transparently revised to 20 KB raw / 6 KB gzip to accommodate the requested interactions. See [verification](docs/VERIFICATION.md) for measurement scope and sequencing.
+
+## Resource and reading enhancements
+
+A new demo-gated platform data sheet adds the 34th local content route. It includes an indexable teaser, a locally validated form, a revealed HTML overview, and a real one-page PDF. Inputs are cleared, never transmitted or stored, and focus moves to the result. The PDF is public: the gate demonstrates UX rather than enforcing authorization. A no-JavaScript direct-download fallback is explicit.
+
+Eight contextual vector figures and five relevant inline CTAs now enrich all three articles and both guides. Captions describe the synthetic examples. Native FAQ/detail accordions have animated answer regions and rotating icons, with keyboard, rapid-toggle, reduced-motion and no-JS checks. These additions keep the script below the documented raw/gzip budgets.
 
 ## Search intent and content
 

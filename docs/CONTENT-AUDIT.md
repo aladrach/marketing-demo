@@ -1,6 +1,6 @@
 # Tracegate content and AI-discovery audit
 
-> Final reconciliation: see [FULL-AUDIT-REPORT.md](../FULL-AUDIT-REPORT.md) for the completed browser tests and production crawl. The deployed Vercel site already uses the correct origin; the local default now matches it. Title polish and the homepage llms.txt entry are implemented. The pricing scroll region and navigation focus race are fixed locally and require the latest build to be deployed. Earlier source snapshots below are retained as audit evidence.
+> Final reconciliation: see [FULL-AUDIT-REPORT.md](../FULL-AUDIT-REPORT.md) for the completed browser tests and production crawl. The deployed Vercel site already uses the correct origin; the local default now matches it. Title polish and the homepage llms.txt entry are implemented. The pricing scroll region and navigation focus race are fixed; the navigation regression also passes publicly. The local site now includes a demo-gated PDF resource, contextual editorial figures/CTAs, and animated accordions. Earlier source snapshots below are retained as audit evidence.
 
 
 Audited October 4, 2026. Scope: local Astro templates and JSON content for the homepage and 32 content routes. No live domain, index data, keyword volumes, external reputation, or observed AI citations are available. No source changes were made as part of this review.

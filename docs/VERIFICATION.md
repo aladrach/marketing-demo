@@ -4,24 +4,26 @@ Testing was authorized by the user after design review. Production build served 
 
 | Check | Result |
 | --- | --- |
-| Astro check and static build | 42 files checked; zero errors, warnings, or hints; 34 HTML pages |
-| Static verification | 34 pages; unique metadata, one main H1, JSON-LD syntax, internal links/anchors, orphan detection, image attributes and local image files, required endpoints: pass |
-| Browser suite | 33 routes; zero automated WCAG A/AA violations after settling scroll reveals; desktop/mobile overflow pass; no runtime errors |
+| Astro check and static build | 47 files checked; zero errors, warnings, or hints; 35 HTML pages |
+| Static verification | 35 pages; unique metadata, one main H1, JSON-LD syntax, internal links/anchors, orphan detection, image attributes and local image files, required endpoints: pass |
+| Browser suite | 34 routes; zero automated WCAG A/AA violations after settling scroll reveals; desktop/mobile overflow pass; no runtime errors |
 | Interaction coverage | Megamenu/Escape, graph scenarios and inspection, guided tour/reset, scope review, workflow/team keyboard tabs, vector hero, context toggles, carousel and global motion pause, active TOC, search/filter, local form validation/no POST, mobile navigation: pass |
-| Accessibility matrix | 53 checks: all 33 routes in dark desktop; 10 representative routes in light/dark mobile; zero violations or overflow. Reduced motion makes contrast readings stable. |
+| Accessibility matrix | 56 checks: all 34 routes in dark desktop; 11 representative routes in light/dark mobile; zero violations or overflow. Reduced motion makes contrast readings stable. |
 | Navigation regression | 20 distinct submenu destinations; pointer blur with null focus destination, keyboard leaving header, Escape focus return, and custom 404: pass |
+| Resource enhancements | Demo form/no transmission/reset focus/PDF, eight inline figures, five CTAs, animated accordion/keyboard/rapid toggle/fallback: pass |
 | No JavaScript / reduced motion | Resource cards readable, homepage visible without overflow; reduced motion disables hero entrance animation: pass |
 | Public crawl | 33 pages; all 200, one main H1 and correct canonical origin; maximum link depth two; robots accessible |
 
-The comprehensive e2e run passed before the final navigation focus and pricing tabindex patches. Targeted navigation and full accessibility matrix were rerun against the rebuilt output after those patches. Lighthouse below measures the layout-stability fix before that final small focus-handler change.
+The navigation regression also passed against the live Vercel origin. The public crawl describes 33 published routes before the new data-sheet page was deployed. Local verification includes the new resource, editorial figures/CTAs, and animated accordions.
 
 ## Mobile Lighthouse laboratory results
 
 | Route | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
 | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
 | Homepage | 99 | 100 | 100 | 100 | 1.8 s | 0 ms | 0 |
-| Platform | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0 |
-| Attack path article | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0.038 |
+| Platform | 100 | 100 | 100 | 100 | 1.5 s | 0 ms | 0 |
+| Attack path article | 100 | 100 | 100 | 100 | 1.5 s | 0 ms | 0.038 |
+| Platform data sheet | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0.017 |
 
 Lab results are local, single-run measurements and vary with machine conditions. They do not establish public field Core Web Vitals or INP. Automated accessibility checks do not certify complete WCAG conformance.
 
@@ -36,7 +38,7 @@ Lab results are local, single-run measurements and vary with machine conditions.
 
 ## JavaScript budget
 
-Final shared browser script: **16,027 bytes raw / 5,114 bytes gzip**, excluding the small inline preference initializer. The original self-imposed 12 KB raw threshold predates the added interactive product demo. The verifier now enforces **20 KB raw and 6 KB gzip** limits. This is a documented budget adjustment, not an optimization claim. No frontend framework hydration or animation dependency ships to visitors. Hosting compression must be enabled to realize the gzip transfer size.
+Final shared browser script: **17,498 bytes raw / 5,591 bytes gzip**, excluding the small inline preference initializer. The original self-imposed 12 KB raw threshold predates the added interactive product demo. The verifier now enforces **20 KB raw and 6 KB gzip** limits. This is a documented budget adjustment, not an optimization claim. No frontend framework hydration or animation dependency ships to visitors. Hosting compression must be enabled to realize the gzip transfer size.
 
 ## Reproduce
 
@@ -47,6 +49,7 @@ npm run preview -- --port 4322
 npm run test:e2e
 npm run test:a11y
 npm run test:nav
+npm run test:resources
 node scripts/lighthouse.mjs
 AUDIT_URL=https://marketing-demo-topaz.vercel.app node scripts/crawl.mjs
 ```

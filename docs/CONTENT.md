@@ -39,3 +39,11 @@ The vector hero previews the product through Map, Trace, and Review stages. It c
 Integration pages use the `integration` route template in `pages.json` and resolve the matching `integrations.json` entry at build time. Carousel links point to individual integration routes; the catalog also links every detail page and provides category/search filtering. Integration capabilities are explicitly fictional concepts.
 
 The homepage carousel uses complete SVG logo/wordmark artwork from the [SVG Logos collection](https://github.com/gilbarbara/logos) and [Vector Logo Zone](https://www.vectorlogo.zone/), stored in `public/integration-logos/`. Each asset’s source URL is recorded as `lockupSource`. Dark variants preserve the vector geometry and brand colors while replacing dark neutral wordmark fills with off-white. Resting logos display in monochrome; hover and keyboard focus reveal the color variant. No live Brandfetch calls or API credentials are required.
+
+## Demo-gated data sheet and editorial enrichment
+
+`src/data/gated-resources.json` supplies the resource card, access-page copy, on-page data sheet, and generated one-page PDF. `GatedResource.astro` keeps a readable teaser and required-field form. Its submit handler validates locally, clears inputs, reveals the overview, moves focus to the result, and offers the PDF. Nothing is transmitted or persisted. Reset returns focus to the first field. Without JavaScript, a disclosed direct download remains available. This is a portfolio access-flow demonstration, not server-side access control; the PDF is a public asset.
+
+`src/data/editorial-enhancements.json` places eight original inline vector figures and five relevant CTAs at specific section indexes across the three articles and two guides. Figures have accessible descriptions and explanatory captions. Only long-form reading pages retain the TOC. Native accordions are progressively enhanced with Web Animations API height/opacity transitions and rotating icons; keyboard, rapid-toggle, reduced-motion, global-pause, and no-JavaScript behavior are checked.
+
+Regenerate the data-sheet PDF with `scripts/generate-data-sheet.py` using Python with reportlab, then render and inspect it. The PDF and website share the same JSON content.

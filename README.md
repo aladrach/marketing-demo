@@ -18,6 +18,7 @@ npm run preview -- --port 4322
 npm run test:e2e
 npm run test:a11y
 npm run test:nav
+npm run test:resources
 node scripts/lighthouse.mjs
 ```
 
@@ -25,7 +26,7 @@ Browser testing needs Playwright Chromium (`npx playwright install chromium`). S
 
 ## Experience
 
-33 content pages plus a custom 404: homepage, platform, product hub and three product pages, solution hub and three team pages, resource library, journal and three long-form articles, two downloadable field guides, a searchable integration catalog and eight dedicated integration pages, pricing, company, contact, trust, brand system, privacy, and terms.
+34 content pages plus a custom 404: homepage, platform, product hub and three product pages, solution hub and three team pages, resource library, journal and three long-form articles, two downloadable field guides, a demo-gated platform data sheet with a PDF download, a searchable integration catalog and eight dedicated integration pages, pricing, company, contact, trust, brand system, privacy, and terms.
 
 The homepage has an original vector product hero that cycles through Map, Trace, and Review with inspectable nodes and pause controls, a context-building evidence simulator, an interactive security graph with three scenarios, inspectable nodes, a four-step guided tour, and a proposed-scope comparison, a keyboard-accessible Discover / Understand / Intervene workflow, a team switcher, asymmetric capability cards, original editorial diagrams, and native FAQs. Megamenus include featured reading and categorized links. Tables of contents appear only on articles and field guides. Light/dark themes, responsive layouts, and reduced-motion support are included.
 
