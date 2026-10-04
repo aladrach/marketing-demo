@@ -38,6 +38,7 @@ All content is rendered to static HTML. One small TypeScript script enhances nav
 - [JSON CMS and implementation](docs/CONTENT.md)
 - [SEO, AIO, and GEO strategy](docs/SEARCH.md)
 - [Verification](docs/VERIFICATION.md)
+- [CSS architecture and performance](docs/CSS-PERFORMANCE.md)
 - [Full SEO audit](FULL-AUDIT-REPORT.md)
 - [Prioritized action plan](ACTION-PLAN.md)
 - [Image generation prompts](docs/IMAGE-PROMPTS.md)

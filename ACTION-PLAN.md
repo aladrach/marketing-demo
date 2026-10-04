@@ -10,7 +10,7 @@ October 4, 2026. Implementation findings are corrected locally; deployment is se
 | Medium | Add contextual primary references and a worked comparison table | Editorial opportunity | Reference relevant AWS/MITRE/NIST material near claims; keep hypothetical examples explicit |
 | Medium | Create article-specific social images | Enhancement | Accurate editorial diagrams; fixed dimensions; update BlogPosting/OG together |
 | Low | Improve very small secondary mobile product-preview labels | UX opportunity | Hide secondary decorative text or enlarge essential labels while retaining inspectable text summaries |
-| Low | Split page-specific enhancement/CSS as the site grows | Performance opportunity | Preserve the 20 KB raw / 6 KB gzip script budget; measure savings before adding tooling |
+| Resolved locally | Split route/component CSS and remove blocking stylesheet requests | Verified locally | Page-specific CSS inline; font preloads; HTML/CSS budgets; see docs/CSS-PERFORMANCE.md |
 | Low | Align schema breadcrumb labels and optionally add existing citation URLs | Semantic polish | Maintain a single coherent graph; no promised ranking effect |
 | Low | Consider host-specific response headers | Hosting follow-up | HSTS is already present; evaluate CSP and nosniff against actual assets without breaking inline preference handling |
 | After publication | Inspect indexing and collect field performance | External measurement | Verify Search Console; use actual CrUX/field data when available; measure INP separately from lab TBT |

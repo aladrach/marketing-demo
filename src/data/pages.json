@@ -83,7 +83,7 @@
       ],
       [
         "A system that connects brand and build",
-        "The visual identity uses a gate crossed by a signal path to express a deliberate intervention. Signal orange identifies actions and points of emphasis. Geist brings a clear geometric voice to the interface, while Geist Mono supports technical details. Spacious layouts make complex relationships easier to scan. Motion is restrained and motivated by entry hierarchy, navigation state, and feedback. The website is built with Astro and native CSS, with JSON standing in for a headless content system. Search content arrives as static HTML, and the small browser script supports only the interactions that improve the experience."
+        "The visual identity uses a gate crossed by a signal path to express a deliberate intervention. Signal orange identifies actions and points of emphasis. IBM Plex Sans Condensed brings a precise technical voice to headings, IBM Plex Sans keeps the interface readable, and IBM Plex Mono supports technical details. Spacious layouts make complex relationships easier to scan. Motion is restrained and motivated by entry hierarchy, navigation state, and feedback. The website is built with Astro and native CSS, with JSON standing in for a headless content system. Search content arrives as static HTML, and the small browser script supports only the interactions that improve the experience."
       ],
       [
         "Explore the work behind the company",

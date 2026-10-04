@@ -47,3 +47,7 @@ The homepage carousel uses complete SVG logo/wordmark artwork from the [SVG Logo
 `src/data/editorial-enhancements.json` places eight original inline vector figures and five relevant CTAs at specific section indexes across the three articles and two guides. Figures have accessible descriptions and explanatory captions. Only long-form reading pages retain the TOC. Native accordions are progressively enhanced with Web Animations API height/opacity transitions and rotating icons; keyboard, rapid-toggle, reduced-motion, global-pause, and no-JavaScript behavior are checked.
 
 Regenerate the data-sheet PDF with `scripts/generate-data-sheet.py` using Python with reportlab, then render and inspect it. The PDF and website share the same JSON content.
+
+## Page and CSS entry points
+
+Route families under `src/pages/` import only their relevant page components. `ContentLayout.astro` supplies shared metadata and breadcrumbs, and `src/lib/page-data.ts` resolves JSON content. Components import styles under `src/styles/components/`; `global.css` contains shared primitives. `EditorialProse.astro` adds figures and CTAs to reading pages without making simple prose pages import those dependencies. Production includes each page’s CSS inline and preloads its two Latin fonts. See [CSS measurements and delivery tradeoffs](CSS-PERFORMANCE.md).

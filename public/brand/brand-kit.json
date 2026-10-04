@@ -77,5 +77,21 @@
       "proof": "Route evidence to an owner and make proposed changes reviewable."
     }
   ],
-  "disclosure": "Tracegate is a fictional company created as a design and development portfolio project. Product behavior, organizations, people, and environments shown here are illustrative."
+  "disclosure": "Tracegate is a fictional company created as a design and development portfolio project. Product behavior, organizations, people, and environments shown here are illustrative.",
+  "typography": {
+    "display": {
+      "family": "IBM Plex Sans Condensed",
+      "weight": 600,
+      "tracking": "-0.03em"
+    },
+    "body": {
+      "family": "IBM Plex Sans",
+      "weight": 400,
+      "lineHeight": 1.65
+    },
+    "technical": {
+      "family": "IBM Plex Mono",
+      "weight": 400
+    }
+  }
 }

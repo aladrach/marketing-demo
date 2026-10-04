@@ -1,2 +1,2 @@
-.journal-heading h2{font-size:clamp(36px,4.2vw,58px);letter-spacing:-.055em;line-height:1.06}.journal-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:45px}.journal-heading .eyebrow{display:block;margin-bottom:18px}
+.journal-heading h2{font-size:clamp(36px,4.2vw,58px);letter-spacing:-.03em;line-height:1.06}.journal-heading{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:45px}.journal-heading .eyebrow{display:block;margin-bottom:18px}
 @media(max-width:600px){.journal-heading h2{font-size:38px}.journal-heading{display:block;margin-bottom:30px}.journal-heading .button{margin-top:25px}}

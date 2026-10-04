@@ -4,7 +4,7 @@ Testing was authorized by the user after design review. Production build served 
 
 | Check | Result |
 | --- | --- |
-| Astro check and static build | 47 files checked; zero errors, warnings, or hints; 35 HTML pages |
+| Astro check and static build | 73 files checked; zero errors, warnings, or hints; 35 HTML pages |
 | Static verification | 35 pages; unique metadata, one main H1, JSON-LD syntax, internal links/anchors, orphan detection, image attributes and local image files, required endpoints: pass |
 | Browser suite | 34 routes; zero automated WCAG A/AA violations after settling scroll reveals; desktop/mobile overflow pass; no runtime errors |
 | Interaction coverage | Megamenu/Escape, graph scenarios and inspection, guided tour/reset, scope review, workflow/team keyboard tabs, vector hero, context toggles, carousel and global motion pause, active TOC, search/filter, local form validation/no POST, mobile navigation: pass |
@@ -20,10 +20,10 @@ The navigation regression also passed against the live Vercel origin. The public
 
 | Route | Performance | Accessibility | Best practices | SEO | LCP | TBT | CLS |
 | --- | ---: | ---: | ---: | ---: | --- | --- | --- |
-| Homepage | 99 | 100 | 100 | 100 | 1.8 s | 0 ms | 0 |
-| Platform | 100 | 100 | 100 | 100 | 1.5 s | 0 ms | 0 |
-| Attack path article | 100 | 100 | 100 | 100 | 1.5 s | 0 ms | 0.038 |
-| Platform data sheet | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0.017 |
+| Homepage | 100 | 100 | 100 | 100 | 1.4 s | 0 ms | 0 |
+| Platform | 100 | 100 | 100 | 100 | 1.7 s | 0 ms | 0 |
+| Attack path article | 100 | 100 | 100 | 100 | 1.4 s | 0 ms | 0 |
+| Platform data sheet | 100 | 100 | 100 | 100 | 1.3 s | 0 ms | 0 |
 
 Lab results are local, single-run measurements and vary with machine conditions. They do not establish public field Core Web Vitals or INP. Automated accessibility checks do not certify complete WCAG conformance.
 
@@ -35,6 +35,10 @@ Lab results are local, single-run measurements and vary with machine conditions.
 - Header focus handling closes dropdowns only when focus moves to a known element outside the header. A null focus destination no longer cancels pointer activation. Regression reproduced against the prior build, then passed against the fix.
 - Clearer platform engineering/attack path titles and homepage entry in llms.txt.
 - Default production origin set to the actual Vercel URL; SITE_URL can override it.
+
+## CSS delivery
+
+Page-specific styles now ship inline, with matching font preloads and zero external stylesheet requests across 35 generated pages. The intermediate default delivery produced five blocking homepage CSS requests; the final three-run local comparison reduced median homepage LCP from 1.80 s to 1.43 s. Complete homepage HTML is 30,467 bytes gzip. HTML/CSS budgets include inline payload, and shared browser JavaScript remains unchanged. Details and caching tradeoffs are in [CSS performance](CSS-PERFORMANCE.md).
 
 ## JavaScript budget
 
