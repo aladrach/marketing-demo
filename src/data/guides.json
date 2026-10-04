@@ -1,0 +1,76 @@
+[
+  {
+    "slug": "attack-path-review",
+    "title": "The attack path review checklist",
+    "summary": "Five questions to turn a connected finding into a reviewable engineering decision.",
+    "category": "Field guide",
+    "sections": [
+      [
+        "Start with the asset",
+        "Name the resource that matters and explain why it is sensitive. Record the application, environment, accountable owner, and the data or capability at risk. If sensitivity is inferred from a name or tag, validate that assumption. A useful review starts with a consequence that the organization recognizes. Synthetic example: the production secrets store holds credentials used by the release service."
+      ],
+      [
+        "Confirm every relationship",
+        "List the principal, action, resource, and conditions for each link in the path. Identify the evidence source and collection time. Separate directly observed configuration from inferred reachability. Check relevant policy restrictions and credential acquisition. Record missing evidence as a question to resolve. Do not turn a visually connected diagram into a declaration of compromise."
+      ],
+      [
+        "Find the intervention point",
+        "Compare candidate changes that could interrupt the path. Ask which team can implement each option and which application dependency it might affect. Choose an intervention that can be explained, tested, and reversed through the normal change process. A narrow trust policy or resource scope may be more appropriate than removing an entire role, but the application owner should validate that decision."
+      ],
+      [
+        "Create a useful handoff",
+        "Write a change request that includes the resource, identity, relationship evidence, proposed intervention, owner, and verification plan. Explain why the concern matters and what would invalidate it. Preserve timestamps so the receiving team can recognize stale evidence. If accepted risk is the outcome, document its scope, reviewer, rationale, and review date rather than permanently hiding the finding."
+      ],
+      [
+        "Verify the result",
+        "After deployment, refresh the configuration and inspect the relationship the change was intended to interrupt. Record the observed state and the observation time. Confirm that approved application behavior still works. If the path disappears because coverage changed, document that limit. A closed ticket alone does not establish that the relationship is gone."
+      ],
+      [
+        "A reusable review record",
+        "Use the downloadable Markdown template for your own portfolio walkthrough or internal discussion. It contains fields for the asset, evidence, assumptions, owner, proposed change, rollback, and verification. It is educational material, not a compliance checklist or an incident response procedure. Adapt it with the people responsible for your environment. The Tracegate examples are synthetic and do not connect to real cloud accounts."
+      ]
+    ],
+    "related": [
+      "products/attack-paths",
+      "blog/attack-path-analysis",
+      "solutions/cloud-security"
+    ]
+  },
+  {
+    "slug": "least-privilege-playbook",
+    "title": "A practical least privilege playbook",
+    "summary": "A clear, repeatable way to review machine identity access with the people who own it.",
+    "category": "Playbook",
+    "sections": [
+      [
+        "Record the identity\u2019s purpose",
+        "Identify the application or workflow, environment, principal, credential method, and responsible owner. A role name is a hint, not proof of purpose. Preserve unknown ownership as a question and resolve it with the organization\u2019s teams. Begin with identities that reach designated sensitive resources so the review has a concrete consequence."
+      ],
+      [
+        "Explain effective access",
+        "List the actions and resources that matter to the review. Check applicable policies, role trust, restrictions, and conditions using current provider documentation and tools. Record the evidence source and collection window. If the identity assumes another role, inspect each relationship in that chain separately. Keep the interpretation reviewable instead of using broad access as an unexplained label."
+      ],
+      [
+        "Review usage and dependencies",
+        "Ask the owner about release, recovery, periodic jobs, and exceptional operations. Recent usage is useful context, but an observation window may miss a necessary task. Determine whether a narrower scope could support the same approved workflow. Document which permissions are intentional and which need more evidence before a change is proposed."
+      ],
+      [
+        "Make the proposed change specific",
+        "Name the action, resource scope, trust condition, or credential practice you intend to change. Explain the expected effect and the assumptions behind it. Test through the normal engineering process, establish an approved rollback path, and define who will observe the deployment. Be especially careful when the identity being changed is also used by the recovery mechanism."
+      ],
+      [
+        "Verify and schedule another review",
+        "Refresh configuration after rollout and confirm the effective relationship. Check that approved workflows still complete. Preserve the result, observation time, and remaining uncertainty in the decision record. Intentional access should have an accountable reviewer and a future review date. Revisit the decision when the application changes owner, reaches a new target, or changes its credential method."
+      ],
+      [
+        "Use the template responsibly",
+        "The download is a Markdown review template that can be adapted to your own context. It is educational material and does not implement permission changes. Tracegate is a fictional portfolio project. Follow your organization\u2019s security, incident, and engineering procedures when evaluating real identities. Primary provider guidance should be consulted for implementation-specific authorization behavior."
+      ]
+    ],
+    "related": [
+      "products/identity-security",
+      "blog/machine-identity-security",
+      "solutions/platform-engineering"
+    ]
+  }
+]

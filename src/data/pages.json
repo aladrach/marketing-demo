@@ -1,0 +1,371 @@
+[
+  {
+    "slug": "platform",
+    "template": "platform",
+    "title": "Connected Cloud Security Platform | Tracegate",
+    "description": "Explore a fictional cloud security platform that connects posture, identity, and attack paths. Inspect the interactive sample and see the intended workflow.",
+    "headline": "One platform. The whole path.",
+    "summary": "Cloud configuration, identity permissions, and attack paths in a shared context. A clearer way to decide what comes next.",
+    "sections": [
+      [
+        "What is the Tracegate platform?",
+        "Tracegate is a fictional cloud and identity security platform designed to connect configuration findings, effective access, and potentially reachable attack paths. The concept gives cloud security teams a way to investigate how individual exposures could combine, then send a reviewable change request to the right owner. It does not equate a possible path with an observed breach. Every relationship should have inspectable evidence, an observation time, and a clear account of what still needs validation. The interactive environment on this site demonstrates that information architecture using synthetic resources."
+      ],
+      [
+        "Three capabilities, one shared model",
+        "Attack path analysis examines connected relationships to critical assets. Identity security explains how people and workloads obtain and exercise access. Cloud security posture evaluates configuration against the organization\u2019s expectations. Their shared context can help an operator move between a specific finding and its consequence. The platform concept keeps those perspectives available without reducing them to an unexplained score. A reviewer can inspect the affected resource, the relevant permission, the owner, and the reason for the proposed next step."
+      ],
+      [
+        "Designed for a reviewable workflow",
+        "The intended workflow moves through collection, context, review, handoff, and verification. Collection gaps remain visible. Business sensitivity and ownership are maintained as organizational judgments. A suggested intervention names the relationship it is intended to interrupt. Engineers evaluate the change through their own testing and approval process. After deployment, refreshed observations help determine whether that relationship remains. The concept emphasizes shared decisions between security and engineering, with automation supporting the handoff rather than claiming every change is safe."
+      ]
+    ]
+  },
+  {
+    "slug": "solutions",
+    "template": "solutions",
+    "title": "Cloud Security Solutions by Team | Tracegate",
+    "description": "Explore fictional cloud security workflows for cloud security, security operations, and platform engineering. Find the context each team needs to act.",
+    "headline": "Different teams. Shared context.",
+    "summary": "Give every team the evidence and ownership it needs to move a security decision forward."
+  },
+  {
+    "slug": "resources",
+    "template": "resources",
+    "title": "Cloud Security Guides & Resources | Tracegate",
+    "description": "Explore practical cloud and identity security articles, field guides, and downloadable checklists. Learn how to review paths, permissions, and posture.",
+    "headline": "A workbench for better security decisions.",
+    "summary": "Practical guides, considered perspectives, and useful questions for your next review."
+  },
+  {
+    "slug": "blog",
+    "template": "blog",
+    "title": "Cloud & Identity Security Journal | Tracegate",
+    "description": "Read thoughtful explainers on cloud security, machine identities, and attack path analysis. Explore the Tracegate journal and its primary references.",
+    "headline": "Ideas from the security workbench.",
+    "summary": "Clear thinking on cloud risk, identity permissions, and the relationships between them."
+  },
+  {
+    "slug": "integrations",
+    "template": "integrations",
+    "title": "Cloud & Workflow Integration Concepts | Tracegate",
+    "description": "Explore the proposed Tracegate integration catalog for cloud, identity, and engineering workflows. All connectors shown are fictional product concepts.",
+    "headline": "Your environment. In the picture.",
+    "summary": "A connected security workflow should fit the tools and ownership your teams already have."
+  },
+  {
+    "slug": "pricing",
+    "template": "pricing",
+    "title": "Cloud Security Platform Pricing | Tracegate",
+    "description": "Compare illustrative Tracegate platform plans for growing and enterprise security teams. Review sample pricing, capability differences, and demo limits.",
+    "headline": "A clear starting point. Room to grow.",
+    "summary": "Illustrative plans for a connected security workflow, from a focused cloud review to a coordinated enterprise program."
+  },
+  {
+    "slug": "about",
+    "template": "about",
+    "title": "About Tracegate: Security in Context | Tracegate",
+    "description": "Meet the thinking behind Tracegate, a fictional cybersecurity brand. Explore the product principles and the portfolio design choices behind the site.",
+    "headline": "Security should make the next step clearer.",
+    "summary": "Tracegate began with one question: what if a security finding came with enough context to make a good decision?",
+    "sections": [
+      [
+        "A company built around the space between findings",
+        "Tracegate is a fictional cybersecurity SaaS company created for a design and development portfolio. Its product story begins with a familiar operational challenge: security signals can arrive faster than teams can interpret them. A configuration issue lives in one queue, an access question in another, and the owner of the affected application somewhere else. The imagined company exists to connect those pieces into a decision a team can understand. The platform is not a production security service, and no live customer environments inform its examples. The narrative is intentionally grounded in mechanisms rather than invented performance claims."
+      ],
+      [
+        "Our product point of view",
+        "A finding becomes more useful when the person receiving it can see the resource, the relevant permission, the evidence, and the reason it matters. That context should survive the handoff from security to engineering. Tracegate\u2019s product concept brings attack paths, identity permissions, and cloud posture into one shared model. It distinguishes possibility from observed activity and preserves uncertainty when a relationship needs verification. Human judgment remains part of the workflow. The idea is to make a change reviewable through the process a team already uses, rather than promise that an automated recommendation is always safe."
+      ],
+      [
+        "Our approach to responsible storytelling",
+        "A portfolio should show what its designer can build without making claims about a business that does not exist. Tracegate therefore has no fabricated customer testimonials, certification badges, growth statistics, or executive biographies. Every product environment uses synthetic data. The integration catalog and pricing describe an illustrative product architecture, not purchasable services. The journal\u2019s editorial name is a fictional identity, and its foundational references point to primary documentation. This keeps the story coherent while making its limits understandable to technical buyers and hiring teams reviewing the work."
+      ],
+      [
+        "A system that connects brand and build",
+        "The visual identity uses a gate crossed by a signal path to express a deliberate intervention. Signal orange identifies actions and points of emphasis. Geist brings a clear geometric voice to the interface, while Geist Mono supports technical details. Spacious layouts make complex relationships easier to scan. Motion is restrained and motivated by entry hierarchy, navigation state, and feedback. The website is built with Astro and native CSS, with JSON standing in for a headless content system. Search content arrives as static HTML, and the small browser script supports only the interactions that improve the experience."
+      ],
+      [
+        "Explore the work behind the company",
+        "The brand system page documents the palette, typography, voice, and messaging pillars. The resource library contains explanatory articles and downloadable templates. The interactive platform walkthrough shows how a user could move from a potential path to a proposed intervention. Together, these pieces form a complete marketing experience rather than a single landing page. This project is intended to demonstrate strategy, information architecture, content design, interface craft, and performance-conscious implementation. The best place to begin is the platform overview, then follow the product and solution links that match the kind of work you want to inspect."
+      ]
+    ]
+  },
+  {
+    "slug": "contact",
+    "template": "contact",
+    "title": "Book a Security Platform Walkthrough | Tracegate",
+    "description": "Try the Tracegate sample contact experience and explore the interactive platform walkthrough. This fictional portfolio site does not send or store requests.",
+    "headline": "Let\u2019s put the path in focus.",
+    "summary": "Explore the product story, ask better questions, and see how a connected security workflow could look."
+  },
+  {
+    "slug": "trust",
+    "template": "trust",
+    "title": "Security & Demo Transparency Center | Tracegate",
+    "description": "Review Tracegate\u2019s demo boundaries, data handling, and responsible product storytelling. This portfolio project connects no real infrastructure or accounts.",
+    "headline": "Trust begins with clear boundaries.",
+    "summary": "A transparent account of what this portfolio demo does, what data it uses, and what the product story represents.",
+    "sections": [
+      [
+        "Synthetic product data",
+        "The interactive explorer uses fictitious workloads, roles, resources, and team names. It does not query a cloud provider, collect credentials, or change permissions. The diagrams express potential relationships, not observed incidents. Numerical examples in any identity artwork are illustrative and do not represent product performance or customer results."
+      ],
+      [
+        "No certifications claimed",
+        "Tracegate has not undergone an independent security audit and is not a live SaaS business. This site makes no SOC 2, ISO 27001, regulatory compliance, or production service-level claims. A real security platform would require a separate evaluation of its implementation, operational controls, and contractual commitments."
+      ],
+      [
+        "Minimal data handling",
+        "The contact form validates the sample inputs locally and displays a confirmation explaining that nothing was sent. It does not store form values. The site uses no analytics scripts, advertising trackers, or remote font requests. A color theme preference can be stored in your browser. A hosting provider may independently record access logs; that depends on where the portfolio is deployed."
+      ],
+      [
+        "Responsible content",
+        "Product pages describe a fictional intended workflow. Articles distinguish possible access from observed activity and cite primary sources for foundational concepts. Integration logos identify proposed compatibility concepts and do not imply partnerships, endorsements, or working connectors. Pricing is illustrative and no purchases can be made."
+      ],
+      [
+        "Static by design",
+        "Astro builds the site into HTML and optimized assets. The marketing website has no account system, server-side form processor, or production monitoring service. The browser script handles navigation, theme choice, library filtering, and synthetic interactions. A real deployment should set its public URL and use hosting controls appropriate for a public static website."
+      ]
+    ]
+  },
+  {
+    "slug": "brand",
+    "template": "brand",
+    "title": "Tracegate Brand Identity & Voice | Tracegate",
+    "description": "Explore the Tracegate brand kit, geometric identity, color palette, typography, messaging, and voice. A complete fictional cybersecurity brand system.",
+    "headline": "A signal. A boundary. A clearer decision.",
+    "summary": "The Tracegate identity connects a precise product idea to a calm, recognizable visual language."
+  },
+  {
+    "slug": "privacy",
+    "template": "legal",
+    "title": "Portfolio Demo Privacy Notice | Tracegate",
+    "description": "Read how this fictional Tracegate portfolio handles local demo inputs, browser theme preference, and static site requests. No sales requests are collected.",
+    "headline": "Privacy, in plain language.",
+    "summary": "This notice describes the behavior of the fictional portfolio website, not a production SaaS service.",
+    "sections": [
+      [
+        "Local demo interactions",
+        "The sample contact form checks required fields and email format in your browser. Submitting it displays a local demo confirmation. Form values are not transmitted by the site, persisted in browser storage, or saved by an application backend. Do not enter sensitive information into a portfolio demonstration."
+      ],
+      [
+        "Browser preference",
+        "If you select a color theme, the site may save the choice under tracegate-theme in localStorage. It contains only the word light or dark. You can clear it using your browser\u2019s site data controls. The site does not set analytics or advertising cookies and does not load tracking scripts."
+      ],
+      [
+        "Hosting and external links",
+        "Static file requests are handled by the host where the project is deployed. The host may keep access logs, and its own policies govern that processing. Links to primary references take you to external websites with their own privacy practices. Fonts and website images are served from the site itself."
+      ],
+      [
+        "Fictional company",
+        "Tracegate is not a live company or a data processing service. This notice is an explanation of the portfolio implementation. Before adapting the site for a real business, replace the company details, connect only approved services, and create policies that accurately describe that business\u2019s data handling."
+      ]
+    ]
+  },
+  {
+    "slug": "terms",
+    "template": "legal",
+    "title": "Fictional Portfolio Site Terms | Tracegate",
+    "description": "Review the boundaries of the Tracegate fictional portfolio, its educational materials, synthetic product data, and illustrative pricing and integrations.",
+    "headline": "A note about this demo.",
+    "summary": "Tracegate is a fictional brand and product concept created to demonstrate design, content, and web development.",
+    "sections": [
+      [
+        "Portfolio scope",
+        "This website illustrates a SaaS cybersecurity marketing experience. Product screens, organizations, names, integration concepts, and plan descriptions are fictional or illustrative. No software service is available for purchase and no service contract is created by browsing the site or trying its sample form."
+      ],
+      [
+        "Educational resources",
+        "The journal and field guides discuss general review practices. They do not configure infrastructure, investigate real incidents, or replace the organization\u2019s approved security and engineering processes. Consult current provider documentation and qualified teams when evaluating implementation details in a real environment."
+      ],
+      [
+        "Third-party identities",
+        "Product names and marks used in the proposed integration catalog identify illustrative compatibility concepts. They do not establish an endorsement, partnership, or implemented connection. External reference websites are maintained by their respective organizations."
+      ],
+      [
+        "Reuse for a real business",
+        "A production adaptation needs accurate company information, substantiated claims, working approved integrations, and policies that reflect its actual behavior. Replace the reserved example domain before deploying. The design and content are intended as a portfolio showcase and should be evaluated with that context."
+      ]
+    ]
+  },
+  {
+    "slug": "products/attack-paths",
+    "template": "product",
+    "title": "Cloud Attack Path Analysis | Tracegate",
+    "description": "Connect cloud exposure, identity permissions, and critical resources with the fictional Tracegate attack path explorer. Review the evidence and next step.",
+    "headline": "Find the risk between the findings.",
+    "summary": "Connect cloud exposures and identity permissions to see how an attacker could reach your critical assets.",
+    "label": "Attack path analysis"
+  },
+  {
+    "slug": "products/identity-security",
+    "template": "product",
+    "title": "Cloud Identity Security Platform | Tracegate",
+    "description": "Explore fictional cloud identity security for people and workloads. Understand effective access, ownership, and reviewable least privilege decisions.",
+    "headline": "Know what every identity can reach.",
+    "summary": "Bring human and machine identities into focus, with permission context that points to a practical next step.",
+    "label": "Identity security"
+  },
+  {
+    "slug": "products/cloud-posture",
+    "template": "product",
+    "title": "Cloud Security Posture Management | Tracegate",
+    "description": "Explore fictional cloud security posture management with connected identity context. Review configuration evidence, ownership, and remediation decisions.",
+    "headline": "Make your cloud backlog make sense.",
+    "summary": "Move from scattered configuration findings to a focused view of exposure, ownership, and remediation.",
+    "label": "Cloud security posture"
+  },
+  {
+    "slug": "solutions/cloud-security",
+    "template": "solution",
+    "title": "Cloud Security Team Solutions | Tracegate",
+    "description": "Explore the fictional Tracegate workflow for cloud security teams. Connect evidence, prioritize reachable risk, and route reviewable changes to owners.",
+    "headline": "A shorter path to your next fix.",
+    "summary": "Give cloud security teams connected evidence, clear ownership, and a remediation queue grounded in business context.",
+    "label": "For cloud security teams"
+  },
+  {
+    "slug": "solutions/security-operations",
+    "template": "solution",
+    "title": "Security Operations Solutions | Tracegate",
+    "description": "Explore a fictional security operations workflow that adds cloud and identity context to investigations. Keep evidence, assumptions, and handoffs clear.",
+    "headline": "Investigate with the whole path in view.",
+    "summary": "Connect an identity or cloud signal to the resources it can reach, so investigations begin with useful context.",
+    "label": "For security operations"
+  },
+  {
+    "slug": "solutions/platform-engineering",
+    "template": "solution",
+    "title": "platform engineering | Tracegate",
+    "description": "Give engineers specific changes, useful evidence, and a shared definition of resolved. Explore the fictional workflow and review its evidence.",
+    "headline": "Security work that respects your roadmap.",
+    "summary": "Give engineers specific changes, useful evidence, and a shared definition of resolved.",
+    "label": "For platform engineering"
+  },
+  {
+    "slug": "blog/attack-path-analysis",
+    "template": "article",
+    "title": "Why the space between findings matters | Tracegate",
+    "description": "An attack path connects exposure, access, and impact. Here is how to review one without mistaking possibility for proof. Read the field notes.",
+    "headline": "Why the space between findings matters",
+    "summary": "An attack path connects exposure, access, and impact. Here is how to review one without mistaking possibility for proof.",
+    "label": "Why the space between findings matters"
+  },
+  {
+    "slug": "blog/machine-identity-security",
+    "template": "article",
+    "title": "Machine identities need an owner, too | Tracegate",
+    "description": "A practical way to review service accounts, workload roles, and automation access without breaking delivery. Read the field notes.",
+    "headline": "Machine identities need an owner, too",
+    "summary": "A practical way to review service accounts, workload roles, and automation access without breaking delivery.",
+    "label": "Machine identities need an owner, too"
+  },
+  {
+    "slug": "blog/cspm-vs-attack-paths",
+    "template": "article",
+    "title": "CSPM and attack paths answer different questions | Tracegate",
+    "description": "Learn how CSPM and attack path analysis complement each other. Compare configuration checks, connected risk, evidence, and practical cloud review decisions.",
+    "headline": "CSPM and attack paths answer different questions",
+    "summary": "Configuration checks find the individual issues. Attack path analysis explains how they may connect. A practical comparison for cloud teams.",
+    "label": "CSPM and attack paths answer different questions"
+  },
+  {
+    "slug": "resources/attack-path-review",
+    "template": "guide",
+    "title": "The attack path review checklist | Tracegate",
+    "description": "Use five practical questions to review a potential cloud attack path. Explore evidence, ownership, intervention, and verification with a free template.",
+    "headline": "The attack path review checklist",
+    "summary": "Five questions to turn a connected finding into a reviewable engineering decision.",
+    "label": "The attack path review checklist"
+  },
+  {
+    "slug": "resources/least-privilege-playbook",
+    "template": "guide",
+    "title": "A practical least privilege playbook | Tracegate",
+    "description": "Review machine identity access with a clear, repeatable playbook. Explore ownership, effective permissions, testing, and verification. Download the template.",
+    "headline": "A practical least privilege playbook",
+    "summary": "A clear, repeatable way to review machine identity access with the people who own it.",
+    "label": "A practical least privilege playbook"
+  },
+  {
+    "slug": "products",
+    "template": "products",
+    "title": "Cloud & Identity Security Products | Tracegate",
+    "description": "Explore the fictional Tracegate security products: attack path analysis, identity security, and cloud posture. See how the capabilities connect in context.",
+    "headline": "Three perspectives. One connected picture.",
+    "summary": "Understand configurations, permissions, and the paths between them. A shared model gives each finding more useful context."
+  },
+  {
+    "slug": "integrations/aws",
+    "template": "integration",
+    "title": "AWS Security Integration | Tracegate",
+    "description": "Explore the Tracegate AWS integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "Connect AWS risk to the full picture.",
+    "summary": "Relate AWS accounts, IAM roles, and resource configuration to the workloads and sensitive assets around them.",
+    "label": "Amazon Web Services"
+  },
+  {
+    "slug": "integrations/azure",
+    "template": "integration",
+    "title": "Azure Security Integration | Tracegate",
+    "description": "Explore the Tracegate Azure integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "Give Azure access a connected view.",
+    "summary": "Bring subscriptions, service principals, role assignments, and resources into the same security conversation.",
+    "label": "Microsoft Azure"
+  },
+  {
+    "slug": "integrations/google-cloud",
+    "template": "integration",
+    "title": "Google Cloud Security Integration | Tracegate",
+    "description": "Explore the Tracegate Google Cloud integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "Connect projects, principals, and purpose.",
+    "summary": "Map Google Cloud projects, service accounts, and IAM bindings to understand the access around critical resources.",
+    "label": "Google Cloud"
+  },
+  {
+    "slug": "integrations/okta",
+    "template": "integration",
+    "title": "Okta Security Integration | Tracegate",
+    "description": "Explore the Tracegate Okta integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "Give workforce identity its wider context.",
+    "summary": "Relate users, groups, and application assignments to the downstream access decisions your security team needs to review.",
+    "label": "Okta"
+  },
+  {
+    "slug": "integrations/entra-id",
+    "template": "integration",
+    "title": "Entra ID Security Integration | Tracegate",
+    "description": "Explore the Tracegate Entra ID integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "See the application behind the identity.",
+    "summary": "Connect workforce and application identities with assignment and ownership context for a clearer access review.",
+    "label": "Microsoft Entra ID"
+  },
+  {
+    "slug": "integrations/github",
+    "template": "integration",
+    "title": "GitHub Security Integration | Tracegate",
+    "description": "Explore the Tracegate GitHub integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "Bring the evidence into the pull request.",
+    "summary": "Connect a proposed intervention to the repository, change discussion, and engineering owner responsible for reviewing it.",
+    "label": "GitHub"
+  },
+  {
+    "slug": "integrations/jira",
+    "template": "integration",
+    "title": "Jira Security Integration | Tracegate",
+    "description": "Explore the Tracegate Jira integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "A ticket with the context to move forward.",
+    "summary": "Route a focused review to an engineering owner with the affected resource, supporting evidence, and proposed next step.",
+    "label": "Jira"
+  },
+  {
+    "slug": "integrations/slack",
+    "template": "integration",
+    "title": "Slack Security Integration | Tracegate",
+    "description": "Explore the Tracegate Slack integration concept: connected evidence, clear ownership, and a practical review workflow for security and engineering.",
+    "headline": "Put useful context in the conversation.",
+    "summary": "Share a concise review summary with the responsible team, then keep the decision connected to its source evidence.",
+    "label": "Slack"
+  }
+]

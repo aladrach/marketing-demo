@@ -1,0 +1,5 @@
+---
+interface Props {light:string;dark:string;}
+const {light,dark}=Astro.props;
+---
+<span class="brand-lockup" aria-hidden="true"><img class="brand-lockup-light" src={light} alt="" width="170" height="60" loading="lazy" decoding="async"/><img class="brand-lockup-dark" src={dark} alt="" width="170" height="60" loading="lazy" decoding="async"/></span>

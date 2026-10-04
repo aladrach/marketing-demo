@@ -1,0 +1,8 @@
+---
+import logos from '../data/integration-logos.json';
+import Icon from './Icon.astro';
+interface Props {slug:string;size?:number;}
+const {slug,size=35}=Astro.props;
+const logo=logos.find(item=>item.route===slug);
+---
+{logo?<svg class="integration-brand-mark catalog-brand-mark" viewBox="0 0 24 24" width={size} height={size} aria-hidden="true">{logo.paths.map(path=><path d={path.d} style={`--brand-color:${path.color}`}/>)}</svg>:<Icon name="users" size={size}/>}

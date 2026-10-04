@@ -1,0 +1,29 @@
+{
+  "name": "tracegate-marketing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "verify": "node scripts/verify.mjs",
+    "test:e2e": "node scripts/e2e.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@tabler/icons": "^3.48.0",
+    "astro": "^7.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@axe-core/playwright": "^4.13.0",
+    "lighthouse": "^13.5.0",
+    "linkedom": "^0.18.13",
+    "playwright": "^1.63.0",
+    "simple-icons": "^12.4.0",
+    "typescript": "^6.0.3"
+  }
+}

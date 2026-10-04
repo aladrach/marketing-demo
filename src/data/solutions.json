@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "cloud-security",
+    "title": "For cloud security teams",
+    "headline": "A shorter path to your next fix.",
+    "summary": "Give cloud security teams connected evidence, clear ownership, and a remediation queue grounded in business context.",
+    "icon": "shield-check",
+    "sections": [
+      [
+        "Bring the risk review together",
+        "Cloud security teams work across accounts, environments, and engineering groups. A useful operating view needs to connect those boundaries without erasing their differences. Tracegate\u2019s fictional platform model combines posture findings, identity context, and attack paths in a shared view. Analysts can inspect evidence rather than trust a summary score, and engineers can see why a particular resource matters. The workflow starts with a focused question: which reachable assets deserve review, and who can change the relationships that expose them?"
+      ],
+      [
+        "Build a queue teams can act on",
+        "A finding becomes easier to resolve when the request identifies a resource, an owner, a proposed change, and the consequence of leaving the path open. Tracegate\u2019s concept queue groups related concerns around a path to an asset. It preserves baseline posture work while giving connected exposure a separate review. Teams can define their own sensitivity labels, record exceptions with dates, and revisit assumptions as applications change. These decisions should remain visible to the people responsible for both security and service reliability."
+      ],
+      [
+        "Fit the existing change process",
+        "Security recommendations should travel through the engineering process already used to deploy infrastructure. The intended Tracegate workflow packages evidence into a ticket, points to the relevant resource, and identifies candidate intervention points. An owner can review the proposed change, document dependencies, and define a rollback. The platform concept does not bypass approval or claim that a recommendation is automatically safe. After deployment, refreshed observations help confirm whether the original path is still feasible."
+      ],
+      [
+        "What a useful weekly review looks like",
+        "Begin with new paths to designated critical assets. Confirm evidence freshness and check collection gaps. Review ownership before assigning work, then distinguish interventions ready for implementation from findings that need investigation. Revisit exceptions whose context has changed. End by recording which deployed changes have been observed and which still await verification. This operating rhythm keeps the discussion grounded in decisions rather than the volume of alerts. The demo\u2019s sample environment illustrates the review without presenting synthetic numbers as customer results."
+      ],
+      [
+        "Scope the evaluation around your environment",
+        "When evaluating a connected security workflow, select a representative set of accounts and applications. Include different ownership patterns and a few deliberately documented exceptions. Ask the platform to explain both an individual posture finding and a connected path, then inspect the sources and relevant conditions. Change one assumption and review how the explanation changes. Evaluate whether the handoff contains enough context for an engineer who did not attend the evaluation. A useful acceptance criterion is a reviewable decision record, with evidence freshness and coverage limits visible. The Tracegate website illustrates this structure but does not validate real detection behavior or connector coverage."
+      ],
+      [
+        "Keep coverage visible in the team review",
+        "A weekly review should distinguish newly collected evidence from a changed rule or a missing data source. If the graph loses a relationship because collection failed, risk has not necessarily disappeared. Record the scope of the gap and the decisions it affects. Check that critical resources still have reliable ownership mappings. Discuss exceptions whose conditions changed, and confirm the result of interventions deployed since the last review. A small set of well-supported decisions is easier to explain than an unexplained reduction in finding volume."
+      ]
+    ],
+    "faq": [
+      [
+        "Is this designed to replace a cloud scanner?",
+        "The concept combines posture and identity signals into a connected review. A real deployment would need an evaluated coverage and integration plan."
+      ],
+      [
+        "How should teams judge prioritization?",
+        "Inspect the evidence, reachability assumptions, resource sensitivity, and collection window before accepting the ranking."
+      ]
+    ],
+    "related": [
+      "products/cloud-posture",
+      "products/attack-paths",
+      "blog/cspm-vs-attack-paths"
+    ]
+  },
+  {
+    "slug": "security-operations",
+    "title": "For security operations",
+    "headline": "Investigate with the whole path in view.",
+    "summary": "Connect an identity or cloud signal to the resources it can reach, so investigations begin with useful context.",
+    "icon": "radar",
+    "sections": [
+      [
+        "Put activity in its environment",
+        "An unusual sign-in or cloud API call is a starting point for investigation. Its significance depends on the identity, the available permissions, the affected resource, and the surrounding activity. Tracegate\u2019s fictional security operations workflow adds environment context to that starting point. Analysts can follow potentially reachable resources and inspect the evidence behind each relationship. The graph describes what may be possible; activity evidence is still needed to determine what actually happened. Keeping those two questions distinct helps teams avoid premature conclusions."
+      ],
+      [
+        "Reduce the handoffs inside an investigation",
+        "Analysts often need a cloud engineer to explain a role and an application owner to explain a resource. The intended workflow puts available ownership and configuration context beside the investigation. Missing or conflicting ownership stays visible. A team can record the questions that remain unanswered and attach evidence that supports a specific relationship. This gives escalation a more precise shape: confirm the role assumption, inspect the credential use, or validate whether the target stores sensitive data. It does not pretend that a connected graph can replace human expertise."
+      ],
+      [
+        "Make containment reviewable",
+        "A proposed containment action can affect an application as well as an attacker. Tracegate\u2019s concept highlights the relationships that a permission change or access restriction would affect. Analysts can coordinate with an owner, document the expected impact, and use the organization\u2019s approved incident process. No automated containment operates on this marketing site. The sample interaction shows how a decision can be expressed and reviewed; it does not demonstrate a production response service or guarantee that the same intervention is appropriate in every environment."
+      ],
+      [
+        "Preserve a record that another analyst can use",
+        "An investigation record should preserve the observed activity, the environment context at the time, the working hypothesis, and the reason for each action. Tracegate\u2019s concept separates timestamps for collection, activity, and review. That distinction is useful when a role changes during an investigation or a resource disappears after a deployment. Another analyst can understand which conclusions were supported and which remained provisional. The resource library provides additional discussion of attack paths and machine identity context, with external references for foundational security concepts."
+      ],
+      [
+        "Evaluate the environment context separately",
+        "A useful security operations evaluation starts with a synthetic event and a documented environment. Ask which context the platform supplies and which relationships it infers. Inspect collection time, resource scope, and known gaps before using the result to support a hypothesis. Then consider a change to the environment during the investigation: can the record preserve the original context as well as the current state? The analyst needs to distinguish observed activity, possible access, and actions already taken. An accurate handoff should make all three readable to another team without implying that the graph itself establishes intent or impact."
+      ],
+      [
+        "Keep the escalation precise",
+        "An escalation should name the remaining question and the team best placed to answer it. Ask a cloud owner to validate a trust condition, an application owner to explain a dependency, or the incident team to evaluate activity. Preserve the supporting evidence and its time window so each recipient can understand the limits. A focused request helps teams coordinate without overstating certainty. Follow the organization\u2019s approved incident process for real containment or recovery decisions. The sample paths here are intended to demonstrate that information design, not to serve as an operational incident procedure."
+      ]
+    ],
+    "faq": [
+      [
+        "Does a graph prove malicious activity?",
+        "No. A graph can show potentially feasible access. Activity, intent, and impact need separate investigation."
+      ],
+      [
+        "Does Tracegate provide managed incident response?",
+        "No. Tracegate is a fictional platform and this portfolio site has no live monitoring or response service."
+      ]
+    ],
+    "related": [
+      "products/attack-paths",
+      "products/identity-security",
+      "resources/attack-path-review"
+    ]
+  },
+  {
+    "slug": "platform-engineering",
+    "title": "For platform engineering",
+    "headline": "Security work that respects your roadmap.",
+    "summary": "Give engineers specific changes, useful evidence, and a shared definition of resolved.",
+    "icon": "stack-2",
+    "sections": [
+      [
+        "Turn a finding into a change request",
+        "Platform engineers need to understand the requested change, its rationale, and its operational implications. A generic critical label rarely supplies that context. Tracegate\u2019s fictional workflow packages a resource, its relevant permissions, and the path to a sensitive target into a readable request. Candidate fixes describe which relationship they interrupt. Owners can choose an intervention that fits the application architecture and schedule. The goal is to make the security conversation concrete enough to review in the same way as any other infrastructure change."
+      ],
+      [
+        "Review access without breaking delivery",
+        "A deployment identity may require different permissions during provisioning, release, and recovery. Removing access solely because it was not used during a short observation window can be risky. Tracegate\u2019s identity concept shows the usage window and the limits of the evidence. Engineers can document dependencies, narrow scope where appropriate, and retain intentional access with a reviewable rationale. Short-lived credentials and explicit trust boundaries can be considered alongside policy scope. Changes belong in the team\u2019s normal testing and rollback process."
+      ],
+      [
+        "Keep ownership close to the system",
+        "Account labels, application tags, and team mappings can help route security work, but they can drift. The platform concept makes the ownership model inspectable and editable. An engineer can flag a misrouted finding without dismissing the risk itself. Grouping by application helps a team evaluate several related changes together. Exceptions should have a named reviewer, a stated reason, and a future review date. This approach gives platform teams a shared record of decisions instead of repeatedly explaining the same context in new tickets."
+      ],
+      [
+        "Verify the deployed result",
+        "Code review establishes what a team intends to change. Fresh configuration evidence establishes what is present in the environment. Tracegate\u2019s concept keeps those steps distinct and checks whether the original relationship remains after deployment. A path can be re-evaluated when a policy changes or a resource is removed. The resolution record includes the relevant observation time. This creates a common definition of done for engineering and security without pretending that a closed ticket alone proves risk has disappeared."
+      ],
+      [
+        "Evaluate the handoff before the dashboard",
+        "During an evaluation, ask for the actual change request a platform engineer would receive. It should identify the resource, permission, evidence, intended effect, and relevant owner. Check whether the request explains the assumptions that still need validation. A ranking can direct attention, but it cannot replace the application context required for a safe rollout. Ask how the record changes after a deployment and how the tool distinguishes fixed relationships from missing collection. The Tracegate demo illustrates a proposed interaction with those principles; real acceptance would require testing with representative workloads and current provider authorization behavior."
+      ],
+      [
+        "Make a review record reusable",
+        "A useful decision should be understandable when the original reviewer has moved to another team. Preserve the identity\u2019s purpose, the approved scope, the dependency questions, and the observed result of the change. Connect the record to the application\u2019s lifecycle and revisit it when ownership or architecture changes. Intentional exceptions should be scoped and scheduled for another review. This reduces the need to rediscover the same context in future tickets and makes the conversation between security and engineering more durable. The downloadable playbook offers a simple structure that can be adapted to the team\u2019s established process."
+      ]
+    ],
+    "faq": [
+      [
+        "Can engineers choose a different fix?",
+        "Yes. The concept surfaces the path and candidate changes; the owner evaluates the safest intervention through the existing process."
+      ],
+      [
+        "What happens to accepted risk?",
+        "Document the scope, rationale, reviewer, and review date. Revisit the decision when the environment or business context changes."
+      ]
+    ],
+    "related": [
+      "products/identity-security",
+      "products/cloud-posture",
+      "resources/least-privilege-playbook"
+    ]
+  }
+]

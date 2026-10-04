@@ -1,0 +1,133 @@
+{
+  "navigation": [
+    {
+      "label": "Platform",
+      "overview": "platform",
+      "groups": [
+        {
+          "label": "CONNECTED SECURITY",
+          "links": [
+            [
+              "Platform overview",
+              "platform",
+              "The context behind every decision."
+            ],
+            [
+              "Attack path analysis",
+              "products/attack-paths",
+              "See how exposures connect."
+            ],
+            [
+              "Identity security",
+              "products/identity-security",
+              "Understand effective access."
+            ],
+            [
+              "Cloud security posture",
+              "products/cloud-posture",
+              "Focus your configuration backlog."
+            ]
+          ]
+        },
+        {
+          "label": "YOUR ENVIRONMENT",
+          "links": [
+            [
+              "Integrations",
+              "integrations",
+              "A place for your existing stack."
+            ],
+            [
+              "Trust center",
+              "trust",
+              "Our approach to responsible design."
+            ]
+          ]
+        }
+      ],
+      "featured": "resources/attack-path-review",
+      "featuredLabel": "The attack path review checklist"
+    },
+    {
+      "label": "Solutions",
+      "overview": "solutions",
+      "groups": [
+        {
+          "label": "BY TEAM",
+          "links": [
+            [
+              "Cloud security",
+              "solutions/cloud-security",
+              "Prioritize connected cloud risk."
+            ],
+            [
+              "Security operations",
+              "solutions/security-operations",
+              "Investigate with context."
+            ],
+            [
+              "Platform engineering",
+              "solutions/platform-engineering",
+              "Make the right change, together."
+            ]
+          ]
+        }
+      ],
+      "featured": "resources/least-privilege-playbook",
+      "featuredLabel": "A practical least privilege playbook"
+    },
+    {
+      "label": "Resources",
+      "overview": "resources",
+      "groups": [
+        {
+          "label": "LEARN & EXPLORE",
+          "links": [
+            [
+              "Resource library",
+              "resources",
+              "Field guides for clearer decisions."
+            ],
+            [
+              "Journal",
+              "blog",
+              "Ideas from the security workbench."
+            ],
+            [
+              "Attack path checklist",
+              "resources/attack-path-review",
+              "A repeatable risk review."
+            ],
+            [
+              "Least privilege playbook",
+              "resources/least-privilege-playbook",
+              "A safer access review."
+            ]
+          ]
+        },
+        {
+          "label": "TRACEGATE",
+          "links": [
+            [
+              "About us",
+              "about",
+              "The thinking behind the platform."
+            ],
+            [
+              "Brand system",
+              "brand",
+              "Explore the visual identity."
+            ],
+            [
+              "Contact",
+              "contact",
+              "Start a conversation."
+            ]
+          ]
+        }
+      ],
+      "featured": "blog/attack-path-analysis",
+      "featuredLabel": "Why the space between findings matters"
+    }
+  ]
+}

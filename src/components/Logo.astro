@@ -1,0 +1,5 @@
+---
+interface Props {large?:boolean}
+const {large=false}=Astro.props;
+---
+<a class:list={['logo',{large}]} href="/" aria-label="Tracegate home"><img src="/brand/tracegate-mark.svg" width="32" height="32" alt=""/><span>Tracegate</span></a>

@@ -1,0 +1,7 @@
+---
+import pages from '../data/pages.json';
+import Icon from './Icon.astro';
+interface Props {slugs:string[];}
+const {slugs}=Astro.props;
+---
+<section class="related wrap"><h2>Keep the context connected.</h2><div class="related-links">{slugs.map(slug=>{const p=pages.find(p=>p.slug===slug);return <a href={`/${slug}/`}>{p?.label||p?.headline||slug}<Icon name="arrow-up-right" size={16}/></a>})}</div></section>

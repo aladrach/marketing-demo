@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props {title?:string;description?:string;}
+const {title='Put your next decision in context.',description='Explore a calmer, more connected way to understand cloud and identity risk.'}=Astro.props;
+---
+<section class="cta wrap reveal"><div><h2>{title}</h2><p>{description}</p></div><a class="button" href="/contact/">Book a walkthrough<Icon name="arrow-up-right" size={18}/></a><span class="cta-mark" aria-hidden="true"><img src="/brand/tracegate-mark.svg" alt="" width="160" height="160"/></span></section>

@@ -1,0 +1,8 @@
+---
+import {icons} from '../data/icons';
+interface Props { name: string; size?: number; }
+const {name,size=20}=Astro.props;
+let svg=icons[name]||icons['arrow-right'];
+svg=svg.replace('width="24"',`width="${size}"`).replace('height="24"',`height="${size}"`).replace('stroke-width="2"','stroke-width="1.5"');
+---
+<span class="icon" aria-hidden="true" set:html={svg}/>

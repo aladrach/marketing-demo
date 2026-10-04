@@ -1,0 +1,6 @@
+import * as icons from 'simple-icons';
+import fs from 'node:fs';
+const brands=[['Amazon Web Services','AWS','amazonwebservices','siAmazonwebservices'],['Microsoft Azure','Azure','microsoftazure','siMicrosoftazure'],['Google Cloud','Google Cloud','googlecloud','siGooglecloud'],['Okta','Okta','okta','siOkta'],['GitHub','GitHub','github','siGithub'],['Jira','Jira','jira','siJira'],['Slack','Slack','slack','siSlack']];
+const data=brands.map(([name,label,slug,key])=>{const icon=icons[key];let paths=[{d:icon.path,color:'#'+icon.hex}];if(slug==='slack'){const colors=['#E01E5A','#E01E5A','#36C5F0','#36C5F0','#2EB67D','#2EB67D','#ECB22E','#ECB22E'];paths=icon.path.split(/(?=M)/).filter(Boolean).map((d,i)=>({d,color:colors[i]}));}if(slug==='amazonwebservices'){paths=icon.path.split(/(?=M)/).filter(Boolean).map((d,i)=>({d,color:i?'#FF9900':'#232F3E'}));}if(slug==='microsoftazure')paths=[{d:icon.path,color:'#0078D4'}];return {name,label,slug,route:({amazonwebservices:'aws',microsoftazure:'azure',googlecloud:'google-cloud'})[slug]||slug,color:'#'+icon.hex,paths,source:icon.source};});
+const previous=JSON.parse(fs.readFileSync('src/data/integration-logos.json','utf8'));
+fs.writeFileSync('src/data/integration-logos.json',JSON.stringify(data.map(item=>({...previous.find(old=>old.slug===item.slug),...item})),null,2)+'\n');

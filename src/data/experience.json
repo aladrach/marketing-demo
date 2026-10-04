@@ -1,0 +1,17 @@
+{
+ "workflow":[
+  {"title":"Find the connected risk.","label":"Discover","summary":"See how a cloud exposure and an identity permission can become the same problem.","description":"Bring configuration and access into one model. Follow the relationship to a sensitive resource, then inspect the evidence that makes the path feasible.","link":"products/attack-paths","linkLabel":"Explore attack paths","icon":"route"},
+  {"title":"Understand what’s at stake.","label":"Understand","summary":"A permission is a starting point. Context tells you what it can reach and who owns it.","description":"Inspect the principal, effective grant, target sensitivity, and owner. Separate observed facts from assumptions before deciding how to act.","link":"products/identity-security","linkLabel":"Explore identity security","icon":"fingerprint"},
+  {"title":"Make the smallest safe change.","label":"Intervene","summary":"Give engineering a clear intervention, an owner, and a way to verify the result.","description":"Package the evidence into a reviewable handoff. Test through your normal process, then revisit the relationship after deployment.","link":"solutions/platform-engineering","linkLabel":"See the engineering workflow","icon":"git-pull-request"}
+ ],
+ "teams":[
+ {"slug":"cloud-security","label":"Cloud security","title":"Turn a backlog into a next step.","summary":"Follow the paths to your critical assets. Prioritize a change with evidence, ownership, and a clear reason to act.","focus":"A focused review queue","rows":[["web-production → secrets","Review trust policy"],["service-account → data","Validate effective grant"],["release-pipeline → config","Confirm deployment scope"]]},
+ {"slug":"security-operations","label":"Security operations","title":"Follow the signal beyond the alert.","summary":"See the environment around a principal. Keep observed activity and possible access distinct throughout the investigation.","focus":"Context for an investigation","rows":[["Identity observed","service-account-demo"],["Potential target","customer-data-demo"],["Question to validate","Which grant enables access?"]]},
+ {"slug":"platform-engineering","label":"Platform engineering","title":"A change request you can review.","summary":"Get the affected resource, the proposed intervention, and its supporting evidence. Keep testing and rollout in your existing workflow.","focus":"A handoff built for engineering","rows":[["Proposed change","Narrow role resource scope"],["Accountable team","Developer platform"],["Verification","Refresh access after rollout"]]}
+ ],
+ "features":[
+ {"slug":"attack-paths","title":"See beyond the finding.","summary":"A cloud issue is one part of the story. Follow the permissions and connections that give it consequence.","bullets":["Reachability with supporting evidence","Sensitive targets in business context","Candidate intervention points"]},
+ {"slug":"identity-security","title":"Put every permission in context.","summary":"Human or machine, an identity should have a purpose, an owner, and an access decision you can explain.","bullets":["Human and machine identity inventory","Effective access with policy scope","Reviewable least privilege decisions"]},
+ {"slug":"cloud-posture","title":"Give your cloud backlog direction.","summary":"Configuration findings become more useful when you can see their owner and the assets they may expose.","bullets":["Inspectable configuration evidence","Application ownership mappings","Verification after deployment"]}
+ ]
+}

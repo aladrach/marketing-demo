@@ -1,0 +1,394 @@
+[
+  {
+    "slug": "aws",
+    "name": "Amazon Web Services",
+    "label": "AWS",
+    "type": "Cloud",
+    "icon": "brand-aws",
+    "headline": "Connect AWS risk to the full picture.",
+    "description": "Relate AWS accounts, IAM roles, and resource configuration to the workloads and sensitive assets around them.",
+    "features": [
+      {
+        "title": "Resource context",
+        "description": "Bring account, region, workload, and resource relationships into a shared environment map."
+      },
+      {
+        "title": "IAM access paths",
+        "description": "Connect role trust relationships and policy scope to the resources a principal could reach."
+      },
+      {
+        "title": "Accountable changes",
+        "description": "Attach the account, resource, evidence, and owner to an engineering review."
+      }
+    ],
+    "objects": [
+      "Account and region",
+      "Workload and resource references",
+      "IAM role and policy context"
+    ],
+    "route": [
+      "Public workload",
+      "Deployment role",
+      "Production secrets"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Amazon Web Services integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Amazon Web Services connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "azure",
+    "name": "Microsoft Azure",
+    "label": "Azure",
+    "type": "Cloud",
+    "icon": "brand-azure",
+    "headline": "Give Azure access a connected view.",
+    "description": "Bring subscriptions, service principals, role assignments, and resources into the same security conversation.",
+    "features": [
+      {
+        "title": "Subscription visibility",
+        "description": "Group resources by subscription and application context so teams can understand where a finding belongs."
+      },
+      {
+        "title": "Principal relationships",
+        "description": "Relate service principals and role assignments to the resource scopes they affect."
+      },
+      {
+        "title": "Ownership handoffs",
+        "description": "Carry subscription and resource context into a reviewable task for the responsible platform team."
+      }
+    ],
+    "objects": [
+      "Subscription and resource group",
+      "Service principal references",
+      "Role assignment and resource scope"
+    ],
+    "route": [
+      "Application workload",
+      "Service principal",
+      "Sensitive resource"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Microsoft Azure integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Microsoft Azure connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "google-cloud",
+    "name": "Google Cloud",
+    "label": "Google Cloud",
+    "type": "Cloud",
+    "icon": "brand-google",
+    "headline": "Connect projects, principals, and purpose.",
+    "description": "Map Google Cloud projects, service accounts, and IAM bindings to understand the access around critical resources.",
+    "features": [
+      {
+        "title": "Project context",
+        "description": "Organize resource findings around projects, workloads, and the teams responsible for them."
+      },
+      {
+        "title": "Service account access",
+        "description": "Relate service accounts and IAM bindings to the resources and scopes that need review."
+      },
+      {
+        "title": "Focused verification",
+        "description": "Keep the proposed change and its resource context together for a fresh review after deployment."
+      }
+    ],
+    "objects": [
+      "Project and resource references",
+      "Service account identity",
+      "IAM binding and scope context"
+    ],
+    "route": [
+      "Project workload",
+      "Service account",
+      "Critical resource"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Google Cloud integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Google Cloud connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "okta",
+    "name": "Okta",
+    "label": "Okta",
+    "type": "Identity",
+    "icon": "fingerprint",
+    "headline": "Give workforce identity its wider context.",
+    "description": "Relate users, groups, and application assignments to the downstream access decisions your security team needs to review.",
+    "features": [
+      {
+        "title": "Workforce context",
+        "description": "Bring users, group membership, and application relationships into a shared identity view."
+      },
+      {
+        "title": "Assignment reviews",
+        "description": "Make the owner and purpose of an assignment visible before deciding whether to change access."
+      },
+      {
+        "title": "Cross-team discussions",
+        "description": "Connect an identity review to its application owner and supporting evidence."
+      }
+    ],
+    "objects": [
+      "User and group references",
+      "Application assignment context",
+      "Application ownership mappings"
+    ],
+    "route": [
+      "Workforce identity",
+      "Application assignment",
+      "Connected application"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Okta integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Okta connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "entra-id",
+    "name": "Microsoft Entra ID",
+    "label": "Entra ID",
+    "type": "Identity",
+    "icon": "users",
+    "headline": "See the application behind the identity.",
+    "description": "Connect workforce and application identities with assignment and ownership context for a clearer access review.",
+    "features": [
+      {
+        "title": "Identity inventory",
+        "description": "Relate users, groups, application identities, and service principals within the proposed environment model."
+      },
+      {
+        "title": "Application context",
+        "description": "Explain which application and owner sit behind a principal or assignment under review."
+      },
+      {
+        "title": "Access discussions",
+        "description": "Prepare an evidence-led review with identity references, assignment scope, and an accountable team."
+      }
+    ],
+    "objects": [
+      "User and group references",
+      "Application and principal context",
+      "Assignment and ownership mappings"
+    ],
+    "route": [
+      "Application identity",
+      "Assigned access",
+      "Connected resource"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Microsoft Entra ID integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Microsoft Entra ID connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "github",
+    "name": "GitHub",
+    "label": "GitHub",
+    "type": "Workflow",
+    "icon": "brand-github",
+    "headline": "Bring the evidence into the pull request.",
+    "description": "Connect a proposed intervention to the repository, change discussion, and engineering owner responsible for reviewing it.",
+    "features": [
+      {
+        "title": "Repository context",
+        "description": "Relate an infrastructure resource to its repository and responsible engineering team."
+      },
+      {
+        "title": "Reviewable proposals",
+        "description": "Package the path, affected identity, proposed scope, and dependencies into a change discussion."
+      },
+      {
+        "title": "Verification handoffs",
+        "description": "Keep a reference to the engineering review so the security context can be revisited after rollout."
+      }
+    ],
+    "objects": [
+      "Repository and ownership mappings",
+      "Pull request references",
+      "Change and verification context"
+    ],
+    "route": [
+      "Security evidence",
+      "Pull request",
+      "Engineering review"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The GitHub integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed GitHub connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "jira",
+    "name": "Jira",
+    "label": "Jira",
+    "type": "Workflow",
+    "icon": "ticket",
+    "headline": "A ticket with the context to move forward.",
+    "description": "Route a focused review to an engineering owner with the affected resource, supporting evidence, and proposed next step.",
+    "features": [
+      {
+        "title": "Focused issue creation",
+        "description": "Structure a handoff around one reviewable relationship rather than an unexplained list of findings."
+      },
+      {
+        "title": "Clear ownership",
+        "description": "Associate the proposed task with a project, accountable team, and affected resource."
+      },
+      {
+        "title": "Review continuity",
+        "description": "Keep references to the original evidence and the intended verification in the issue discussion."
+      }
+    ],
+    "objects": [
+      "Project and issue references",
+      "Team and ownership mapping",
+      "Evidence and verification links"
+    ],
+    "route": [
+      "Connected finding",
+      "Owned issue",
+      "Verification review"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Jira integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Jira connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  },
+  {
+    "slug": "slack",
+    "name": "Slack",
+    "label": "Slack",
+    "type": "Workflow",
+    "icon": "brand-slack",
+    "headline": "Put useful context in the conversation.",
+    "description": "Share a concise review summary with the responsible team, then keep the decision connected to its source evidence.",
+    "features": [
+      {
+        "title": "Focused notifications",
+        "description": "Summarize the affected identity, target, and relationship so a team can understand why a discussion matters."
+      },
+      {
+        "title": "Owner-aware routing",
+        "description": "Associate an intended notification destination with the team responsible for the application or resource."
+      },
+      {
+        "title": "Links back to evidence",
+        "description": "Bring the discussion back to the path and engineering review instead of treating chat as a source of truth."
+      }
+    ],
+    "objects": [
+      "Channel and team mappings",
+      "Finding and review references",
+      "Notification summary context"
+    ],
+    "route": [
+      "Review summary",
+      "Team conversation",
+      "Source evidence"
+    ],
+    "steps": [
+      "Define the connection scope",
+      "Relate the evidence and owner",
+      "Review and verify the next step"
+    ],
+    "faq": [
+      [
+        "Is this a working connector?",
+        "The Slack integration is a fictional product concept. This portfolio site does not connect to accounts, collect credentials, create tickets, or apply changes."
+      ],
+      [
+        "What would a production connection require?",
+        "A production integration would need documented permissions, data handling, supported objects, refresh behavior, operational limits, and failure handling. These controls have not been implemented by this demo."
+      ]
+    ],
+    "boundary": "This proposed Slack connection illustrates how context could flow through Tracegate. Coverage, permission scopes, and refresh behavior would need validation before a real deployment."
+  }
+]

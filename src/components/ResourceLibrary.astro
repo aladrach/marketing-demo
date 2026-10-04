@@ -1,0 +1,11 @@
+---
+import Card from './Card.astro';
+import Icon from './Icon.astro';
+import articles from '../data/articles.json';
+import guides from '../data/guides.json';
+interface Props {blogOnly?:boolean}
+const {blogOnly=false}=Astro.props;
+const items=[...(!blogOnly?guides.map(g=>({...g,href:`/resources/${g.slug}/`})):[]),...articles.map(a=>({...a,href:`/blog/${a.slug}/`}))];
+const categories=['All',...new Set(items.map(i=>i.category))];
+---
+<section class="wrap" data-filter-root style="padding-bottom:60px"><div class="filter-controls" hidden><div class="filter-buttons" role="group" aria-label="Filter resource topics">{categories.map((c,i)=><button class:list={[{active:i===0}]} type="button" data-filter={c.toLowerCase()} aria-pressed={i===0?'true':'false'}>{c}</button>)}</div><label class="search-label"><Icon name="search" size={16}/><span class="sr-only">Search resources</span><input type="search" placeholder="Search the workbench" data-search-input/></label></div><p class="filter-count" data-filter-count aria-live="polite">{items.length} resources</p><div class="resource-grid">{items.map((item,i)=><Card {...item} index={i}/>)}</div><div class="empty-state" data-filter-empty hidden><h3>No resources match that search.</h3><p>Try another keyword or choose All to broaden the topic.</p></div></section>

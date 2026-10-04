@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import AttackDemo from '../components/AttackDemo.astro';
+import CTA from '../components/CTA.astro';
+import Prose from '../components/Prose.astro';
+import Related from '../components/Related.astro';
+import ResourceLibrary from '../components/ResourceLibrary.astro';
+import BrandPage from '../components/BrandPage.astro';
+import ContactPage from '../components/ContactPage.astro';
+import PricingPage from '../components/PricingPage.astro';
+import pages from '../data/pages.json';
+import products from '../data/products.json';
+import solutions from '../data/solutions.json';
+import articles from '../data/articles.json';
+import guides from '../data/guides.json';
+import integrations from '../data/integrations.json';
+import {Image} from 'astro:assets';
+import gate from '../assets/connected-system.png';
+import DetailPage from '../components/DetailPage.astro';
+import CapabilityCards from '../components/CapabilityCards.astro';
+import TeamSwitcher from '../components/TeamSwitcher.astro';
+import Workflow from '../components/Workflow.astro';
+import IntegrationCatalog from '../components/IntegrationCatalog.astro';
+import IntegrationDetail from '../components/IntegrationDetail.astro';
+export function getStaticPaths(){return pages.map(page=>{const slug=page.slug.split('/').at(-1);const entry=page.template==='product'?products.find(p=>p.slug===slug):page.template==='solution'?solutions.find(p=>p.slug===slug):page.template==='article'?articles.find(p=>p.slug===slug):page.template==='guide'?guides.find(p=>p.slug===slug):undefined;return {params:{slug:page.slug},props:{page,data:entry,integration:page.template==='integration'?integrations.find(item=>item.slug===slug):undefined}};});}
+type Detail={slug:string;title:string;summary:string;icon?:string;outcome?:string;steps?:string[];sections:string[][];faq?:string[][];related:string[];category?:string;date?:string;author?:string;authorNote?:string;minutes?:number;sources?:{label:string;url:string}[];};
+interface Props {page:typeof pages[number];data?:Detail;integration?:typeof integrations[number]}
+const {page,data,integration}=Astro.props;
+const t=page.template;
+const breadcrumb=page.slug.split('/');
+const article=t==='article'&&data?{title:data.title,summary:data.summary,date:data.date!,author:data.author!}:undefined;
+---
+<Layout title={page.title} description={page.description} kind={t==='about'?'AboutPage':t==='contact'?'ContactPage':t==='resources'||t==='blog'?'CollectionPage':'WebPage'} article={article}>
+<div class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Home</a>{breadcrumb.map((part,i)=><><Icon name="chevron-right" size={10}/>{i<breadcrumb.length-1?<a href={`/${breadcrumb.slice(0,i+1).join('/')}/`}>{part[0].toUpperCase()+part.slice(1)}</a>:<span aria-current="page">{integration?.label||data?.title||part[0].toUpperCase()+part.slice(1)}</span>}</>)}</div>
+{(t==='product'||t==='solution')&&data&&<DetailPage headline={page.headline} summary={page.summary} kind={t} data={data}/>}
+{t==='platform'&&<>
+<section class="page-split wrap"><div class="page-hero"><span class="eyebrow">THE TRACEGATE PLATFORM</span><h1>{page.headline}</h1><p>{page.summary}</p><div class="actions"><a class="button" href="#explorer">Try the path explorer<Icon name="arrow-down" size={16}/></a><a class="text-link" href="/pricing/">Compare plans<Icon name="arrow-right" size={16}/></a></div></div><div class="hero-art"><Image src={gate} alt="An orange signal path meets two architectural gates, a metaphor for connected security." width={800} format="webp" loading="eager"/></div></section>
+<section class="wrap" id="explorer"><div class="section-header"><h2>Follow the relationship.<br/>Review the intervention.</h2><p>Explore a synthetic environment. Switch between paths to see how the evidence and proposed next step change.</p></div><AttackDemo/></section>
+<section class="section wrap"><div class="section-header"><h2>Three ways to understand the same environment.</h2></div><CapabilityCards/></section>
+{page.sections&&<Prose sections={page.sections}/>}<Related slugs={['integrations','solutions/cloud-security','resources/attack-path-review']}/><CTA/>
+</>}
+{t==='products'&&<><section class="page-hero wrap"><h1>{page.headline}</h1><p>{page.summary}</p></section><section class="section wrap" style="padding-top:20px"><CapabilityCards/></section><Workflow/><Related slugs={['platform','integrations','solutions']}/><CTA/></>}
+{t==='solutions'&&<>
+<section class="page-hero wrap"><h1>{page.headline}</h1><p>{page.summary}</p></section><TeamSwitcher/><section class="intro-block wrap"><h2>A shared model makes a better handoff.</h2><div><p>Cloud security reviews the exposure. Security operations investigates activity. Platform engineering evaluates the change. Each team needs a different starting point, but all benefit from a common account of the resource, identity, evidence, and owner.</p><p>The Tracegate concept keeps those perspectives connected. Its synthetic environment illustrates how a potential path becomes a reviewable question and how an engineering decision returns to the security context for verification.</p><a class="text-link" href="/platform/" style="margin-top:25px">See the platform<Icon name="arrow-right" size={16}/></a></div></section><CTA/>
+</>}
+{(t==='resources'||t==='blog')&&<><section class="page-hero wrap"><span class="eyebrow">{t==='blog'?'THE TRACEGATE JOURNAL':'FROM THE WORKBENCH'}</span><h1>{page.headline}</h1><p>{page.summary}</p></section><ResourceLibrary blogOnly={t==='blog'}/><section class="intro-block wrap"><h2>Useful context. Primary references.</h2><div><p>These articles and field guides explore how cloud exposures, identity permissions, and resource relationships inform a security review. They separate a potential path from an observed incident and emphasize evidence, ownership, and verification.</p><p>The editorial identity is fictional, and product examples use synthetic data. Foundational concepts link to primary sources. Downloadable Markdown templates provide a practical structure for a discussion; they do not implement changes or replace an organization’s security process.</p><a class="text-link" href={t==='blog'?'/resources/':'/blog/'}>{t==='blog'?'Browse the field guides':'Read the journal'}<Icon name="arrow-up-right" size={16}/></a></div></section><CTA/></>}
+{(t==='article'||t==='guide')&&data&&<>
+<section class="article-hero wrap"><span class="eyebrow">{data.category}</span><h1>{data.title}</h1><p style="font-size:18px;max-width:700px;margin-top:25px">{data.summary}</p>{t==='article'&&<><div class="article-meta"><a href="/about/">{data.author}</a><time datetime={data.date}>October 4, 2026</time><span>{data.minutes} min read</span></div><p class="article-note">{data.authorNote}</p></>}</section>
+<div class="article-cover wrap"><div><h2>{t==='guide'?'A clear structure for your next review.':'Start with the evidence. Keep the context.'}</h2><p>{t==='guide'?'Read the field guide, then download the editable Markdown review template.':'Educational field notes. Synthetic product examples. No invented customer results.'}</p></div><div class="resource-art" aria-hidden="true"><div class="art-gates"><span></span><span></span><span></span><span></span></div><span class="art-line"></span><Icon name={data.slug.includes('identity')||data.slug.includes('privilege')?'fingerprint':'route'} size={45}/></div></div>
+<Prose sections={data.sections} toc>{t==='guide'&&<div class="download-box"><h2>Make the review your own.</h2><p>An editable Markdown template with fields for evidence, ownership, change planning, and verification. No email gate.</p><a class="button" href={`/downloads/${data.slug}.md`} download>Download the template<Icon name="download" size={16}/></a></div>}{data.sources&&<section class="sources"><h2>Primary references</h2><p>Foundational references for access and cloud security concepts. Operational review suggestions in this article are educational, not a substitute for implementation-specific guidance.</p><ul class="source-list">{data.sources.map(source=><li><a href={source.url}>{source.label}<Icon name="external-link" size={15}/></a></li>)}</ul></section>}</Prose><Related slugs={data.related}/><CTA title="Turn the context into a next step."/>
+</>}
+{t==='integrations'&&<><section class="page-hero wrap"><span class="eyebrow">YOUR STACK. CONNECTED.</span><h1>{page.headline}</h1><p>{page.summary}</p></section><IntegrationCatalog/><CTA title="Bring the whole picture together."/></>}
+{t==='integration'&&integration&&<IntegrationDetail integration={integration}/>}
+{t==='pricing'&&<PricingPage/>}
+{t==='about'&&<>
+<section class="page-split wrap"><div class="page-hero"><span class="eyebrow">THE THINKING BEHIND TRACEGATE</span><h1>{page.headline}</h1><p>{page.summary}</p></div><div class="hero-art"><Image src={gate} alt="A precise pair of metallic gates, the visual metaphor behind the Tracegate brand." width={800} format="webp" loading="eager"/></div></section>{page.sections&&<Prose sections={page.sections}/>}<section class="section-tint"><div class="section wrap"><h2>Principles that shape the experience.</h2><div class="value-grid"><article><h3>Make it understandable.</h3><p>Explain the mechanism and the next step. Clarity should survive the handoff between teams.</p></article><article><h3>Keep judgment visible.</h3><p>Preserve evidence and uncertainty. Give the operator a way to challenge the recommendation.</p></article><article><h3>Earn the claim.</h3><p>Separate illustrative product stories from validated results. Trust starts with an accurate account.</p></article></div></div></section><Related slugs={['brand','platform','trust']}/><CTA/>
+</>}
+{t==='contact'&&<ContactPage/>}
+{t==='trust'&&<>
+<section class="page-hero wrap"><span class="eyebrow">DEMO TRANSPARENCY</span><h1>{page.headline}</h1><p>{page.summary}</p></section><section class="wrap" style="padding-bottom:70px"><div class="trust-grid">{page.sections?.map(([h,p],i)=><article class="trust-item reveal"><Icon name={['database','shield-check','lock','book','code'][i]} size={28}/><h2>{h}</h2><p>{p}</p></article>)}</div></section><Related slugs={['privacy','terms','about']}/>
+</>}
+{t==='brand'&&<BrandPage/>}
+{t==='legal'&&<><section class="page-hero wrap"><span class="meta">Updated October 4, 2026</span><h1>{page.headline}</h1><p>{page.summary}</p></section>{page.sections&&<Prose sections={page.sections}/>}<Related slugs={['trust','about']}/></>}
+</Layout>

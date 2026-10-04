@@ -1,0 +1,176 @@
+[
+  {
+    "slug": "attack-paths",
+    "title": "Attack path analysis",
+    "headline": "Find the risk between the findings.",
+    "summary": "Connect cloud exposures and identity permissions to see how an attacker could reach your critical assets.",
+    "icon": "route",
+    "outcome": "A clear path from exposure to action.",
+    "steps": [
+      "Map your environment",
+      "Follow reachable paths",
+      "Choose the right fix"
+    ],
+    "sections": [
+      [
+        "What is attack path analysis?",
+        "Attack path analysis connects individual security findings into a sequence that could lead to a sensitive resource. An exposed workload may be tolerable in isolation. The same workload becomes more concerning when it can assume a powerful role, access a credential, and reach a production database. The sequence changes the decision. Tracegate is designed to put those relationships in one view, alongside the assumptions behind each connection. A path is a hypothesis to investigate, rather than a declaration that a compromise has occurred. Analysts can inspect its supporting evidence, confirm which steps are feasible, and decide where to interrupt it."
+      ],
+      [
+        "See the connections your backlog misses",
+        "Cloud scanners are useful at identifying configuration problems, but a flat list can obscure how those problems interact. A broad permission, an internet-facing service, and a sensitive bucket may belong to different teams and arrive in different queues. Tracegate brings these signals into a connected model. Each relationship records its source, observation time, and relevant scope so an analyst can distinguish verified permissions from inferred reachability. Resource ownership adds practical context. The goal is to make a risk intelligible to the team that can change it, without asking them to reconstruct the entire environment from screenshots."
+      ],
+      [
+        "Prioritize by what a path can reach",
+        "The platform concept ranks paths using exposure, permissions, target sensitivity, and evidence freshness. That ranking is a starting point for review, not an absolute measure of risk. Teams can add their own business context, exclude a documented test environment, or elevate an asset that supports a critical service. A transparent explanation accompanies each path. Instead of accepting an opaque score, an operator can see why the path appeared and which assumptions need confirmation. This lets cloud teams focus on reachable production risk while retaining a separate queue for baseline configuration work."
+      ],
+      [
+        "Interrupt the path with a smaller change",
+        "Remediation does not always mean rebuilding a workload or removing every permission. A narrower role trust policy, a restricted network route, or a removed credential may interrupt the same path with less operational disruption. Tracegate is designed to show candidate intervention points and the relationships they affect. Changes remain subject to the organization\u2019s own review and deployment controls. After a change, the team can re-evaluate the path against refreshed observations. This creates a useful record of what changed, who approved it, and whether the original sequence is still supported by evidence."
+      ],
+      [
+        "Bring the evidence into the handoff",
+        "A ticket needs more than a risk label. The intended workflow packages the affected resource, principal, permission, relationship evidence, and recommended review into one handoff. An owner can understand the concern without needing a security analyst in every meeting. Evidence is timestamped, and the ticket explains what would invalidate the finding. That matters in fast-moving cloud environments where yesterday\u2019s permissions may no longer exist. The fictional integration catalog illustrates how the same evidence can travel to a ticket queue or a team channel without granting the marketing demo access to any external system."
+      ],
+      [
+        "What should an evaluation prove?",
+        "An attack path evaluation should use representative resources and an agreed set of relationships. Ask the platform to show the policies, conditions, and collection times behind each edge. Confirm that the model distinguishes observed configuration from inference. Change a trust condition and inspect whether the path updates as expected. Check the request an engineering owner would receive and whether it explains the proposed intervention clearly. Evaluate missing coverage as carefully as detected paths. A result that looks simple may conceal a service-specific authorization condition. Tracegate\u2019s website illustrates the intended experience, but the demo contains no real policy evaluator or production collection pipeline. Its paths are synthetic examples, not independently validated detection results."
+      ]
+    ],
+    "faq": [
+      [
+        "Does an attack path mean a breach happened?",
+        "No. A path represents a potentially feasible sequence based on observed permissions and exposure. Confirm assumptions and investigate activity before calling it an incident."
+      ],
+      [
+        "Can teams choose how to remediate?",
+        "Yes. The concept presents intervention points with context. Operators choose changes through their existing approval and deployment process."
+      ],
+      [
+        "What data appears in this demo?",
+        "The diagrams use synthetic principals, resources, and relationships. No live customer infrastructure is connected."
+      ]
+    ],
+    "related": [
+      "products/identity-security",
+      "products/cloud-posture",
+      "blog/attack-path-analysis"
+    ]
+  },
+  {
+    "slug": "identity-security",
+    "title": "Identity security",
+    "headline": "Know what every identity can reach.",
+    "summary": "Bring human and machine identities into focus, with permission context that points to a practical next step.",
+    "icon": "fingerprint",
+    "outcome": "Less standing access. More understanding.",
+    "steps": [
+      "Inventory principals",
+      "Explain effective access",
+      "Review the right permissions"
+    ],
+    "sections": [
+      [
+        "What is cloud identity security?",
+        "Cloud identity security is the practice of understanding and controlling how people, services, and workloads authenticate and access cloud resources. Effective access can depend on direct policies, inherited roles, trust relationships, and temporary credentials. A role name alone rarely tells the whole story. Tracegate is a fictional platform concept that connects these layers to the resources they affect. The intended result is a reviewable picture of access, with a distinction between permission that exists and activity that has actually been observed. Teams can use that picture to plan narrower policies without assuming that a lack of recent use proves access is unnecessary."
+      ],
+      [
+        "Include the identities without a person attached",
+        "Service accounts, deployment roles, automation tokens, and workload identities often outlive the task that created them. They can also hold access across several environments. Tracegate\u2019s concept inventory associates each principal with a workload, an owner, and the scope of its permissions when those signals are available. Missing ownership remains visible instead of being silently guessed. A review queue can group machine identities by the application they support. That gives engineering teams a manageable starting point for discussing credentials and access, rather than presenting an undifferentiated inventory of thousands of names."
+      ],
+      [
+        "Explain effective access in plain terms",
+        "An access review should answer a specific question: can this principal perform this action on this resource under these conditions? Tracegate is designed to expose the policies and trust relationships behind that answer. A reviewer can inspect the scope of a wildcard, the condition on a role assumption, or the boundary applied to a workload. Observed usage appears as supporting context, with its collection window and limitations. Explicit explanation makes it easier to separate a risky permission from an intentional operational requirement, particularly when several teams maintain different parts of the access model."
+      ],
+      [
+        "Make least privilege an engineering decision",
+        "Removing access without understanding its consumers can break a deployment or an on-call runbook. The intended workflow starts with a candidate permission change, a named owner, and a discussion of operational dependencies. Teams can stage a narrower policy, test it through their normal process, and define a rollback before deploying. Tracegate does not promise that every recommendation is automatically safe. It is designed to make the review more specific. A smaller scope, a shorter-lived credential, or a more restrictive trust relationship can each be evaluated against the application\u2019s actual needs."
+      ],
+      [
+        "Connect access reviews to cloud risk",
+        "Identity permissions are most useful when interpreted alongside the resources they expose. A broad read permission in a disposable sandbox has different implications from the same permission on a production secrets store. Tracegate connects identity findings to attack paths and cloud posture so security teams can explain the consequence of access. Review records capture the context and the decision, including exceptions that need another look later. This is intended to support a continuing operating practice, with refreshed evidence and accountable ownership, rather than a one-time exercise that becomes stale as soon as the next deployment lands."
+      ],
+      [
+        "What should an identity evaluation prove?",
+        "An identity evaluation should examine human and machine principals with different credential and authorization patterns. Include an ordinary workload, a deployment identity, and a rarely used recovery workflow. Ask whether the inventory records purpose and ownership without silently guessing unknown values. Check how the model explains effective access to a particular resource and whether policy conditions remain visible. Inspect the observation window associated with usage context. A useful review should still be possible when activity is incomplete. The intended Tracegate experience keeps those limits visible, but this portfolio does not include a provider authorization engine, real credential inventory, or implemented permission-change service. All access examples are deliberately synthetic."
+      ]
+    ],
+    "faq": [
+      [
+        "Does unused access always mean unnecessary access?",
+        "No. Usage windows can miss seasonal jobs, recovery workflows, or rarely used operational tasks. Owners should review dependency and rollback context."
+      ],
+      [
+        "Are machine identities included?",
+        "Yes. The platform concept includes service accounts, workload identities, deployment roles, and automation credentials."
+      ],
+      [
+        "Does the demo change permissions?",
+        "No. All permissions shown are synthetic and the website does not connect to a cloud account."
+      ]
+    ],
+    "related": [
+      "products/attack-paths",
+      "solutions/platform-engineering",
+      "blog/machine-identity-security"
+    ]
+  },
+  {
+    "slug": "cloud-posture",
+    "title": "Cloud security posture",
+    "headline": "Make your cloud backlog make sense.",
+    "summary": "Move from scattered configuration findings to a focused view of exposure, ownership, and remediation.",
+    "icon": "cloud",
+    "outcome": "Context for every configuration decision.",
+    "steps": [
+      "Collect configuration",
+      "Add business context",
+      "Track the resolution"
+    ],
+    "sections": [
+      [
+        "What is cloud security posture management?",
+        "Cloud security posture management, often shortened to CSPM, is the practice of assessing cloud configuration against security policies and operational expectations. It can help teams identify publicly accessible resources, broad network rules, missing logging, and other configuration concerns. A posture finding is not proof of exploitation. Its significance depends on the resource, its use, and the surrounding environment. Tracegate is a fictional CSPM concept that combines these findings with identity permissions, attack paths, and ownership. It is intended to help teams answer what deserves attention now, what requires more investigation, and which team can make the change."
+      ],
+      [
+        "Start with configuration you can explain",
+        "A check is only useful if an engineer can understand its inputs. The intended Tracegate workflow preserves the configuration evidence behind each finding and records when that evidence was collected. A rule has a plain-language explanation, the affected property, and a reason it matters. Teams can distinguish an observed configuration problem from an unsupported assumption. Collection gaps are surfaced alongside the inventory so an apparently clean account does not imply complete coverage. This approach keeps the conversation focused on verifiable changes rather than a score that hides missing context."
+      ],
+      [
+        "Put an owner beside the finding",
+        "Security backlogs often grow because a finding has no obvious destination. Tracegate\u2019s concept associates resources with ownership signals such as account boundaries, application tags, and explicit team mappings. Conflicting signals remain a review task. A team can group related findings around an application, review the proposed ownership, and route a coherent change request. The ownership model is designed to be edited as organizations change. A ticket going to the wrong team should become an opportunity to improve the mapping, instead of an endless reassignment loop that obscures the original concern."
+      ],
+      [
+        "Separate urgent exposure from baseline work",
+        "Some posture findings participate in a feasible path to a critical asset. Others represent worthwhile hardening without the same immediate consequence. Tracegate is designed to show that distinction clearly. The baseline queue remains available, but connected risk can rise above it with an explanation of reachability and resource sensitivity. Organizations can define their own policies and exception process. An exception records its scope, reviewer, rationale, and review date. This provides a more durable decision record than permanently dismissing a finding simply because it is inconvenient during a release."
+      ],
+      [
+        "Close the loop after a change",
+        "A merged configuration change and a resolved security finding are related, but they are not the same event. The intended workflow checks refreshed configuration after deployment and re-evaluates affected paths. If a resource remains exposed, the finding stays open with the latest evidence. If the concern is resolved, the record preserves the observed change and the decision context. This gives operators a clearer view of progress without relying on a marketing dashboard to infer business outcomes. All configuration examples on this site use synthetic resources and demonstrate the intended experience rather than a live production service."
+      ],
+      [
+        "What should a posture evaluation prove?",
+        "A posture evaluation should use representative resource types and policy expectations rather than rely on a list of supported services. Inspect the configuration evidence behind a finding and confirm its collection time. Introduce a documented exception and verify that its scope, reviewer, and review date remain visible. Check how ownership is assigned when tags or account boundaries conflict. After a controlled change, confirm that the platform distinguishes deployed remediation from a missing source. The Tracegate concept illustrates this loop, but no live scanner, resource inventory, or rule engine operates on the marketing website. Its configuration examples demonstrate the intended information architecture rather than validated production coverage."
+      ]
+    ],
+    "faq": [
+      [
+        "Is a CSPM finding an active incident?",
+        "Not necessarily. CSPM evaluates configuration. Investigation of activity and impact is needed to determine whether an incident occurred."
+      ],
+      [
+        "Can posture policies be tailored?",
+        "The platform concept supports organization-specific policy context, ownership mappings, and reviewable exceptions."
+      ],
+      [
+        "Which cloud providers are represented?",
+        "The demo catalog includes proposed AWS, Azure, and Google Cloud connections. No production connectors are implemented here."
+      ]
+    ],
+    "related": [
+      "products/attack-paths",
+      "solutions/cloud-security",
+      "blog/cspm-vs-attack-paths"
+    ]
+  }
+]

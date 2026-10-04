@@ -1,0 +1,81 @@
+{
+  "name": "Tracegate",
+  "tagline": "See the path. Stop the breach.",
+  "category": "Cloud and identity security",
+  "description": "Tracegate is a fictional cloud and identity security platform that connects exposures, permissions, and attack paths so security teams can prioritize the risks that matter.",
+  "audience": "Cloud security, identity, and security operations teams at growing SaaS organizations.",
+  "promise": "Turn connected risk into a clear next step.",
+  "personality": [
+    "Clear, never simplistic",
+    "Calm, never complacent",
+    "Technical, never opaque",
+    "Decisive, never alarmist"
+  ],
+  "colors": [
+    {
+      "name": "Ink",
+      "hex": "#171B20",
+      "role": "Primary text and structural contrast"
+    },
+    {
+      "name": "Signal",
+      "hex": "#F2693A",
+      "role": "Actions, paths, and points of emphasis"
+    },
+    {
+      "name": "Cloud",
+      "hex": "#F6F7F8",
+      "role": "Primary surface and negative space"
+    },
+    {
+      "name": "Silver",
+      "hex": "#DDE1E5",
+      "role": "Borders and supporting diagrams"
+    },
+    {
+      "name": "Campaign peach",
+      "hex": "#F8E8DC",
+      "role": "Warm campaign surface and connected-system artwork"
+    }
+  ],
+  "voice": [
+    {
+      "principle": "Start with the outcome",
+      "do": "Find the permissions that put production data at risk.",
+      "avoid": "Unlock next-generation AI-powered security synergy."
+    },
+    {
+      "principle": "Explain the mechanism",
+      "do": "Connect identity permissions to exposed cloud resources.",
+      "avoid": "Our platform sees everything, everywhere."
+    },
+    {
+      "principle": "Respect the operator",
+      "do": "Review the path. Choose the smallest safe change.",
+      "avoid": "Sleep soundly. We handle everything."
+    },
+    {
+      "principle": "Earn every claim",
+      "do": "A sample environment shows how prioritization works.",
+      "avoid": "Trusted by thousands. Guaranteed to stop every breach."
+    }
+  ],
+  "messaging": [
+    {
+      "pillar": "Connected context",
+      "message": "Your cloud and identity risks belong in the same conversation.",
+      "proof": "Show the relationship between a principal, its permissions, and the resource it can reach."
+    },
+    {
+      "pillar": "Focused action",
+      "message": "Fix the path that matters first.",
+      "proof": "Use reachability, business context, and permission scope to explain prioritization."
+    },
+    {
+      "pillar": "Human control",
+      "message": "Automate the handoff. Keep the decision.",
+      "proof": "Route evidence to an owner and make proposed changes reviewable."
+    }
+  ],
+  "disclosure": "Tracegate is a fictional company created as a design and development portfolio project. Product behavior, organizations, people, and environments shown here are illustrative."
+}

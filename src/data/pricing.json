@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Foundation",
+    "label": "FOR A FOCUSED START",
+    "description": "Bring posture and identity context into your first connected cloud review.",
+    "price": "$490",
+    "unit": "/ month",
+    "caption": "Illustrative monthly price, billed annually",
+    "features": [
+      "One cloud environment",
+      "Cloud posture review",
+      "Identity inventory",
+      "Evidence and ownership context"
+    ],
+    "featured": false
+  },
+  {
+    "name": "Connected",
+    "label": "THE COMPLETE PICTURE",
+    "description": "Connect the relationships across accounts, identities, and engineering teams.",
+    "price": "$990",
+    "unit": "/ month",
+    "caption": "Illustrative monthly price, billed annually",
+    "features": [
+      "Multiple cloud environments",
+      "Attack path exploration",
+      "Machine identity review",
+      "Workflow integration concepts"
+    ],
+    "featured": true
+  },
+  {
+    "name": "Enterprise",
+    "label": "FOR COORDINATED TEAMS",
+    "description": "Shape a shared operating model around complex environments and ownership.",
+    "price": "Let\u2019s talk",
+    "unit": "",
+    "caption": "Illustrative scope-based plan",
+    "features": [
+      "Organization-wide view",
+      "Custom policy context",
+      "Advanced ownership mappings",
+      "Coordinated review design"
+    ],
+    "featured": false
+  }
+]

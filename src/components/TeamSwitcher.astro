@@ -1,0 +1,7 @@
+---
+import Icon from './Icon.astro';
+import experience from '../data/experience.json';
+interface Props {id?:string;}
+const {id='teams'}=Astro.props;
+---
+<section class="teams-section section wrap" data-tabs><div class="section-header reveal"><h2>One shared picture.<br/>Every team’s next step.</h2><p>Choose your team. See where connected context changes the work.</p></div><div class="team-tablist reveal" role="tablist" aria-label="Security team workflows">{experience.teams.map((team,i)=><button class:list={[{active:i===0}]} role="tab" id={`${id}-tab-${i}`} aria-controls={`${id}-panel-${i}`} aria-selected={i===0?'true':'false'} tabindex={i===0?0:-1} data-tab={i}>{team.label}<Icon name="arrow-up-right" size={16}/></button>)}</div>{experience.teams.map((team,i)=><div class="team-panel" role="tabpanel" id={`${id}-panel-${i}`} aria-labelledby={`${id}-tab-${i}`} data-panel={i} hidden={i!==0}><div class="team-panel-copy"><h3>{team.title}</h3><p>{team.summary}</p><a class="button secondary" href={`/solutions/${team.slug}/`}>Explore your workflow<Icon name="arrow-up-right" size={17}/></a></div><div class="team-workbench"><div class="workbench-head"><Icon name={['route','radar','git-pull-request'][i]} size={22}/><strong>{team.focus}</strong><span class="meta">SAMPLE</span></div>{team.rows.map(([label,value],j)=><div class="workbench-row"><span class="workbench-index">0{j+1}</span><div><strong>{label}</strong><span>{value}</span></div><Icon name="arrow-up-right" size={15}/></div>)}</div></div>)}</section>
