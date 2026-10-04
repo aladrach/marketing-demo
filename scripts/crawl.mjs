@@ -1,0 +1,8 @@
+import {parseHTML} from 'linkedom';
+import fs from 'node:fs';
+const base=process.env.AUDIT_URL||'http://localhost:4322';const origin=new URL(base).origin;
+const robots=await fetch(origin+'/robots.txt');const robotsText=await robots.text();
+if(/Disallow:\s*\/\s*$/m.test(robotsText))throw new Error('Root crawl disallowed');
+const pending=[{url:origin+'/',depth:0}],seen=new Set([origin+'/']),pages=[];
+while(pending.length&&pages.length<500){const batch=pending.splice(0,5);const fetched=await Promise.all(batch.map(async job=>{const response=await fetch(job.url);const {document}=parseHTML(await response.text());return {...job,response,document};}));for(const {url,depth,response,document} of fetched){pages.push({url,depth,status:response.status,canonical:document.querySelector('link[rel="canonical"]')?.getAttribute('href'),title:document.querySelector('title')?.textContent,h1:document.querySelectorAll('main h1').length});for(const a of document.querySelectorAll('a[href]')){const u=new URL(a.getAttribute('href'),url);u.hash='';if(u.origin!==origin||u.search||!u.pathname.endsWith('/')||u.pathname.includes('.'))continue;if(!seen.has(u.href)){seen.add(u.href);pending.push({url:u.href,depth:depth+1});}}}if(pending.length)await new Promise(resolve=>setTimeout(resolve,1000));}
+const report={origin,robotsStatus:robots.status,pages:pages.length,maxDepth:Math.max(...pages.map(p=>p.depth)),failures:pages.filter(p=>p.status!==200||p.h1!==1||!p.canonical?.startsWith(origin+'/')),results:pages};fs.mkdirSync('artifacts',{recursive:true});fs.writeFileSync('artifacts/crawl-verification.json',JSON.stringify(report,null,2));console.log(JSON.stringify({...report,results:undefined},null,2));if(report.failures.length)process.exit(1);
