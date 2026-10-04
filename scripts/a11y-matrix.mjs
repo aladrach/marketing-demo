@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const base=process.env.TEST_URL||'http://localhost:4322';
 const routes=['/',...JSON.parse(fs.readFileSync('src/data/pages.json')).map(p=>'/'+p.slug+'/')];
-const mobile=['/','/platform/','/products/attack-paths/','/blog/attack-path-analysis/','/resources/','/integrations/','/integrations/aws/','/pricing/','/contact/','/brand/','/resources/platform-data-sheet/'];
+const mobile=['/','/platform/','/products/attack-paths/','/products/identity-security/','/products/cloud-posture/','/blog/attack-path-analysis/','/resources/','/integrations/','/integrations/aws/','/pricing/','/contact/','/brand/','/resources/platform-data-sheet/'];
 const jobs=[...routes.map(route=>({route,theme:'dark',width:1440})),...mobile.flatMap(route=>['light','dark'].map(theme=>({route,theme,width:390})))];
 const browser=await chromium.launch(),results=[];
 // Reduced motion provides stable contrast measurements; normal motion and controls are covered by e2e.

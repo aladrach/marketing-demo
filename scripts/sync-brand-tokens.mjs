@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const brand=JSON.parse(fs.readFileSync('src/data/brand.json','utf8'));
+const declarations=body=>Object.fromEntries([...body.matchAll(/(--[\w-]+)\s*:\s*([^;{}]+)/g)].map(([,key,value])=>[key,value.trim()]));
+const global=fs.readFileSync('src/styles/global.css','utf8');
+const base=global.match(/:root\{([^}]+)\}/)?.[1];
+const dark=global.match(/:root\[data-theme=dark\]\{([^}]+)\}/)?.[1];
+if(!base||!dark)throw new Error('Theme declarations not found');
+brand.typography={display:{family:'IBM Plex Sans Condensed',weight:600,tracking:'-0.03em'},body:{family:'IBM Plex Sans',weight:400,lineHeight:1.65},technical:{family:'IBM Plex Mono',weight:400}};
+brand.designTokens={base:{...declarations(base),...declarations(fs.readFileSync('src/styles/tokens.css','utf8'))},dark:declarations(dark),source:['src/styles/global.css','src/styles/tokens.css']};
+fs.writeFileSync('public/brand/brand-kit.json',JSON.stringify(brand,null,2)+'\n');

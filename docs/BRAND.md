@@ -20,7 +20,7 @@ Clear, calm, technical, decisive. Start with the outcome, explain the mechanism,
 
 The gate mark combines a deliberate boundary and diagonal crossing. It avoids the familiar shield/padlock shorthand. Signal orange identifies relationships and actions. Ink provides structure. Cloud and silver establish calm backgrounds and subtle outlines. Warm peach supports campaign artwork. Small orange text uses a darker accessible variant; dark mode uses a brighter text variant. Dark surfaces use neutral charcoal, achromatic grays, and off-white text. Orange remains the brand accent; backgrounds avoid both blue and brown casts.
 
-Geist Variable is the primary typeface, with tight display spacing and readable body leading. Geist Mono labels technical evidence and metadata. Both are self-hosted. Editorial spacing, a strong campaign hero, asymmetric panels, and carefully authored product diagrams give the brand a recognizable rhythm.
+IBM Plex Sans Variable is the primary body typeface. IBM Plex Sans Condensed 600 provides display headings, and IBM Plex Mono 400 labels short technical evidence. All three are self-hosted. Editorial spacing, a strong campaign hero, asymmetric panels, and carefully authored product diagrams give the brand a recognizable rhythm.
 
 Motion explains state: graph selections, workflow transitions, menu disclosures, and restrained viewport reveals. It uses native CSS and IntersectionObserver, respects reduced motion, and does not pin or hijack scrolling.
 
@@ -29,3 +29,7 @@ Reference websites reviewed: Wiz, Vanta, Chainguard, Socket, Cyberhaven, and Sen
 ## Assets
 
 The public brand page provides mark, wordmark, and brand-kit JSON downloads. The identity board is an art-directed generated concept. The implemented SVG mark is the authoritative logo geometry. `src/data/brand.json` is the source of truth for palette, voice, pillars, and disclosure; synchronize `public/brand/brand-kit.json` when editing it.
+
+## Implementation rules
+
+Root [DESIGN.md](../DESIGN.md) records shared typography, spacing, control states, responsive composition, and component conventions. [PRODUCT.md](../PRODUCT.md) captures the fictional product and audience constraints. Theme colors and font families live in `src/styles/global.css`; shared scales and interaction tokens live in `src/styles/tokens.css`. Run `node scripts/sync-brand-tokens.mjs` after changing these files or `src/data/brand.json` to regenerate the downloadable brand kit. The identity concept board is illustrative; the CSS tokens and vector mark govern implementation.

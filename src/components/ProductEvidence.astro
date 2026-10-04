@@ -1,0 +1,20 @@
+---
+import '../styles/components/ProductEvidence.css';
+import Icon from './Icon.astro';
+interface Props {slug:string; compact?:boolean}
+const {slug,compact=false}=Astro.props;
+const identity=slug==='identity-security';
+const rows=identity ? [
+ {name:'deployment-role',kind:'Machine identity',owner:'Platform engineering',detail:'Read access to production/secrets/*',question:'Does deployment need this entire resource scope?',next:'Confirm workload purpose and test a narrower grant.'},
+ {name:'service-account',kind:'Machine identity',owner:'Identity team',detail:'Inherited access to customer data',question:'Which policy supplies the effective grant?',next:'Review inherited permissions with the application owner.'},
+ {name:'release-pipeline',kind:'Automation identity',owner:'Developer platform',detail:'Assume-role access to production',question:'Which deployment contexts should be allowed?',next:'Validate release and recovery dependencies before changing trust.'}
+] : [
+ {name:'Public workload',kind:'Network exposure',owner:'Platform engineering',detail:'Internet-facing service in the sample environment',question:'Is this reachability intentional for the application?',next:'Confirm ingress requirements and record the expected boundary.'},
+ {name:'Production secrets',kind:'Sensitive resource',owner:'Platform engineering',detail:'Broad resource scope requires review',question:'Which workloads need access to this resource?',next:'Review the policy scope alongside the resource owner.'},
+ {name:'Production config',kind:'Deployment configuration',owner:'Developer platform',detail:'Deployment trust reaches a production resource',question:'What changed, and how will the expected state be verified?',next:'Test the approved configuration and refresh the observation after rollout.'}
+];
+---
+<div class:list={['product-evidence',{compact}]}>
+ <div class="product-evidence-heading"><Icon name={identity?'fingerprint':'cloud'} size={25}/><strong>{identity?'Identity access review':'Configuration review queue'}</strong><span class="review-label">Synthetic example</span></div>
+ {compact ? <div class="product-evidence-summary"><h2>{identity?'Every identity has a purpose.':'Every finding needs context.'}</h2><p>{identity?'Principal → Effective grant → Accountable owner':'Configuration → Application owner → Verification'}</p><dl><dt>{identity?'Principal':'Resource'}</dt><dd>{rows[0].name}</dd><dt>Owner</dt><dd>{rows[0].owner}</dd><dt>{identity?'Effective access':'Review question'}</dt><dd>{identity?rows[0].detail:rows[0].question}</dd></dl></div> : <div class="product-evidence-list">{rows.map((row,index)=><details open={index===0}><summary><span><strong>{row.name}</strong><span>{row.kind}</span></span><span class="product-evidence-owner">{row.owner}</span><Icon name="chevron-down" size={18}/></summary><div class="product-evidence-body"><p>{row.detail}</p><h3>{row.question}</h3><p>{row.next}</p><p class="product-evidence-boundary">Illustrative review only. No live configuration or permissions are changed.</p></div></details>)}</div>}
+</div>

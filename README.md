@@ -28,12 +28,13 @@ Browser testing needs Playwright Chromium (`npx playwright install chromium`). S
 
 34 content pages plus a custom 404: homepage, platform, product hub and three product pages, solution hub and three team pages, resource library, journal and three long-form articles, two downloadable field guides, a demo-gated platform data sheet with a PDF download, a searchable integration catalog and eight dedicated integration pages, pricing, company, contact, trust, brand system, privacy, and terms.
 
-The homepage has an original vector product hero that cycles through Map, Trace, and Review with inspectable nodes and pause controls, a context-building evidence simulator, an interactive security graph with three scenarios, inspectable nodes, a four-step guided tour, and a proposed-scope comparison, a keyboard-accessible Discover / Understand / Intervene workflow, a team switcher, asymmetric capability cards, original editorial diagrams, and native FAQs. Megamenus include featured reading and categorized links. Tables of contents appear only on articles and field guides. Light/dark themes, responsive layouts, and reduced-motion support are included.
+The homepage has an original vector product hero that cycles through Map, Trace, and Review with inspectable nodes and pause controls, an interactive security graph with three scenarios, inspectable nodes, a four-step guided tour, and a proposed-scope comparison, a team switcher, asymmetric capability cards, original editorial diagrams, and native FAQs. Megamenus include featured reading and categorized links. Tables of contents appear only on articles and field guides. Light/dark themes, responsive layouts, and reduced-motion support are included.
 
-All content is rendered to static HTML. One small TypeScript script enhances navigation, tabs, graph interaction, resource filtering, theme selection, and local form preview. There are no hydrated framework components, third-party trackers, or animation libraries. Content remains accessible without JavaScript; tab panels expand into readable sections.
+All content is rendered to static HTML. One small TypeScript script enhances navigation, tabs, graph interaction, resource filtering, theme selection, and local request preview. The Discover / Understand / Intervene workflow lives on team solution pages; product pages distinguish path inspection, identity review, and configuration review. There are no hydrated framework components, third-party trackers, or animation libraries. Content remains accessible without JavaScript; tab panels expand into readable sections.
 
 ## Content and brand
 
+- [Design system](DESIGN.md) and [product context](PRODUCT.md)
 - [Brand strategy](docs/BRAND.md)
 - [JSON CMS and implementation](docs/CONTENT.md)
 - [SEO, AIO, and GEO strategy](docs/SEARCH.md)

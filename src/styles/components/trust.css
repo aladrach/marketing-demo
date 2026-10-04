@@ -1,4 +1,4 @@
 /* trust: component-owned styles; media and state rules retain their cascade order. */
-.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.trust-item{border:1px solid var(--line);border-radius:var(--radius);padding:34px;background:var(--surface)}.trust-item h2{font-size:28px;margin:20px 0}.trust-item p{font-size:14px}.trust-item .icon{color:var(--accent-ink)}
-@media(max-width:850px){.trust-grid{gap:20px}}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.trust-item{border:1px solid var(--line);border-radius:var(--radius);padding:34px;background:var(--surface)}.trust-item h2{font-size:28px;margin:20px 0}.trust-item p{font-size:var(--text-sm)}.trust-item .icon{color:var(--accent-ink)}
+@media(max-width:850px){.trust-grid{gap:var(--space-5)}}
 @media(max-width:640px){.trust-grid{grid-template-columns:1fr}.trust-item{padding:28px}}

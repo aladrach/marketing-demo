@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T00:00:00-04:00",
+  "title": "Tracegate design system",
+  "extensions": {
+    "shadows": [{"name":"surface","value":"var(--shadow)","purpose":"Restrained elevation for menus and product surfaces"}],
+    "motion": [{"name":"state","value":"var(--duration-fast) var(--ease-out)","purpose":"Brief feedback for state changes; reduced motion uses the final state"}],
+    "breakpoints": [{"name":"wide","value":"1100px"},{"name":"navigation","value":"850px"},{"name":"content","value":"800px"},{"name":"small","value":"640px"},{"name":"preview","value":"600px"}]
+  },
+  "components": [],
+  "narrative": {"overview":"Calm technical editorial identity grounded in inspectable synthetic evidence.","keyCharacteristics":["Plex typography","Neutral surfaces","Orange relationships","Human review"],"rules":[],"dos":["Preserve readable functional text and keyboard focus","Use shared semantic tokens"],"donts":["Invent operational proof","Shrink the desktop diagram to fit mobile"]}
+}
