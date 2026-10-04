@@ -237,7 +237,7 @@
   {
     "slug": "solutions/platform-engineering",
     "template": "solution",
-    "title": "platform engineering | Tracegate",
+    "title": "Platform Engineering Solutions | Tracegate",
     "description": "Give engineers specific changes, useful evidence, and a shared definition of resolved. Explore the fictional workflow and review its evidence.",
     "headline": "Security work that respects your roadmap.",
     "summary": "Give engineers specific changes, useful evidence, and a shared definition of resolved.",
@@ -246,7 +246,7 @@
   {
     "slug": "blog/attack-path-analysis",
     "template": "article",
-    "title": "Why the space between findings matters | Tracegate",
+    "title": "Attack Path Analysis: Connected Findings | Tracegate",
     "description": "An attack path connects exposure, access, and impact. Here is how to review one without mistaking possibility for proof. Read the field notes.",
     "headline": "Why the space between findings matters",
     "summary": "An attack path connects exposure, access, and impact. Here is how to review one without mistaking possibility for proof.",

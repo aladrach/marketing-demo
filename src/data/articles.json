@@ -1,8 +1,8 @@
 [
   {
     "slug": "attack-path-analysis",
-    "title": "Why the space between findings matters",
-    "headline": "Why the space between findings matters",
+    "title": "Attack path analysis: connected findings",
+    "headline": "Attack path analysis: why connected findings matter",
     "summary": "An attack path connects exposure, access, and impact. Here is how to review one without mistaking possibility for proof.",
     "category": "Cloud security",
     "date": "2026-10-04",
