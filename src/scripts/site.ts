@@ -30,8 +30,10 @@ document.querySelectorAll<HTMLElement>('[data-reading-nav]').forEach(nav=>{
  const updateProgress=()=>{
   const active=links.find(link=>link.classList.contains('active'));
   if(active&&track&&track.clientHeight>0){
-   const dotCenter=active.offsetTop+active.offsetHeight/2;
-   nav.style.setProperty('--reading-progress',String(dotCenter/track.clientHeight));
+   const trackRect=track.getBoundingClientRect();
+   const activeRect=active.getBoundingClientRect();
+   const dotCenter=activeRect.top-trackRect.top+activeRect.height/2;
+   nav.style.setProperty('--reading-progress',String(dotCenter/trackRect.height));
   }
  };
  const activate=(id:string)=>{
