@@ -1,5 +1,155 @@
 [
   {
+    "slug": "deployment-trust-review",
+    "title": "Short-lived tokens still need scoped trust",
+    "category": "Identity",
+    "summary": "Review who can request deployment credentials, what those credentials can reach, and which evidence belongs in the handoff.",
+    "sources": [
+      {
+        "label": "GitHub Docs: OpenID Connect",
+        "url": "https://docs.github.com/en/actions/concepts/security/openid-connect"
+      }
+    ],
+    "coverAlt": "A deployment workflow passes a scoped trust gate before receiving a temporary credential for a production resource.",
+    "sections": [
+      [
+        "A shorter lifetime answers one question",
+        "Replacing a stored cloud secret with a temporary credential changes how a deployment authenticates. It does not answer every question about the access that follows. A useful review asks who can request the credential, what the resulting identity can do, and who controls the workflow that makes the request. Treat the migration as an opportunity to document those boundaries. The goal is a release process whose access can be explained by both its engineering owner and its security reviewer."
+      ],
+      [
+        "Separate trust from permission",
+        "GitHub Actions can use OpenID Connect to present a workflow identity to a cloud provider and obtain short-lived cloud credentials. The provider checks token claims against its configured trust conditions. That trust decision and the permissions of the resulting cloud role are separate review subjects. A narrowly trusted workflow can still receive a role with unnecessary access. Conversely, a modest role can be available to more workflows than intended. GitHub’s primary documentation below explains the exchange; the review structure here is an editorial suggestion."
+      ],
+      [
+        "Draw the release boundary",
+        "Start with one application and one deployment environment. Write down the repository, the workflow, the people or automation that can change it, the intended cloud role, and the destination. Then ask the owner to explain why each relationship exists. Avoid treating a familiar repository name as sufficient evidence. The review should identify the actual conditions in the provider’s trust configuration and the workflow configuration that will supply the matching identity. Keep sensitive token values out of the review record; the configuration and relevant claim requirements are what reviewers need."
+      ],
+      [
+        "Walk through a synthetic example",
+        "Imagine a fictional billing service whose production release job needs to update one application. Its temporary credential is issued for a role also used by an older maintenance job. The team has successfully removed a stored secret, but the shared role makes the intended scope harder to explain. A useful proposal is to evaluate a dedicated release role with only the required deployment access. That is a proposal for owner review, not an assumption that separating roles will be safe in every architecture. The maintenance workflow needs its own dependency check."
+      ],
+      [
+        "Test the boundary as well as the release",
+        "Agree on expected outcomes before changing trust. The approved release should still work. A representative request outside the intended boundary should not receive the same access. Use a controlled environment and the provider’s supported verification methods; do not experiment against production resources merely to prove a point. Include rollback and recovery paths in the review. A routine deployment is only one way a team may need to restore service, and a trust change should have an accountable owner when an unexpected dependency appears."
+      ],
+      [
+        "Leave a record the next owner can use",
+        "The handoff should include the reviewed configuration version, the intended workflow identity, the role’s purpose, the test results, and the reviewer. Record any untested case explicitly. Set a reason to revisit the decision when repository ownership, deployment environments, or recovery procedures change. This turns a one-time migration into a maintainable access decision. The Tracegate concept illustrates connected cloud and identity review with synthetic examples; it does not validate a real deployment. Use the least-privilege playbook to organize the conversation with the people who operate yours."
+      ]
+    ],
+    "headline": "Short-lived tokens still need scoped trust",
+    "date": "2026-10-13",
+    "author": "Tracegate Editorial",
+    "authorNote": "Fictional editorial identity for this portfolio project. Educational content informed by the primary references below.",
+    "related": [
+      "resources/least-privilege-playbook",
+      "resources/attack-path-review",
+      "blog/attack-path-analysis"
+    ],
+    "coverImage": "/illustrations/deployment-trust-review.svg",
+    "minutes": 3
+  },
+  {
+    "slug": "unused-permissions-review",
+    "title": "Unused access is a question, not a verdict",
+    "category": "Cloud security",
+    "summary": "Turn a quiet activity window into a careful access review, with workload context, dependency checks, and a scoped change plan.",
+    "sources": [
+      {
+        "label": "AWS IAM: Access Analyzer policy generation",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-generation.html"
+      }
+    ],
+    "coverAlt": "An activity timeline includes routine runs and a separate recovery event, showing why a quiet observation window can miss an access requirement.",
+    "sections": [
+      [
+        "Begin with the observation window",
+        "An access review often begins with a tempting sentence: this permission has not been used. Before proposing removal, complete the sentence. Not used by which identity, against which resource, in which records, during which period? That description is a starting point for investigation. It makes the claim specific enough for an application owner to challenge. A quiet window may represent unnecessary access, an infrequent workflow, or incomplete evidence. Those possibilities lead to different next steps."
+      ],
+      [
+        "Use activity as an input",
+        "AWS IAM Access Analyzer can generate a policy template from activity recorded in CloudTrail during a selected period. AWS documents service and action coverage limits, including differences in the detail available for policy generation. A generated template therefore needs review against the workload’s requirements before use. The practical lesson is to retain the observation period and coverage assumptions beside the proposal. Activity can inform a permission change without becoming the sole definition of what the workload should be allowed to do."
+      ],
+      [
+        "Ask about the uncommon work",
+        "Invite the owner to describe scheduled jobs, recovery procedures, migrations, and infrequent administrative operations. Ask for an existing runbook or change record where possible. “We might need it” is too vague to close the review, but an undocumented dependency should not be silently dismissed either. Give the uncertainty an owner and a concrete follow-up. This allows the team to distinguish a justified requirement from a permission that remains broad simply because no one has revisited it."
+      ],
+      [
+        "A synthetic review with a missing event",
+        "Consider a fictional reporting service that reads daily input files and also participates in a quarterly recovery exercise. A review covers a month in which no exercise occurred. Its daily reads are visible, while recovery access is absent from the observed activity. The team should not infer that the recovery access is necessary forever, or that it is unnecessary today. Instead, ask whether the documented recovery design still requires it, whether a separate recovery identity would be appropriate, and what controlled test would answer the question."
+      ],
+      [
+        "Make the proposal small enough to explain",
+        "Describe the exact grant under review and the business operation it is believed to support. Separate the proposed removal from other cleanup, so reviewers can attribute any effect to a specific change. Define an expected success case, a failure signal, and a rollback owner. When uncertainty remains, record which evidence would resolve it and when the team will return to the decision. A smaller reviewed change is easier to learn from than a large batch of removals justified only by a quiet dashboard."
+      ],
+      [
+        "Close the review with evidence",
+        "After the approved change is deployed, confirm the intended configuration and check the agreed workflow behavior. Keep the relevant observation times in the record. If the uncommon workflow cannot yet be tested, say so and assign its follow-up rather than describing the entire review as verified. The useful outcome is a clearer, supportable access decision. Count removals only with their context: a retained permission with a documented purpose can represent better review work than a removal that breaks a necessary recovery procedure."
+      ]
+    ],
+    "headline": "Unused access is a question, not a verdict",
+    "date": "2026-10-13",
+    "author": "Tracegate Editorial",
+    "authorNote": "Fictional editorial identity for this portfolio project. Educational content informed by the primary references below.",
+    "related": [
+      "resources/least-privilege-playbook",
+      "resources/attack-path-review",
+      "blog/attack-path-analysis"
+    ],
+    "coverImage": "/illustrations/unused-permissions-review.svg",
+    "minutes": 3
+  },
+  {
+    "slug": "verify-security-remediation",
+    "title": "A merged fix is not a verified fix",
+    "category": "Cloud security",
+    "summary": "Follow a security change from approved intent to observed configuration, effective access, and a resolution record another reviewer can inspect.",
+    "sources": [
+      {
+        "label": "AWS IAM: Policy evaluation logic",
+        "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html"
+      }
+    ],
+    "coverAlt": "Four connected checkpoints distinguish a merged change, a deployed configuration, observed access, and a verified outcome.",
+    "sections": [
+      [
+        "Define the result before the change",
+        "A pull request can show what a team intends to change. A deployment record can show that a release process ran. Neither alone answers whether the security relationship under review changed as intended. Begin with a testable statement: which principal should no longer reach which resource under which conditions? Pair it with the legitimate workflow that must continue. That gives the engineer, reviewer, and person closing the finding a shared definition of success."
+      ],
+      [
+        "Keep three records separate",
+        "Maintain the approved proposal, the deployment result, and the observation of the environment as distinct pieces of evidence. They may arrive at different times and from different systems. Record the version and time for each. If the deployment is complete but collection has not refreshed, the honest status is awaiting verification. This is useful operational information, not an administrative failure. It prevents a merged change from quietly becoming a stronger claim than the available evidence supports."
+      ],
+      [
+        "Check the authorization context",
+        "For AWS requests, permission evaluation depends on the request context and the applicable policy types. An explicit deny can override an allow, and the relationship among policy layers matters. AWS’s policy evaluation documentation below describes that logic. For a review, this means that editing one statement is not sufficient evidence of the final access decision. Identify the relevant principal, action, resource, and conditions, and use platform-specific guidance to evaluate the resulting state. Do not treat a diagram as an authorization engine."
+      ],
+      [
+        "Follow one synthetic intervention",
+        "Imagine a fictional web workload with an unnecessary route to a production secrets store. An engineer narrows a role policy and merges the change. The reviewer first confirms that the intended environment received the updated policy. Next, the team checks the relevant effective access and the application’s approved behavior using its normal controlled process. If access remains through another relationship, the original proposal did not fully address the review question. Preserve that finding and return to the owner with the new evidence instead of closing the ticket on the strength of the merge."
+      ],
+      [
+        "Distinguish resolved from no longer visible",
+        "A relationship can disappear from an assessment because the configuration changed, a resource was removed, or collection stopped covering it. The resolution record should explain which outcome occurred. Check collection health and the scope of the refreshed evidence before claiming success. If the asset was retired, confirm that retirement with its owner. If coverage is missing, record a verification gap. These distinctions make trend reporting more credible and keep the next reviewer from having to reconstruct why a finding vanished."
+      ],
+      [
+        "Write a closure someone else can inspect",
+        "A useful closure names the original relationship, the deployed intervention, the observation time, the verification method, and any remaining uncertainty. Link the supporting records where the receiving team can access them. Include a follow-up owner when a dependency or test remains open. The final sentence should state what the evidence supports, such as “the reviewed relationship is no longer permitted under the checked conditions.” Avoid turning a scoped result into a claim that the application is secure in every respect. Tracegate’s fictional platform illustrates this review discipline; the work still depends on the environment and its operators."
+      ]
+    ],
+    "headline": "A merged fix is not a verified fix",
+    "date": "2026-10-13",
+    "author": "Tracegate Editorial",
+    "authorNote": "Fictional editorial identity for this portfolio project. Educational content informed by the primary references below.",
+    "related": [
+      "resources/least-privilege-playbook",
+      "resources/attack-path-review",
+      "blog/attack-path-analysis"
+    ],
+    "coverImage": "/illustrations/verify-security-remediation.svg",
+    "minutes": 3
+  },
+  {
     "slug": "attack-path-analysis",
     "title": "Attack path analysis: connected findings",
     "headline": "Attack path analysis: why connected findings matter",
@@ -23,11 +173,11 @@
       ],
       [
         "Separate observations from assumptions",
-        "For each link, identify what is directly observed and what is inferred. A policy document may establish that a role has permission to read a resource. It may not establish that a workload can obtain that role\u2019s credentials under every condition. A network rule may allow a connection, while a separate service configuration prevents it. Tag a relationship with the evidence source, collection time, relevant conditions, and known gaps. If a review depends on a condition that has not been checked, preserve that uncertainty. An unexplained graph edge can create false confidence just as easily as an unexplained risk score."
+        "For each link, identify what is directly observed and what is inferred. A policy document may establish that a role has permission to read a resource. It may not establish that a workload can obtain that role’s credentials under every condition. A network rule may allow a connection, while a separate service configuration prevents it. Tag a relationship with the evidence source, collection time, relevant conditions, and known gaps. If a review depends on a condition that has not been checked, preserve that uncertainty. An unexplained graph edge can create false confidence just as easily as an unexplained risk score."
       ],
       [
         "Check effective permission scope",
-        "Cloud permissions can depend on several policy layers, including grants, explicit denies, role trust, and condition context. A broad statement in one policy may be narrowed by another control. Conversely, several individually modest permissions may support a meaningful sequence when combined. Inspect the specific action, principal, resource, and conditions relevant to the path. Avoid substituting the role name for an access decision. Where an environment is complex, ask an owner to validate the interpretation using the platform\u2019s own tools and documentation. The purpose of the graph is to organize the question; the authorization system remains the source of truth for its enforcement."
+        "Cloud permissions can depend on several policy layers, including grants, explicit denies, role trust, and condition context. A broad statement in one policy may be narrowed by another control. Conversely, several individually modest permissions may support a meaningful sequence when combined. Inspect the specific action, principal, resource, and conditions relevant to the path. Avoid substituting the role name for an access decision. Where an environment is complex, ask an owner to validate the interpretation using the platform’s own tools and documentation. The purpose of the graph is to organize the question; the authorization system remains the source of truth for its enforcement."
       ],
       [
         "Use activity evidence for a different question",
@@ -35,7 +185,7 @@
       ],
       [
         "Choose an intervention point deliberately",
-        "There may be several ways to interrupt a sequence. Restricting ingress might remove the initial exposure. Narrowing a trust policy might prevent a role assumption. Removing an unnecessary grant might block access to the target. The right choice depends on the application\u2019s operational needs and the reliability of the evidence. Prefer a change whose effect can be explained, tested, and reversed through the organization\u2019s normal process. Do not assume that the earliest link is always the cheapest or safest place to act. Ask the application owner about dependencies and define what success will look like before deploying."
+        "There may be several ways to interrupt a sequence. Restricting ingress might remove the initial exposure. Narrowing a trust policy might prevent a role assumption. Removing an unnecessary grant might block access to the target. The right choice depends on the application’s operational needs and the reliability of the evidence. Prefer a change whose effect can be explained, tested, and reversed through the organization’s normal process. Do not assume that the earliest link is always the cheapest or safest place to act. Ask the application owner about dependencies and define what success will look like before deploying."
       ],
       [
         "Document accepted risk with a review date",
@@ -59,7 +209,7 @@
       ],
       [
         "How this fits a broader security model",
-        "Attack path review complements configuration assessment, access management, and investigation. It should not be sold as a replacement for logging, secure development, incident response, or resource ownership. NIST\u2019s zero trust architecture describes resource-centered access decisions and the need to evaluate trust rather than grant it implicitly. MITRE ATT&CK\u2019s discussion of cloud accounts provides context for why legitimate credentials can matter in adversary behavior. These are useful foundations, but they do not validate any particular vendor\u2019s graph. Evaluate a platform against your own environment, data coverage, permission complexity, and operational process. Keep the evidence and the limits visible."
+        "Attack path review complements configuration assessment, access management, and investigation. It should not be sold as a replacement for logging, secure development, incident response, or resource ownership. NIST’s zero trust architecture describes resource-centered access decisions and the need to evaluate trust rather than grant it implicitly. MITRE ATT&CK’s discussion of cloud accounts provides context for why legitimate credentials can matter in adversary behavior. These are useful foundations, but they do not validate any particular vendor’s graph. Evaluate a platform against your own environment, data coverage, permission complexity, and operational process. Keep the evidence and the limits visible."
       ],
       [
         "Review the collection boundary",
@@ -113,11 +263,11 @@
       ],
       [
         "Distinguish a principal from a credential",
-        "An identity and the credential used to act as it have related but distinct lifecycles. A principal may be long-lived while its credentials are short-lived. A token can be copied into a pipeline, even if the underlying service account remains well documented. Review how credentials are issued, stored, presented, and replaced. Where a platform supports temporary credentials or workload identity, evaluate those options against the application\u2019s requirements. Do not conclude that a temporary credential removes the need to review the principal\u2019s permissions. Reducing credential exposure and controlling authorization scope are complementary decisions that address different parts of the workflow."
+        "An identity and the credential used to act as it have related but distinct lifecycles. A principal may be long-lived while its credentials are short-lived. A token can be copied into a pipeline, even if the underlying service account remains well documented. Review how credentials are issued, stored, presented, and replaced. Where a platform supports temporary credentials or workload identity, evaluate those options against the application’s requirements. Do not conclude that a temporary credential removes the need to review the principal’s permissions. Reducing credential exposure and controlling authorization scope are complementary decisions that address different parts of the workflow."
       ],
       [
         "Explain the effective access",
-        "For a particular resource, determine which actions the identity can perform and under what conditions. Check direct grants, inherited roles, trust relationships, and explicit restrictions relevant to that decision. The cloud provider\u2019s authorization model is the source of truth. A vendor inventory or graph can organize the information, but its interpretation should be inspectable. Record the policy scope and the observation time used for the review. If several identities are involved in a chain of role assumptions, examine each relationship separately. A summary that says broad access without naming the resource and action is too vague to support a safe change."
+        "For a particular resource, determine which actions the identity can perform and under what conditions. Check direct grants, inherited roles, trust relationships, and explicit restrictions relevant to that decision. The cloud provider’s authorization model is the source of truth. A vendor inventory or graph can organize the information, but its interpretation should be inspectable. Record the policy scope and the observation time used for the review. If several identities are involved in a chain of role assumptions, examine each relationship separately. A summary that says broad access without naming the resource and action is too vague to support a safe change."
       ],
       [
         "Treat usage as supporting evidence",
@@ -125,11 +275,11 @@
       ],
       [
         "Find a responsible owner",
-        "An owner should be able to explain the identity\u2019s purpose and coordinate a change. That person or team does not need to have created the credential originally. Use application ownership, account boundaries, repository context, and explicit team mappings as signals. When signals conflict, resolve them with the teams involved. Avoid sending every unknown identity to security by default; that hides the organizational question instead of answering it. A good review produces a maintained mapping that future engineers can use. If no owner can be identified, document the uncertainty and escalate through the organization\u2019s established process before taking disruptive action."
+        "An owner should be able to explain the identity’s purpose and coordinate a change. That person or team does not need to have created the credential originally. Use application ownership, account boundaries, repository context, and explicit team mappings as signals. When signals conflict, resolve them with the teams involved. Avoid sending every unknown identity to security by default; that hides the organizational question instead of answering it. A good review produces a maintained mapping that future engineers can use. If no owner can be identified, document the uncertainty and escalate through the organization’s established process before taking disruptive action."
       ],
       [
         "Choose a smaller permission change",
-        "Least privilege is easier to discuss when the proposal is specific. Instead of remove broad access, name the action, resource scope, or trust condition that could be narrowed. Ask whether the application can operate with that change and what would happen during an exceptional workflow. Evaluate related controls, such as credential lifetime or network restrictions, where appropriate. There may be more than one safe intervention. The review should preserve the reason the team chose a particular approach. A narrow, well-understood change is often easier to test and maintain than a sweeping policy rewrite undertaken without the application owner\u2019s context."
+        "Least privilege is easier to discuss when the proposal is specific. Instead of remove broad access, name the action, resource scope, or trust condition that could be narrowed. Ask whether the application can operate with that change and what would happen during an exceptional workflow. Evaluate related controls, such as credential lifetime or network restrictions, where appropriate. There may be more than one safe intervention. The review should preserve the reason the team chose a particular approach. A narrow, well-understood change is often easier to test and maintain than a sweeping policy rewrite undertaken without the application owner’s context."
       ],
       [
         "Stage, test, and define rollback",
@@ -137,7 +287,7 @@
       ],
       [
         "Review credentials separately",
-        "A permission review does not answer whether an existing credential has been exposed. Inspect the credential\u2019s storage and distribution through the organization\u2019s own approved process. If exposure is suspected, involve the security team and follow the incident procedure. Rotating a token while leaving its copies in an unmanaged system may not resolve the operational weakness that created the problem. Conversely, changing a role policy without replacing a compromised credential may leave another route to misuse. Keep these decisions explicit and coordinated. The goal is a coherent review of identity, authorization, and credential handling rather than a single checkbox labeled secure."
+        "A permission review does not answer whether an existing credential has been exposed. Inspect the credential’s storage and distribution through the organization’s own approved process. If exposure is suspected, involve the security team and follow the incident procedure. Rotating a token while leaving its copies in an unmanaged system may not resolve the operational weakness that created the problem. Conversely, changing a role policy without replacing a compromised credential may leave another route to misuse. Keep these decisions explicit and coordinated. The goal is a coherent review of identity, authorization, and credential handling rather than a single checkbox labeled secure."
       ],
       [
         "Maintain exceptions as decisions",
@@ -153,7 +303,7 @@
       ],
       [
         "Use authoritative platform guidance",
-        "AWS\u2019s IAM best practices discuss temporary credentials, least privilege, and review of access. Those recommendations are a useful reference for AWS environments, but implementation details should be checked against the services and policies involved. NIST\u2019s zero trust architecture supplies a broader resource-centered access model that can inform the review. Neither source removes the need to understand the application\u2019s operational requirements. Use primary documentation to verify authorization behavior rather than copying a policy snippet from a marketing page. Where there is ambiguity, test the decision with the provider\u2019s tools and the people responsible for the workload."
+        "AWS’s IAM best practices discuss temporary credentials, least privilege, and review of access. Those recommendations are a useful reference for AWS environments, but implementation details should be checked against the services and policies involved. NIST’s zero trust architecture supplies a broader resource-centered access model that can inform the review. Neither source removes the need to understand the application’s operational requirements. Use primary documentation to verify authorization behavior rather than copying a policy snippet from a marketing page. Where there is ambiguity, test the decision with the provider’s tools and the people responsible for the workload."
       ],
       [
         "Include retirement in the lifecycle",
@@ -161,7 +311,7 @@
       ],
       [
         "Create a review you can repeat",
-        "A machine identity review can end with a compact record: purpose, owner, credential method, effective access, usage window, decision, and verification. Keep that record connected to the application\u2019s lifecycle. When the application is retired, its identities and credential dependencies should enter the retirement review as well. The downloadable least privilege playbook turns these questions into a reusable template. The Tracegate identity page illustrates how a fictional platform could make the context easier to navigate. The portfolio demo contains no live credentials or access controls. Its role is to demonstrate clear information design and a thoughtful operating workflow."
+        "A machine identity review can end with a compact record: purpose, owner, credential method, effective access, usage window, decision, and verification. Keep that record connected to the application’s lifecycle. When the application is retired, its identities and credential dependencies should enter the retirement review as well. The downloadable least privilege playbook turns these questions into a reusable template. The Tracegate identity page illustrates how a fictional platform could make the context easier to navigate. The portfolio demo contains no live credentials or access controls. Its role is to demonstrate clear information design and a thoughtful operating workflow."
       ]
     ],
     "related": [
@@ -203,11 +353,11 @@
       ],
       [
         "Start with the decision you need to make",
-        "If the immediate task is to determine whether a storage resource meets an approved configuration policy, a posture check may provide the right starting point. If the task is to understand whether an exposed application can reach sensitive data through its identity, the relationships matter as well. Choose a view that serves the decision rather than treating one category as universally superior. A mature review often moves between both. It checks the individual configuration, inspects the access relationships, and returns to the operational question of which change is justified. The organization\u2019s architecture and available data determine how much of that review can be automated."
+        "If the immediate task is to determine whether a storage resource meets an approved configuration policy, a posture check may provide the right starting point. If the task is to understand whether an exposed application can reach sensitive data through its identity, the relationships matter as well. Choose a view that serves the decision rather than treating one category as universally superior. A mature review often moves between both. It checks the individual configuration, inspects the access relationships, and returns to the operational question of which change is justified. The organization’s architecture and available data determine how much of that review can be automated."
       ],
       [
         "Configuration rules provide a useful baseline",
-        "Posture rules can make expectations visible and repeatable across a changing environment. They can identify configuration that diverges from the team\u2019s policy and create an inventory of work that deserves review. Their usefulness depends on the rule, its inputs, and the scope of collection. A clean report may reflect missing coverage rather than a fully assessed environment. Inspect the evidence behind a check and preserve the reason for an exception. Teams should be able to explain what a rule detects, why it matters, and where its interpretation has limits. This makes the baseline more actionable than an unexplained score."
+        "Posture rules can make expectations visible and repeatable across a changing environment. They can identify configuration that diverges from the team’s policy and create an inventory of work that deserves review. Their usefulness depends on the rule, its inputs, and the scope of collection. A clean report may reflect missing coverage rather than a fully assessed environment. Inspect the evidence behind a check and preserve the reason for an exception. Teams should be able to explain what a rule detects, why it matters, and where its interpretation has limits. This makes the baseline more actionable than an unexplained score."
       ],
       [
         "Relationships add consequence",
@@ -223,11 +373,11 @@
       ],
       [
         "Make ownership part of the workflow",
-        "Neither a rule nor a graph knows the organization\u2019s responsibilities perfectly. Ownership can be inferred from account structure, tags, repositories, or explicit mappings, but those signals need maintenance. Before routing a finding, validate that its owner can make the relevant change. If the exposure and permission belong to different teams, identify who coordinates the review. A connected path can make that collaboration easier by showing each team\u2019s part in the sequence. It does not remove the need for a clear decision process. Update the ownership model when a handoff reveals a mistake, so the same work does not return to the wrong queue."
+        "Neither a rule nor a graph knows the organization’s responsibilities perfectly. Ownership can be inferred from account structure, tags, repositories, or explicit mappings, but those signals need maintenance. Before routing a finding, validate that its owner can make the relevant change. If the exposure and permission belong to different teams, identify who coordinates the review. A connected path can make that collaboration easier by showing each team’s part in the sequence. It does not remove the need for a clear decision process. Update the ownership model when a handoff reveals a mistake, so the same work does not return to the wrong queue."
       ],
       [
         "Remediation needs operational context",
-        "A posture check may suggest a configuration change, while a path may suggest several intervention points. The least disruptive choice depends on the workload\u2019s requirements. Restricting network access could affect an approved client. Narrowing a permission could break a release process. Removing a resource may be appropriate only after checking dependencies. Ask the owner to evaluate the proposal, test it, and define a rollback. A security tool should make this review more specific rather than bypass it. Automation is most credible when it has a clear scope, review controls, and a way to verify the result in the environment."
+        "A posture check may suggest a configuration change, while a path may suggest several intervention points. The least disruptive choice depends on the workload’s requirements. Restricting network access could affect an approved client. Narrowing a permission could break a release process. Removing a resource may be appropriate only after checking dependencies. Ask the owner to evaluate the proposal, test it, and define a rollback. A security tool should make this review more specific rather than bypass it. Automation is most credible when it has a clear scope, review controls, and a way to verify the result in the environment."
       ],
       [
         "A comparison using one synthetic application",
@@ -239,15 +389,15 @@
       ],
       [
         "Ask better evaluation questions",
-        "During a platform evaluation, ask the vendor to explain a finding on a representative resource. Then ask it to show the policies and conditions behind a connected relationship. Change one assumption and inspect how the result changes. Review the handoff a resource owner would receive, including evidence timestamps and proposed intervention. Check how exceptions are recorded and revisited. These questions reveal practical utility more clearly than a polished screenshot or a large coverage number. Use a controlled evaluation environment and your own acceptance criteria. A vendor\u2019s category label alone does not tell you how reliably its workflow fits your organization."
+        "During a platform evaluation, ask the vendor to explain a finding on a representative resource. Then ask it to show the policies and conditions behind a connected relationship. Change one assumption and inspect how the result changes. Review the handoff a resource owner would receive, including evidence timestamps and proposed intervention. Check how exceptions are recorded and revisited. These questions reveal practical utility more clearly than a polished screenshot or a large coverage number. Use a controlled evaluation environment and your own acceptance criteria. A vendor’s category label alone does not tell you how reliably its workflow fits your organization."
       ],
       [
         "Keep activity investigation distinct",
-        "Both posture and path analysis primarily describe the environment and its potential. Determining whether an adversary acted requires appropriate activity evidence and an investigation process. A configuration problem can exist without exploitation, and legitimate credentials can be misused even when a baseline report looks clean. MITRE ATT&CK\u2019s cloud account technique offers context for that possibility. Use security operations data to investigate what happened, while using configuration and access context to understand the environment. This division of questions keeps the team from calling every finding an incident or assuming that every incident must begin with a posture violation."
+        "Both posture and path analysis primarily describe the environment and its potential. Determining whether an adversary acted requires appropriate activity evidence and an investigation process. A configuration problem can exist without exploitation, and legitimate credentials can be misused even when a baseline report looks clean. MITRE ATT&CK’s cloud account technique offers context for that possibility. Use security operations data to investigate what happened, while using configuration and access context to understand the environment. This division of questions keeps the team from calling every finding an incident or assuming that every incident must begin with a posture violation."
       ],
       [
         "Use authoritative guidance as a foundation",
-        "NIST\u2019s zero trust architecture describes a resource-focused approach to access decisions. AWS\u2019s IAM best practices provide guidance on credentials, least privilege, and review in AWS environments. These primary sources help frame sound questions, but they do not certify the completeness of any particular CSPM or attack path product. Confirm implementation details in current platform documentation and evaluate the model against your environment. The fictional Tracegate pages use these concepts to demonstrate a coherent marketing and information architecture. They do not claim validated detection coverage, security certifications, or real deployment results."
+        "NIST’s zero trust architecture describes a resource-focused approach to access decisions. AWS’s IAM best practices provide guidance on credentials, least privilege, and review in AWS environments. These primary sources help frame sound questions, but they do not certify the completeness of any particular CSPM or attack path product. Confirm implementation details in current platform documentation and evaluate the model against your environment. The fictional Tracegate pages use these concepts to demonstrate a coherent marketing and information architecture. They do not claim validated detection coverage, security certifications, or real deployment results."
       ],
       [
         "Keep a record of model changes",

@@ -13,7 +13,7 @@
       ],
       [
         "Three capabilities, one shared model",
-        "Attack path analysis examines connected relationships to critical assets. Identity security explains how people and workloads obtain and exercise access. Cloud security posture evaluates configuration against the organization\u2019s expectations. Their shared context can help an operator move between a specific finding and its consequence. The platform concept keeps those perspectives available without reducing them to an unexplained score. A reviewer can inspect the affected resource, the relevant permission, the owner, and the reason for the proposed next step."
+        "Attack path analysis examines connected relationships to critical assets. Identity security explains how people and workloads obtain and exercise access. Cloud security posture evaluates configuration against the organization’s expectations. Their shared context can help an operator move between a specific finding and its consequence. The platform concept keeps those perspectives available without reducing them to an unexplained score. A reviewer can inspect the affected resource, the relevant permission, the owner, and the reason for the proposed next step."
       ],
       [
         "Designed for a reviewable workflow",
@@ -75,11 +75,11 @@
       ],
       [
         "Our product point of view",
-        "A finding becomes more useful when the person receiving it can see the resource, the relevant permission, the evidence, and the reason it matters. That context should survive the handoff from security to engineering. Tracegate\u2019s product concept brings attack paths, identity permissions, and cloud posture into one shared model. It distinguishes possibility from observed activity and preserves uncertainty when a relationship needs verification. Human judgment remains part of the workflow. The idea is to make a change reviewable through the process a team already uses, rather than promise that an automated recommendation is always safe."
+        "A finding becomes more useful when the person receiving it can see the resource, the relevant permission, the evidence, and the reason it matters. That context should survive the handoff from security to engineering. Tracegate’s product concept brings attack paths, identity permissions, and cloud posture into one shared model. It distinguishes possibility from observed activity and preserves uncertainty when a relationship needs verification. Human judgment remains part of the workflow. The idea is to make a change reviewable through the process a team already uses, rather than promise that an automated recommendation is always safe."
       ],
       [
         "Our approach to responsible storytelling",
-        "A portfolio should show what its designer can build without making claims about a business that does not exist. Tracegate therefore has no fabricated customer testimonials, certification badges, growth statistics, or executive biographies. Every product environment uses synthetic data. The integration catalog and pricing describe an illustrative product architecture, not purchasable services. The journal\u2019s editorial name is a fictional identity, and its foundational references point to primary documentation. This keeps the story coherent while making its limits understandable to technical buyers and hiring teams reviewing the work."
+        "A portfolio should show what its designer can build without making claims about a business that does not exist. Tracegate therefore has no fabricated customer testimonials, certification badges, growth statistics, or executive biographies. Every product environment uses synthetic data. The integration catalog and pricing describe an illustrative product architecture, not purchasable services. The journal’s editorial name is a fictional identity, and its foundational references point to primary documentation. This keeps the story coherent while making its limits understandable to technical buyers and hiring teams reviewing the work."
       ],
       [
         "A system that connects brand and build",
@@ -96,14 +96,14 @@
     "template": "contact",
     "title": "Book a Security Platform Walkthrough | Tracegate",
     "description": "Try the Tracegate sample contact experience and explore the interactive platform walkthrough. This fictional portfolio site does not send or store requests.",
-    "headline": "Let\u2019s put the path in focus.",
+    "headline": "Let’s put the path in focus.",
     "summary": "Explore the product story, ask better questions, and see how a connected security workflow could look."
   },
   {
     "slug": "trust",
     "template": "trust",
     "title": "Security & Demo Transparency Center | Tracegate",
-    "description": "Review Tracegate\u2019s demo boundaries, data handling, and responsible product storytelling. This portfolio project connects no real infrastructure or accounts.",
+    "description": "Review Tracegate’s demo boundaries, data handling, and responsible product storytelling. This portfolio project connects no real infrastructure or accounts.",
     "headline": "Trust begins with clear boundaries.",
     "summary": "A transparent account of what this portfolio demo does, what data it uses, and what the product story represents.",
     "sections": [
@@ -151,7 +151,7 @@
       ],
       [
         "Browser preference",
-        "If you select a color theme, the site may save the choice under tracegate-theme in localStorage. It contains only the word light or dark. You can clear it using your browser\u2019s site data controls. The site does not set analytics or advertising cookies and does not load tracking scripts."
+        "If you select a color theme, the site may save the choice under tracegate-theme in localStorage. It contains only the word light or dark. You can clear it using your browser’s site data controls. The site does not set analytics or advertising cookies and does not load tracking scripts."
       ],
       [
         "Hosting and external links",
@@ -159,7 +159,7 @@
       ],
       [
         "Fictional company",
-        "Tracegate is not a live company or a data processing service. This notice is an explanation of the portfolio implementation. Before adapting the site for a real business, replace the company details, connect only approved services, and create policies that accurately describe that business\u2019s data handling."
+        "Tracegate is not a live company or a data processing service. This notice is an explanation of the portfolio implementation. Before adapting the site for a real business, replace the company details, connect only approved services, and create policies that accurately describe that business’s data handling."
       ]
     ]
   },
@@ -177,7 +177,7 @@
       ],
       [
         "Educational resources",
-        "The journal and field guides discuss general review practices. They do not configure infrastructure, investigate real incidents, or replace the organization\u2019s approved security and engineering processes. Consult current provider documentation and qualified teams when evaluating implementation details in a real environment."
+        "The journal and field guides discuss general review practices. They do not configure infrastructure, investigate real incidents, or replace the organization’s approved security and engineering processes. Consult current provider documentation and qualified teams when evaluating implementation details in a real environment."
       ],
       [
         "Third-party identities",
@@ -376,5 +376,32 @@
     "headline": "The whole platform. One clear picture.",
     "summary": "A concise look at the connected security model and its review workflow.",
     "label": "Platform data sheet"
+  },
+  {
+    "slug": "blog/deployment-trust-review",
+    "template": "article",
+    "title": "Short-lived tokens still need scoped trust | Tracegate",
+    "description": "Review who can request deployment credentials, what those credentials can reach, and which evidence belongs in the handoff.",
+    "headline": "Short-lived tokens still need scoped trust",
+    "summary": "Review who can request deployment credentials, what those credentials can reach, and which evidence belongs in the handoff.",
+    "label": "Short-lived tokens still need scoped trust"
+  },
+  {
+    "slug": "blog/unused-permissions-review",
+    "template": "article",
+    "title": "Unused access is a question, not a verdict | Tracegate",
+    "description": "Turn a quiet activity window into a careful access review, with workload context, dependency checks, and a scoped change plan.",
+    "headline": "Unused access is a question, not a verdict",
+    "summary": "Turn a quiet activity window into a careful access review, with workload context, dependency checks, and a scoped change plan.",
+    "label": "Unused access is a question, not a verdict"
+  },
+  {
+    "slug": "blog/verify-security-remediation",
+    "template": "article",
+    "title": "A merged fix is not a verified fix | Tracegate",
+    "description": "Follow a security change from approved intent to observed configuration, effective access, and a resolution record another reviewer can inspect.",
+    "headline": "A merged fix is not a verified fix",
+    "summary": "Follow a security change from approved intent to observed configuration, effective access, and a resolution record another reviewer can inspect.",
+    "label": "A merged fix is not a verified fix"
   }
 ]
