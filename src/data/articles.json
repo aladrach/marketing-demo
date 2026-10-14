@@ -247,7 +247,7 @@
     "slug": "machine-identity-security",
     "title": "Machine identities need an owner, too",
     "headline": "Machine identities need an owner, too",
-    "summary": "A practical way to review service accounts, workload roles, and automation access without breaking delivery.",
+    "summary": "A practical way to review service accounts, workload roles, and automation access with dependency checks, testing, and rollback planning.",
     "category": "Identity",
     "date": "2026-10-04",
     "author": "Tracegate Editorial",

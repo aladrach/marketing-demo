@@ -35,7 +35,7 @@
             [
               "Integrations",
               "integrations",
-              "A place for your existing stack."
+              "Proposed connection concepts."
             ],
             [
               "Trust center",
@@ -101,7 +101,7 @@
             [
               "Least privilege playbook",
               "resources/least-privilege-playbook",
-              "A safer access review."
+              "A structured access review."
             ]
           ]
         },
@@ -121,7 +121,7 @@
             [
               "Contact",
               "contact",
-              "Start a conversation."
+              "Explore the local demo."
             ]
           ]
         }

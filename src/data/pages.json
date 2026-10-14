@@ -4,8 +4,7 @@
     "template": "platform",
     "title": "Connected Cloud Security Platform | Tracegate",
     "description": "Explore a fictional cloud security platform that connects posture, identity, and attack paths. Inspect the interactive sample and see the intended workflow.",
-    "headline": "One platform. The whole path.",
-    "summary": "Cloud configuration, identity permissions, and attack paths in a shared context. A clearer way to decide what comes next.",
+    "headline": "Configuration. Access. Context.",
     "sections": [
       [
         "What is the Tracegate platform?",
@@ -19,7 +18,8 @@
         "Designed for a reviewable workflow",
         "The intended workflow moves through collection, context, review, handoff, and verification. Collection gaps remain visible. Business sensitivity and ownership are maintained as organizational judgments. A suggested intervention names the relationship it is intended to interrupt. Engineers evaluate the change through their own testing and approval process. After deployment, refreshed observations help determine whether that relationship remains. The concept emphasizes shared decisions between security and engineering, with automation supporting the handoff rather than claiming every change is safe."
       ]
-    ]
+    ],
+    "summary": "Explore a fictional concept for reviewing configuration findings, effective access, and potentially reachable paths together. A possible path is not an observed breach."
   },
   {
     "slug": "solutions",
@@ -27,7 +27,7 @@
     "title": "Cloud Security Solutions by Team | Tracegate",
     "description": "Explore fictional cloud security workflows for cloud security, security operations, and platform engineering. Find the context each team needs to act.",
     "headline": "Different teams. Shared context.",
-    "summary": "Give every team the evidence and ownership it needs to move a security decision forward."
+    "summary": "Explore intended review workflows for cloud security, security operations, and platform engineering using synthetic examples."
   },
   {
     "slug": "resources",
@@ -195,7 +195,7 @@
     "title": "Cloud Attack Path Analysis | Tracegate",
     "description": "Connect cloud exposure, identity permissions, and critical resources with the fictional Tracegate attack path explorer. Review the evidence and next step.",
     "headline": "Find the risk between the findings.",
-    "summary": "Connect cloud exposures and identity permissions to see how an attacker could reach your critical assets.",
+    "summary": "Explore a fictional concept for reviewing how cloud exposures and identity permissions could combine into a potentially reachable path. Validate each relationship before drawing a conclusion.",
     "label": "Attack path analysis"
   },
   {
@@ -203,9 +203,9 @@
     "template": "product",
     "title": "Cloud Identity Security Platform | Tracegate",
     "description": "Explore fictional cloud identity security for people and workloads. Understand effective access, ownership, and reviewable least privilege decisions.",
-    "headline": "Know what every identity can reach.",
-    "summary": "Bring human and machine identities into focus, with permission context that points to a practical next step.",
-    "label": "Identity security"
+    "headline": "Review identity access in context.",
+    "label": "Identity security",
+    "summary": "Explore a fictional concept for reviewing human and machine identity access, permission conditions, and available ownership signals."
   },
   {
     "slug": "products/cloud-posture",
@@ -213,34 +213,34 @@
     "title": "Cloud Security Posture Management | Tracegate",
     "description": "Explore fictional cloud security posture management with connected identity context. Review configuration evidence, ownership, and remediation decisions.",
     "headline": "Make your cloud backlog make sense.",
-    "summary": "Move from scattered configuration findings to a focused view of exposure, ownership, and remediation.",
+    "summary": "Explore a fictional concept for reviewing configuration evidence alongside access, ownership signals, and proposed changes.",
     "label": "Cloud security posture"
   },
   {
     "slug": "solutions/cloud-security",
     "template": "solution",
     "title": "Cloud Security Team Solutions | Tracegate",
-    "description": "Explore the fictional Tracegate workflow for cloud security teams. Connect evidence, prioritize reachable risk, and route reviewable changes to owners.",
-    "headline": "A shorter path to your next fix.",
-    "summary": "Give cloud security teams connected evidence, clear ownership, and a remediation queue grounded in business context.",
-    "label": "For cloud security teams"
+    "description": "Explore a fictional cloud-security review workflow for combined exposures, inspectable evidence, ownership validation, and proposed changes.",
+    "headline": "A focused review of combined exposures.",
+    "label": "For cloud security teams",
+    "summary": "Explore a fictional workflow for reviewing combined exposures, inspecting evidence, validating ownership, and proposing changes."
   },
   {
     "slug": "solutions/security-operations",
     "template": "solution",
     "title": "Security Operations Solutions | Tracegate",
     "description": "Explore a fictional security operations workflow that adds cloud and identity context to investigations. Keep evidence, assumptions, and handoffs clear.",
-    "headline": "Investigate with the whole path in view.",
-    "summary": "Connect an identity or cloud signal to the resources it can reach, so investigations begin with useful context.",
-    "label": "For security operations"
+    "headline": "Investigate with potential paths in view.",
+    "label": "For security operations",
+    "summary": "Explore a fictional workflow for inspecting cloud and identity context during an investigation. Possible access and observed activity require separate evidence."
   },
   {
     "slug": "solutions/platform-engineering",
     "template": "solution",
     "title": "Platform Engineering Solutions | Tracegate",
-    "description": "Give engineers specific changes, useful evidence, and a shared definition of resolved. Explore the fictional workflow and review its evidence.",
+    "description": "Explore a fictional engineering review workflow with proposed changes, dependencies, human approval, and refreshed evidence after deployment.",
     "headline": "Security work that respects your roadmap.",
-    "summary": "Give engineers specific changes, useful evidence, and a shared definition of resolved.",
+    "summary": "Explore a fictional workflow for reviewing a proposed change, its dependencies, and the fresh evidence needed after deployment.",
     "label": "For platform engineering"
   },
   {
@@ -256,9 +256,9 @@
     "slug": "blog/machine-identity-security",
     "template": "article",
     "title": "Machine identities need an owner, too | Tracegate",
-    "description": "A practical way to review service accounts, workload roles, and automation access without breaking delivery. Read the field notes.",
+    "description": "A practical way to review service accounts, workload roles, and automation access with dependency checks, testing, and rollback planning. Read the field notes.",
     "headline": "Machine identities need an owner, too",
-    "summary": "A practical way to review service accounts, workload roles, and automation access without breaking delivery.",
+    "summary": "A practical way to review service accounts, workload roles, and automation access with dependency checks, testing, and rollback planning.",
     "label": "Machine identities need an owner, too"
   },
   {
@@ -294,7 +294,7 @@
     "title": "Cloud & Identity Security Products | Tracegate",
     "description": "Explore the fictional Tracegate security products: attack path analysis, identity security, and cloud posture. See how the capabilities connect in context.",
     "headline": "Three perspectives. One connected picture.",
-    "summary": "Understand configurations, permissions, and the paths between them. A shared model gives each finding more useful context."
+    "summary": "Explore three fictional product concepts for reviewing configuration, access, and potentially reachable paths together."
   },
   {
     "slug": "integrations/aws",
@@ -373,7 +373,7 @@
     "template": "gated-resource",
     "title": "Cloud & Identity Platform Data Sheet | Tracegate",
     "description": "Explore the Tracegate platform data sheet. Use a demo access form to reveal the connected cloud and identity overview and download a one-page PDF.",
-    "headline": "The whole platform. One clear picture.",
+    "headline": "The platform concept, in one overview.",
     "summary": "A concise look at the connected security model and its review workflow.",
     "label": "Platform data sheet"
   },

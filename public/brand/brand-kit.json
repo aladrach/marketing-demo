@@ -1,8 +1,8 @@
 {
   "name": "Tracegate",
-  "tagline": "See the path. Stop the breach.",
+  "tagline": "See the path. Review the evidence.",
   "category": "Cloud and identity security",
-  "description": "Tracegate is a fictional cloud and identity security platform that connects exposures, permissions, and attack paths so security teams can prioritize the risks that matter.",
+  "description": "Tracegate is a fictional cloud and identity security concept for reviewing configuration findings, effective access, and potentially reachable paths together.",
   "audience": "Cloud security, identity, and security operations teams at growing SaaS organizations.",
   "promise": "Turn connected risk into a clear next step.",
   "personality": [
@@ -51,7 +51,7 @@
     },
     {
       "principle": "Respect the operator",
-      "do": "Review the path. Choose the smallest safe change.",
+      "do": "Review the evidence. Test and approve a scoped change.",
       "avoid": "Sleep soundly. We handle everything."
     },
     {
@@ -68,12 +68,12 @@
     },
     {
       "pillar": "Focused action",
-      "message": "Fix the path that matters first.",
+      "message": "Review the path and the reasons to prioritize it.",
       "proof": "Use reachability, business context, and permission scope to explain prioritization."
     },
     {
       "pillar": "Human control",
-      "message": "Automate the handoff. Keep the decision.",
+      "message": "Prepare the handoff. Keep the decision with the owner.",
       "proof": "Route evidence to an owner and make proposed changes reviewable."
     }
   ],

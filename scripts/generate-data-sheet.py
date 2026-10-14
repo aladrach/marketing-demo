@@ -18,7 +18,7 @@ c.setFillColor(signal)
 for x,y in [(44,744),(54,750),(64,744)]:c.rect(x,y,5,15,fill=1,stroke=0)
 text('Tracegate',82,747,17,bold=True);text('PLATFORM DATA SHEET / 01',387,749,8,muted)
 c.setStrokeColor(line);c.line(44,726,568,726)
-text('See the path.',44,676,42,bold=True);text('Stop the breach.',44,630,42,signal,True)
+text('See the path.',44,676,42,bold=True);text('Review the evidence.',44,630,42,signal,True)
 para(r['intro'],44,608,485,11,muted,17)
 # A vector route uses the same three relationship concepts as the product preview.
 c.setStrokeColor(signal);c.setLineWidth(2);c.line(119,511,493,511)
