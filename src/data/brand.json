@@ -1,9 +1,9 @@
 {
   "name": "Tracegate",
-  "tagline": "See the path. Stop the breach.",
+  "tagline": "See the path. Review the evidence.",
   "category": "Cloud and identity security",
-  "description": "Tracegate is a fictional cloud and identity security platform that connects exposures, permissions, and attack paths so security teams can prioritize the risks that matter.",
-  "audience": "Cloud security, identity, and security operations teams at growing SaaS organizations.",
+  "description": "Tracegate is a fictional cloud and identity security concept for reviewing configuration findings, effective access, and potentially reachable paths together.",
+  "audience": "Audience hypothesis: cloud security teams reviewing combined exposures, with platform engineering as the change-review partner and security operations as a secondary audience.",
   "promise": "Turn connected risk into a clear next step.",
   "personality": [
     "Clear, never simplistic",
@@ -40,8 +40,8 @@
   ],
   "voice": [
     {
-      "principle": "Start with the outcome",
-      "do": "Find the permissions that put production data at risk.",
+      "principle": "Start with the review task",
+      "do": "Review the permissions and conditions that could expose a sensitive resource.",
       "avoid": "Unlock next-generation AI-powered security synergy."
     },
     {
@@ -51,12 +51,12 @@
     },
     {
       "principle": "Respect the operator",
-      "do": "Review the path. Choose the smallest safe change.",
+      "do": "Review the evidence. Test and approve a scoped change.",
       "avoid": "Sleep soundly. We handle everything."
     },
     {
       "principle": "Earn every claim",
-      "do": "A sample environment shows how prioritization works.",
+      "do": "A synthetic environment illustrates an intended review workflow.",
       "avoid": "Trusted by thousands. Guaranteed to stop every breach."
     }
   ],
@@ -68,12 +68,12 @@
     },
     {
       "pillar": "Focused action",
-      "message": "Fix the path that matters first.",
+      "message": "Review the path and the reasons to prioritize it.",
       "proof": "Use reachability, business context, and permission scope to explain prioritization."
     },
     {
       "pillar": "Human control",
-      "message": "Automate the handoff. Keep the decision.",
+      "message": "Prepare the handoff. Keep the decision with the owner.",
       "proof": "Route evidence to an owner and make proposed changes reviewable."
     }
   ],

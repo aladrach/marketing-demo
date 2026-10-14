@@ -2,8 +2,8 @@
   {
     "slug": "cloud-security",
     "title": "For cloud security teams",
-    "headline": "A shorter path to your next fix.",
-    "summary": "Give cloud security teams connected evidence, clear ownership, and a remediation queue grounded in business context.",
+    "headline": "A focused review of combined exposures.",
+    "summary": "Explore a fictional workflow for reviewing combined exposures, inspecting evidence, validating ownership, and proposing changes.",
     "icon": "shield-check",
     "sections": [
       [
@@ -50,8 +50,8 @@
   {
     "slug": "security-operations",
     "title": "For security operations",
-    "headline": "Investigate with the whole path in view.",
-    "summary": "Connect an identity or cloud signal to the resources it can reach, so investigations begin with useful context.",
+    "headline": "Investigate with potential paths in view.",
+    "summary": "Explore a fictional workflow for inspecting cloud and identity context during an investigation. Possible access and observed activity require separate evidence.",
     "icon": "radar",
     "sections": [
       [
@@ -99,7 +99,7 @@
     "slug": "platform-engineering",
     "title": "For platform engineering",
     "headline": "Security work that respects your roadmap.",
-    "summary": "Give engineers specific changes, useful evidence, and a shared definition of resolved.",
+    "summary": "Explore a fictional workflow for reviewing a proposed change, its dependencies, and the fresh evidence needed after deployment.",
     "icon": "stack-2",
     "sections": [
       [
