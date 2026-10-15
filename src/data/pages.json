@@ -403,5 +403,14 @@
     "headline": "A merged fix is not a verified fix",
     "summary": "Follow a security change from approved intent to observed configuration, effective access, and a resolution record another reviewer can inspect.",
     "label": "A merged fix is not a verified fix"
+  },
+  {
+    "slug": "blog/attack-path-disconfirming-evidence",
+    "template": "article",
+    "title": "What would rule out this cloud attack path? · Tracegate",
+    "description": "Review a synthetic cloud attack path by separating supporting evidence, blocking conditions and unanswered questions before proposing a change.",
+    "headline": "What would rule out this cloud attack path?",
+    "summary": "Review a synthetic cloud attack path by separating supporting evidence, blocking conditions and unanswered questions before proposing a change.",
+    "label": "What would rule out this cloud attack path?"
   }
 ]

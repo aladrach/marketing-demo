@@ -8,3 +8,15 @@
 .prose .sources h2{font-size:var(--text-title)}.prose .sources p{font-size:var(--text-xs)}
 
 @media(max-width:640px){.prose .sources h2{font-size:28px}.prose .sources p{font-size:var(--text-sm)}}
+
+.article-introduction{margin-bottom:46px}
+.structured-article code{font-family:var(--font-mono);font-size:.9em;overflow-wrap:anywhere}
+.structured-article q{quotes:none}
+.structured-article a{overflow-wrap:anywhere}
+.evidence-table-region{max-width:100%;overflow-x:auto;margin-block:24px;scrollbar-color:var(--muted) var(--subtle)}
+.evidence-table-region:focus-visible{outline:var(--focus-width) solid var(--accent-ink);outline-offset:var(--focus-offset)}
+.evidence-table-region table{width:100%;min-width:600px;border-collapse:collapse;font-size:var(--text-body);line-height:1.65;text-align:left}
+.evidence-table-region th,.evidence-table-region td{padding:16px;vertical-align:top;border:1px solid var(--line);width:33.333%}
+.evidence-table-region thead{background:var(--subtle)}
+.evidence-table-region tbody th{font-weight:550}
+.evidence-table-region td{color:var(--muted)}

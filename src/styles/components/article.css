@@ -3,3 +3,16 @@
 @media(max-width:640px){.article-hero.wrap{padding-block:35px}.article-hero h1{font-size:42px}.article-meta{gap:10px 18px}.article-cover.wrap{grid-template-columns:1fr;padding:25px;gap:15px}.article-cover h2{font-size:30px}.article-cover .resource-art{height:170px;order:-1}.article-cover p{font-size:13px}}
 
 .article-illustration{max-width:960px}.article-illustration img{display:block;width:100%;height:auto;border-radius:var(--radius)}.article-illustration figcaption{font-size:var(--text-sm);color:var(--muted);margin-top:12px;line-height:1.6}
+
+/* Query available width before capping the mobile artwork. Both exports keep
+   their own intrinsic ratio; display:none removes the alternate from the a11y tree. */
+.article-responsive-figure.wrap{max-width:960px}
+.article-figure-container{container:article-figure / inline-size}
+.article-figure-mobile{max-width:360px;margin-inline:auto}
+.article-figure-desktop{display:none}
+.article-responsive-figure img{border-radius:0;background:#fff}
+.article-figure-disclaimer{font-size:var(--text-sm);line-height:1.6;margin-top:8px}
+@container article-figure (min-width:800px){
+  .article-figure-mobile{display:none}
+  .article-figure-desktop{display:block}
+}

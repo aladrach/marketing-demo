@@ -1,0 +1,17 @@
+---
+import type { ArticleFigure } from '../lib/editorial-content';
+interface Props { figure: ArticleFigure }
+const { figure } = Astro.props;
+---
+<figure class="article-illustration article-responsive-figure wrap">
+  <div class="article-figure-container">
+    <div class="article-figure-mobile">
+      <img src={figure.mobile.src} width={figure.mobile.width} height={figure.mobile.height} alt={figure.alt}/>
+    </div>
+    <div class="article-figure-desktop">
+      <img src={figure.desktop.src} width={figure.desktop.width} height={figure.desktop.height} alt={figure.alt}/>
+    </div>
+  </div>
+  <figcaption>{figure.caption}</figcaption>
+  <p class="article-figure-disclaimer">{figure.disclaimer}</p>
+</figure>
