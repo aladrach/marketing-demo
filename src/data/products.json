@@ -18,7 +18,7 @@
       ],
       [
         "See the connections your backlog misses",
-        "Cloud scanners are useful at identifying configuration problems, but a flat list can obscure how those problems interact. A broad permission, an internet-facing service, and a sensitive bucket may belong to different teams and arrive in different queues. Tracegate brings these signals into a connected model. Each relationship records its source, observation time, and relevant scope so an analyst can distinguish verified permissions from inferred reachability. Resource ownership adds practical context. The goal is to make a risk intelligible to the team that can change it, without asking them to reconstruct the entire environment from screenshots."
+        "Cloud scanners are useful at identifying configuration problems, but a flat list can obscure how those problems interact. A broad permission, an internet-facing service, and a sensitive bucket may belong to different teams and arrive in different queues. Tracegate brings these signals into a connected model. In the intended workflow, each relationship would include its source, observation time and scope for review. Resource ownership adds practical context. The goal is to make a risk intelligible to the team that can change it, without asking them to reconstruct the entire environment from screenshots."
       ],
       [
         "Prioritize by what a path can reach",
@@ -80,7 +80,7 @@
       ],
       [
         "Explain effective access in plain terms",
-        "An access review should answer a specific question: can this principal perform this action on this resource under these conditions? Tracegate is designed to expose the policies and trust relationships behind that answer. A reviewer can inspect the scope of a wildcard, the condition on a role assumption, or the boundary applied to a workload. Observed usage appears as supporting context, with its collection window and limitations. Explicit explanation makes it easier to separate a risky permission from an intentional operational requirement, particularly when several teams maintain different parts of the access model."
+        "An access review should answer a specific question: can this principal perform this action on this resource under these conditions? The intended workflow would show the policies and trust conditions a reviewer needs to assess access. A reviewer can inspect the scope of a wildcard, the condition on a role assumption, or the boundary applied to a workload. Observed usage appears as supporting context, with its collection window and limitations. Explicit explanation makes it easier to separate a risky permission from an intentional operational requirement, particularly when several teams maintain different parts of the access model."
       ],
       [
         "Make least privilege an engineering decision",
@@ -160,7 +160,7 @@
       ],
       [
         "Can posture policies be tailored?",
-        "The platform concept supports organization-specific policy context, ownership mappings, and reviewable exceptions."
+        "The intended workflow would let a reviewer consider organizational policy, available ownership signals and documented exceptions."
       ],
       [
         "Which cloud providers are represented?",

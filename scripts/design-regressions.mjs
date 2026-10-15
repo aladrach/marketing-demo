@@ -36,12 +36,12 @@ try {
  await page.locator('#email').fill('reviewer@example.com');await page.locator('#company').fill('Example');await page.locator('#team').selectOption({label:'Portfolio reviewer'});
  await page.locator('#message').fill('Inspect identity ownership.');
  const requests=[];const capture=request=>requests.push(request.url());page.on('request',capture);
- await page.getByRole('button',{name:'Preview my request'}).click();page.off('request',capture);
+ await page.getByRole('button',{name:'Preview the local confirmation'}).click();page.off('request',capture);
  assert.equal(requests.length,0,'Preview sends no requests');
  assert.match(await page.locator('[data-form-status]').innerText(),/<img src=x onerror=alert\(1\)>/);
  assert.equal(await page.locator('[data-form-status] img').count(),0,'Entered markup remains text');
  assert.equal(await page.locator('#company').inputValue(),'Example','Preview preserves editable input');
- await page.locator('#company').fill('Updated example');await page.getByRole('button',{name:'Preview my request'}).click();
+ await page.locator('#company').fill('Updated example');await page.getByRole('button',{name:'Preview the local confirmation'}).click();
  assert.match(await page.locator('[data-form-status]').innerText(),/Updated example/);
  for(const [route,heading] of [['identity-security','Identity access review'],['cloud-posture','Configuration review queue']]){
   await page.goto(base+'/products/'+route+'/');

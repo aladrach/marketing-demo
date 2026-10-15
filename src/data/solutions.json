@@ -68,7 +68,7 @@
       ],
       [
         "Preserve a record that another analyst can use",
-        "An investigation record should preserve the observed activity, the environment context at the time, the working hypothesis, and the reason for each action. Tracegate\u2019s concept separates timestamps for collection, activity, and review. That distinction is useful when a role changes during an investigation or a resource disappears after a deployment. Another analyst can understand which conclusions were supported and which remained provisional. The resource library provides additional discussion of attack paths and machine identity context, with external references for foundational security concepts."
+        "An investigation record should preserve the observed activity, the environment context at the time, the working hypothesis, and the reason for each action. The proposed investigation record would distinguish collection, activity and review times. That distinction is useful when a role changes during an investigation or a resource disappears after a deployment. Another analyst can understand which conclusions were supported and which remained provisional. The resource library provides additional discussion of attack paths and machine identity context, with external references for foundational security concepts."
       ],
       [
         "Evaluate the environment context separately",
@@ -116,7 +116,7 @@
       ],
       [
         "Verify the deployed result",
-        "Code review establishes what a team intends to change. Fresh configuration evidence establishes what is present in the environment. Tracegate\u2019s concept keeps those steps distinct and checks whether the original relationship remains after deployment. A path can be re-evaluated when a policy changes or a resource is removed. The resolution record includes the relevant observation time. This creates a common definition of done for engineering and security without pretending that a closed ticket alone proves risk has disappeared."
+        "Code review establishes what a team intends to change. Fresh configuration evidence establishes what is present in the environment. Tracegate’s concept keeps those steps distinct and checks whether the original relationship remains after deployment. A path can be re-evaluated when a policy changes or a resource is removed. The resolution record includes the relevant observation time. A shared verification record is the intended handoff between engineering and security."
       ],
       [
         "Evaluate the handoff before the dashboard",
