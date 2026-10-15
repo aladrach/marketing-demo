@@ -7,7 +7,8 @@ import monoFont from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-no
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import brand from '../data/brand.json';
-interface Props {title:string;description:string;kind?:string;article?:{title:string;summary:string;date:string;author:string;coverImage?:string;coverAlt?:string};noindex?:boolean;}
+import type {SocialImage} from '../lib/editorial-content';
+interface Props {title:string;description:string;kind?:string;article?:{title:string;summary:string;date?:string;publicationStatus?:'draft';author:string;coverImage?:string;coverAlt?:string;socialImage?:SocialImage};noindex?:boolean;}
 const {title,description,kind='WebPage',article,noindex=false}=Astro.props;
 const base=Astro.site || new URL('https://marketing-demo-topaz.vercel.app');
 const canonical=new URL(Astro.url.pathname,base).href;
@@ -24,13 +25,13 @@ const sharingOverrides:Record<string,{title:string;description:string}>={
 };
 const pathname=Astro.url.pathname.endsWith('/')?Astro.url.pathname:`${Astro.url.pathname}/`;
 const selectedCard=pathname==='/'?socialCards.home:pathname==='/platform/'||pathname==='/products/'?socialCards.concept:pathname==='/resources/attack-path-review/'?socialCards.resource:socialCards.home;
-const resolvedImage=article?.coverImage?{
+const resolvedImage=article?.socialImage|| (article?.coverImage?{
   path:article.coverImage,
   alt:article.coverAlt||selectedCard.alt,
   width:960,
   height:540,
   type:article.coverImage.endsWith('.svg')?'image/svg+xml':article.coverImage.endsWith('.webp')?'image/webp':article.coverImage.endsWith('.jpg')||article.coverImage.endsWith('.jpeg')?'image/jpeg':'image/png'
-}:selectedCard;
+}:selectedCard);
 const socialImage=new URL(resolvedImage.path,base).href;
 const sharing=sharingOverrides[pathname];
 const sharingTitle=sharing?.title||title;
@@ -38,6 +39,6 @@ const sharingDescription=sharing?.description||`${description} Tracegate is a fi
 const crumbs=Astro.url.pathname.split('/').filter(Boolean);
 const graph:any[]=[{'@type':'Organization','@id':new URL('/#organization',base).href,name:brand.name,url:base.href,description:brand.description,logo:new URL('/brand/tracegate-mark.svg',base).href},{'@type':'WebSite','@id':new URL('/#website',base).href,url:base.href,name:brand.name,description:brand.description,publisher:{'@id':new URL('/#organization',base).href}},{'@type':kind,'@id':canonical+'#page',url:canonical,name:title,description,isPartOf:{'@id':new URL('/#website',base).href}}];
 if(crumbs.length)graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:base.href},...crumbs.map((part,i)=>({'@type':'ListItem',position:i+2,name:part.replaceAll('-',' '),item:new URL('/'+crumbs.slice(0,i+1).join('/')+'/',base).href}))]});
-if(article)graph.push({'@type':'BlogPosting',headline:article.title,description:article.summary,datePublished:article.date,dateModified:article.date,mainEntityOfPage:canonical,author:{'@type':'Organization',name:article.author,description:'Fictional editorial identity for a portfolio project',url:new URL('/about/',base).href},publisher:{'@id':new URL('/#organization',base).href},image:socialImage});
+if(article)graph.push({'@type':'BlogPosting',headline:article.title,description:article.summary,...(article.publicationStatus==='draft'?{creativeWorkStatus:'Draft'}:article.date?{datePublished:article.date,dateModified:article.date}:{}),mainEntityOfPage:canonical,author:{'@type':'Organization',name:article.author,description:'Fictional editorial identity for a portfolio project',url:new URL('/about/',base).href},publisher:{'@id':new URL('/#organization',base).href},image:socialImage});
 ---
 <!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href={monoFont} as="font" type="font/woff2" crossorigin="anonymous"/><meta name="color-scheme" content="light dark"/><meta name="theme-color" content="#F6F7F8"/><title>{title}</title><meta name="description" content={description}/><meta name="robots" content={noindex?'noindex, follow':'index, follow, max-image-preview:large'}/><link rel="canonical" href={canonical}/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><meta property="og:type" content={article?'article':'website'}/><meta property="og:title" content={sharingTitle}/><meta property="og:description" content={sharingDescription}/><meta property="og:url" content={canonical}/><meta property="og:site_name" content="Tracegate"/><meta property="og:image" content={socialImage}/><meta property="og:image:type" content={resolvedImage.type}/><meta property="og:image:width" content={String(resolvedImage.width)}/><meta property="og:image:height" content={String(resolvedImage.height)}/><meta property="og:image:alt" content={resolvedImage.alt}/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={sharingTitle}/><meta name="twitter:description" content={sharingDescription}/><meta name="twitter:image" content={socialImage}/><meta name="twitter:image:alt" content={resolvedImage.alt}/><script type="application/ld+json" set:html={JSON.stringify({'@context':'https://schema.org','@graph':graph}).replaceAll('<','\\u003c')}/><script is:inline>document.documentElement.classList.add("js-enabled");try { if(localStorage.getItem("tracegate-motion")==="paused")document.documentElement.dataset.motion="paused"; const theme=localStorage.getItem('tracegate-theme'); if(theme==='light'||theme==='dark')document.documentElement.dataset.theme=theme; }catch{}</script></head><body id="top"><a class="skip-link" href="#main">Skip to content</a><Header/><main id="main"><slot/></main><Footer/><script src="../scripts/site.ts"/></body></html>

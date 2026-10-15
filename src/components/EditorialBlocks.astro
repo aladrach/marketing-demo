@@ -1,0 +1,17 @@
+---
+import type { ContentBlock } from '../lib/editorial-content';
+interface Props { blocks: ContentBlock[] }
+const { blocks } = Astro.props;
+---
+{blocks.map(block => block.type === 'paragraph' ?
+  <p>{block.content.map(run => run.type === 'link' ? <a href={run.href}>{run.text}</a>
+    : run.type === 'code' ? <code>{run.text}</code>
+    : run.type === 'quote' ? <q>{run.text}</q> : run.text)}</p>
+  : <div class="evidence-table-region" role="region" aria-label={block.label} tabindex="0">
+    <table>
+      <thead><tr>{block.headers.map(header => <th scope="col">{header}</th>)}</tr></thead>
+      <tbody>{block.rows.map(row => <tr>{row.map((cell, index) => index === 0
+        ? <th scope="row">{cell}</th> : <td>{cell}</td>)}</tr>)}</tbody>
+    </table>
+  </div>
+)}

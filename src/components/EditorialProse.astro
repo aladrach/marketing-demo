@@ -3,9 +3,21 @@ import '../styles/components/Prose.css';
 import enhancements from '../data/editorial-enhancements.json';
 import EditorialFigure from './EditorialFigure.astro';
 import EditorialCTA from './EditorialCTA.astro';
-interface Props {sections:string[][];toc?:boolean;editorialSlug?:string;}
-const {sections,toc=false,editorialSlug}=Astro.props;
+import EditorialBlocks from './EditorialBlocks.astro';
+import type {EditorialContent} from '../lib/editorial-content';
+interface Props {sections:string[][];content?:EditorialContent;toc?:boolean;editorialSlug?:string;}
+const {sections,content,toc=false,editorialSlug}=Astro.props;
 const extra=editorialSlug?enhancements[editorialSlug as keyof typeof enhancements]:undefined;
 const id=(s:string)=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,'');
+const headings=content?content.sections.map(section=>section.heading):sections.map(([heading])=>heading);
 ---
-<div class:list={["content-layout wrap",{"without-toc":!toc}]}>{toc&&<aside class="toc" data-reading-nav aria-label="On this page"><span class="menu-label">ON THIS PAGE</span><div class="toc-links">{sections.map(([heading])=><a href={`#${id(heading)}`}>{heading}</a>)}</div></aside>}<div class="prose">{sections.map(([heading,text],i)=><section id={id(heading)}><h2>{heading}</h2>{text.split('\n\n').map(p=><p>{p}</p>)}{extra?.figures.filter(figure=>figure.afterSection===i).map(figure=><EditorialFigure {...figure}/>)}{extra?.cta.afterSection===i&&<EditorialCTA {...extra.cta}/>}</section>)}<slot/></div></div>
+<div class:list={["content-layout wrap",{"without-toc":!toc}]}>
+  {toc&&<aside class="toc" data-reading-nav aria-label="On this page"><span class="menu-label">ON THIS PAGE</span><div class="toc-links">{headings.map(heading=><a href={`#${id(heading)}`}>{heading}</a>)}</div></aside>}
+  <div class:list={["prose",{"structured-article":!!content}]}>
+    {content?<>
+      <div class="article-introduction"><EditorialBlocks blocks={content.intro}/></div>
+      {content.sections.map(section=><section id={id(section.heading)}><h2>{section.heading}</h2><EditorialBlocks blocks={section.blocks}/></section>)}
+    </>:sections.map(([heading,text],i)=><section id={id(heading)}><h2>{heading}</h2>{text.split('\n\n').map(p=><p>{p}</p>)}{extra?.figures.filter(figure=>figure.afterSection===i).map(figure=><EditorialFigure {...figure}/>)}{extra?.cta.afterSection===i&&<EditorialCTA {...extra.cta}/>}</section>)}
+    <slot/>
+  </div>
+</div>
