@@ -4,7 +4,7 @@
     "template": "platform",
     "title": "Connected Cloud Security Platform | Tracegate",
     "description": "Explore a fictional cloud security platform that connects posture, identity, and attack paths. Inspect the interactive sample and see the intended workflow.",
-    "headline": "Configuration. Access. Context.",
+    "headline": "Review configuration and access together.",
     "sections": [
       [
         "What is the Tracegate platform?",
@@ -19,7 +19,7 @@
         "The intended workflow moves through collection, context, review, handoff, and verification. Collection gaps remain visible. Business sensitivity and ownership are maintained as organizational judgments. A suggested intervention names the relationship it is intended to interrupt. Engineers evaluate the change through their own testing and approval process. After deployment, refreshed observations help determine whether that relationship remains. The concept emphasizes shared decisions between security and engineering, with automation supporting the handoff rather than claiming every change is safe."
       ]
     ],
-    "summary": "Explore a fictional concept for reviewing configuration findings, effective access, and potentially reachable paths together. A possible path is not an observed breach."
+    "summary": "Explore a synthetic path from a workload through an identity to a sensitive resource. Inspect the assumptions and a proposed intervention. A possible path does not establish an incident."
   },
   {
     "slug": "solutions",
@@ -50,8 +50,8 @@
     "template": "integrations",
     "title": "Cloud & Workflow Integration Concepts | Tracegate",
     "description": "Explore the proposed Tracegate integration catalog for cloud, identity, and engineering workflows. All connectors shown are fictional product concepts.",
-    "headline": "Your environment. In the picture.",
-    "summary": "A connected security workflow should fit the tools and ownership your teams already have."
+    "headline": "Explore the integration concepts.",
+    "summary": "These eight concepts describe how cloud, identity and workflow context could fit together. They do not represent working connectors, partnerships or endorsements."
   },
   {
     "slug": "pricing",
@@ -70,7 +70,7 @@
     "summary": "Tracegate began with one question: what if a security finding came with enough context to make a good decision?",
     "sections": [
       [
-        "A company built around the space between findings",
+        "A portfolio concept built around connected findings",
         "Tracegate is a fictional cybersecurity SaaS company created for a design and development portfolio. Its product story begins with a familiar operational challenge: security signals can arrive faster than teams can interpret them. A configuration issue lives in one queue, an access question in another, and the owner of the affected application somewhere else. The imagined company exists to connect those pieces into a decision a team can understand. The platform is not a production security service, and no live customer environments inform its examples. The narrative is intentionally grounded in mechanisms rather than invented performance claims."
       ],
       [
@@ -94,10 +94,10 @@
   {
     "slug": "contact",
     "template": "contact",
-    "title": "Book a Security Platform Walkthrough | Tracegate",
+    "title": "Preview the Walkthrough Experience · Tracegate Portfolio",
     "description": "Try the Tracegate sample contact experience and explore the interactive platform walkthrough. This fictional portfolio site does not send or store requests.",
-    "headline": "Let’s put the path in focus.",
-    "summary": "Explore the product story, ask better questions, and see how a connected security workflow could look."
+    "headline": "Preview the walkthrough experience.",
+    "summary": "Use fictional details to try the local form, or skip it and explore the synthetic scenario below. This page does not book a meeting or send a message."
   },
   {
     "slug": "trust",
@@ -194,8 +194,8 @@
     "template": "product",
     "title": "Cloud Attack Path Analysis | Tracegate",
     "description": "Connect cloud exposure, identity permissions, and critical resources with the fictional Tracegate attack path explorer. Review the evidence and next step.",
-    "headline": "Find the risk between the findings.",
-    "summary": "Explore a fictional concept for reviewing how cloud exposures and identity permissions could combine into a potentially reachable path. Validate each relationship before drawing a conclusion.",
+    "headline": "Inspect the relationships behind a possible path.",
+    "summary": "Follow a synthetic workload, identity and resource. Review which conditions would need confirmation before treating the path as feasible, then inspect a proposed change.",
     "label": "Attack path analysis"
   },
   {

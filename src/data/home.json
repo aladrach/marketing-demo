@@ -1,9 +1,9 @@
 {
- "title":"Cloud & Identity Security, Connected | Tracegate",
+ "title":"Tracegate — Cloud Security Portfolio Concept",
  "description":"Explore a fictional cloud and identity security concept connecting configuration findings, effective access, and potentially reachable paths for human review.",
- "eyebrow":"CLOUD + IDENTITY SECURITY",
- "headline":["See the path.","Review the evidence."],
- "summary":"Explore a fictional concept connecting configuration findings, effective access, and potentially reachable paths. Inspect the evidence, review a proposed change, and consider what needs verification.",
+ "eyebrow":"FICTIONAL CLOUD + IDENTITY SECURITY CONCEPT",
+ "headline":["See how the findings connect."],
+ "summary":"Explore a synthetic workload, identity and resource. Inspect the proposed relationships, identify what needs confirmation, and review a candidate permission change.",
  "strip":"Three perspectives. One connected picture.",
  "demo":{"title":"Your risks are connected. Your view should be, too.","summary":"A public workload. A powerful role. A sensitive resource. See the relationships that turn separate findings into a meaningful risk."},
  "products":{"title":"From scattered signals to shared understanding.","summary":"Cloud posture, identity permissions, and attack paths work better when they work together."},
